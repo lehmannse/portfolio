@@ -11,7 +11,7 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import Fade from "react-reveal/Fade";
 
-import projects from "../data/projects";
+// import projects from "../data/projects";
 import { colors } from "../theme";
 import LinkIconBar from "./LinkIconBar";
 import Tech from "./Tech";
@@ -74,7 +74,6 @@ const ProjectContent = ({
     <Image
       m="auto"
       p="auto"
-      // w="85%"
       src={pic}
       alt={`${name} picture`}
       className="image"
@@ -105,12 +104,12 @@ const Project = ({ index, shouldAlternate, ...props }) => (
   </Fade>
 );
 
-export default function ProjectsOverview() {
+export default function ProjectsOverview({ translationFile }) {
   const shouldAlternate = useBreakpointValue({ base: false, md: true });
   return (
     <Flex pt={12}>
       <Grid container direction="column" justifyContent="center">
-        {projects.map((project, index) => (
+        {translationFile.projects.list.map((project, index) => (
           <Project
             key={project.name}
             index={index}

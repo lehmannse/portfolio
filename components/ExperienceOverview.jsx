@@ -17,9 +17,9 @@ import jobs from "../data/jobs";
 import styles from "../styles/components/ExperienceOverview.module.css";
 import { colors } from "../theme";
 
-const ExperienceSelect = ({ expIndex, setIndex }) => (
+const ExperienceSelect = ({ expIndex, setIndex, locale }) => (
   <Select value={expIndex} onChange={(e) => setIndex(e.target.value)}>
-    {jobs.map((job, index) => (
+    {jobs[locale].map((job, index) => (
       <option key={`${job.workplace}-select-option`} value={index}>
         {job.workplace}
       </option>
@@ -27,7 +27,7 @@ const ExperienceSelect = ({ expIndex, setIndex }) => (
   </Select>
 );
 
-const ExperienceButtons = ({ expIndex, setIndex }) => (
+const ExperienceButtons = ({ expIndex, setIndex, locale }) => (
   <Grid
     container
     item
@@ -35,7 +35,7 @@ const ExperienceButtons = ({ expIndex, setIndex }) => (
     justifyContent="center"
     style={{ margin: "auto" }}
   >
-    {jobs.map((job, index) => (
+    {jobs[locale].map((job, index) => (
       <Grid container item key={`${job.workplace}-btn`}>
         <Button
           isActive={expIndex === index}
@@ -49,8 +49,8 @@ const ExperienceButtons = ({ expIndex, setIndex }) => (
   </Grid>
 );
 
-const ExperienceDetails = ({ index }) => {
-  const job = jobs[index];
+const ExperienceDetails = ({ index, locale }) => {
+  const job = jobs[locale][index];
   const secondary = useColorModeValue(
     colors.secondary.light,
     colors.secondary.dark
@@ -78,7 +78,6 @@ const ExperienceDetails = ({ index }) => {
         className={styles.grid_exp}
         style={{
           marginLeft: "12px",
-          // marginBottom: "12px",
           textAlign: "justify",
         }}
       >
@@ -92,13 +91,14 @@ const ExperienceDetails = ({ index }) => {
   );
 };
 
-export default function ExperienceOverview() {
+export default function ExperienceOverview({ locale }) {
   const [index, setIndex] = useState(0);
   const showSelect = useBreakpointValue({
     base: false,
     lg: true,
   });
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
+
   return (
     <Flex
       as={Grid}
@@ -130,9 +130,17 @@ export default function ExperienceOverview() {
         style={{ marginTop: "24px", marginBottom: "24px", marginRight: "3vw" }}
       >
         {showSelect ? (
-          <ExperienceButtons expIndex={index} setIndex={setIndex} />
+          <ExperienceButtons
+            expIndex={index}
+            setIndex={setIndex}
+            locale={locale}
+          />
         ) : (
-          <ExperienceSelect expIndex={index} setIndex={setIndex} />
+          <ExperienceSelect
+            expIndex={index}
+            setIndex={setIndex}
+            locale={locale}
+          />
         )}
       </Grid>
       <Grid
@@ -147,7 +155,7 @@ export default function ExperienceOverview() {
           paddingBottom: "12px",
         }}
       >
-        <ExperienceDetails index={index} />
+        <ExperienceDetails index={index} locale={locale} />
       </Grid>
     </Flex>
   );

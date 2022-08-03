@@ -4,10 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-/hooks
-/utils
+
 Certificates.jsx
 CertificatesCarousel.jsx
+sketches.jsx
 
 # testing
 /coverage

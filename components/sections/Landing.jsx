@@ -1,12 +1,15 @@
 import { Text, useColorModeValue, VStack } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import React from "react";
 import { BsChevronDown } from "react-icons/bs";
 import Jump from "react-reveal/Jump";
 import { Link } from "react-scroll";
 
-import links from "../../data/footerLinks";
+// import links from "../../data/footerLinks";
 import styles from "../../styles/sections/Landing.module.css";
 import { colors } from "../../theme";
+import checkLocale from "../../utils/checkLanguage";
+import emphasisStrong from "../../utils/highlighting";
 import LinkIconBar from "../LinkIconBar";
 import SectionContainer from "../SectionContainer";
 
@@ -16,15 +19,17 @@ export default function Landing() {
     colors.secondary.light,
     colors.secondary.dark
   );
+  const router = useRouter();
+  const { locale } = router;
+  const t = checkLocale(locale);
+  const deWidth = locale === "de" ? styles.center_de : "";
 
   const header = (
-    <div className={styles.center}>
+    <div className={`${styles.center} ${deWidth}`}>
       <h1 className={styles.tagline} style={{ color: primary }}>
-        Olá, eu sou Filipe Lehmann,
-        {/* {" "}
-      </h1>
-      <h1 className={styles.tagline} style={{ color: primary }}> */}{" "}
-        um <strong style={{ color: secondary }}>desenvolvedor web.</strong>
+        <h1 className={styles.tagline} style={{ color: primary }}>
+          {emphasisStrong(t.landing.title, t.landing.strong)}
+        </h1>
       </h1>
     </div>
   );
@@ -37,18 +42,8 @@ export default function Landing() {
       justify="center"
       headerText={header}
     >
-      <LinkIconBar links={links} />
-      {/* <Button
-        as={URL}
-        colorScheme={secondary}
-        variant="ghost"
-        size="lg"
-        mb="2"
-        href="/resume.pdf"
-        isExternal
-      >
-        Download resume
-      </Button> */}
+      <LinkIconBar links={t.links} />
+
       <Link
         activeClass="active"
         to="about"
@@ -63,7 +58,7 @@ export default function Landing() {
             _hover={{ color: secondary, cursor: "pointer" }}
             className={styles.learn}
           >
-            Saiba Mais
+            {t.landing.about}
           </Text>
           <VStack>
             <Jump forever duration={1500}>

@@ -13,9 +13,10 @@ import { Link as LinkScroll } from "react-scroll";
 
 import styles from "../../styles/sections/Landing.module.css";
 import { colors } from "../../theme";
+import emphasisStrong from "../../utils/highlighting";
 import SectionContainer from "../SectionContainer";
 
-const Bio = ({ secondary }) => (
+const Bio = ({ secondary, translationFile }) => (
   <GridItem className={styles.grid}>
     <VStack
       style={{ textAlign: "justify" }}
@@ -24,15 +25,14 @@ const Bio = ({ secondary }) => (
       spacing="12px"
       pt="5%"
     >
-      <Text>Quero ser uma ponte entre as pessoas e a tecnologia.</Text>
+      <Text>{translationFile.about.effect}</Text>
+      <Text>{translationFile.about.myself}</Text>
       <Text>
-        Sou um desenvolvedor bem organizado, solucionador de problemas,
-        independente e com atenção aos detalhes.
-      </Text>
-      <Text>
-        Estou me formando em{" "}
-        <strong style={{ color: secondary }}>Engenharia de Computação</strong>{" "}
-        pelo{" "}
+        {emphasisStrong(
+          translationFile.about.main1,
+          translationFile.about.strong.s1
+        )}
+        {/* {" "} */}
         <Link
           href="https://www.bambui.ifmg.edu.br/portal/"
           style={{ color: secondary }}
@@ -40,12 +40,10 @@ const Bio = ({ secondary }) => (
         >
           IFMG
         </Link>{" "}
-        e em busca de novas experiências. Em minha trajetória como desenvolvedor
-        fui{" "}
-        <strong style={{ color: secondary }}>
-          Estagiário em Desenvolvimento Web
-        </strong>{" "}
-        na{" "}
+        {emphasisStrong(
+          translationFile.about.main2,
+          translationFile.about.strong.s2
+        )}{" "}
         <Link
           href="https://www.guaranisistemas.com.br/"
           style={{ color: secondary }}
@@ -53,7 +51,7 @@ const Bio = ({ secondary }) => (
         >
           Guarani Sistemas
         </Link>{" "}
-        e fiz diversos projetos pessoais e acadêmicos.
+        {translationFile.about.main3}
       </Text>
       <LinkScroll
         to="contact"
@@ -69,7 +67,7 @@ const Bio = ({ secondary }) => (
           className={`${styles.learn}`}
           _hover={{ cursor: "pointer", color: secondary }}
         >
-          Me chame para um projeto.
+          {translationFile.about.cta}
         </Text>
       </LinkScroll>
     </VStack>
@@ -91,18 +89,19 @@ const Headshot = () => (
   </GridItem>
 );
 
-export default function About() {
+export default function About({ translationFile }) {
   const shouldAlternate = useBreakpointValue({ base: false, md: true });
   const secondary = useColorModeValue(
     colors.secondary.light,
     colors.secondary.dark
   );
+
   return (
     <SectionContainer
       id="about"
       name="about"
       headerMt="-5%"
-      headerText="Sobre Mim"
+      headerText={translationFile.about.title}
       useHeaderStyle
     >
       <SimpleGrid
@@ -113,8 +112,16 @@ export default function About() {
         columns={[1, null, 2]}
         justifyContent="center"
       >
-        {shouldAlternate ? <Bio secondary={secondary} /> : <Headshot />}
-        {shouldAlternate ? <Headshot /> : <Bio secondary={secondary} />}
+        {shouldAlternate ? (
+          <Bio secondary={secondary} translationFile={translationFile} />
+        ) : (
+          <Headshot />
+        )}
+        {shouldAlternate ? (
+          <Headshot />
+        ) : (
+          <Bio secondary={secondary} translationFile={translationFile} />
+        )}
       </SimpleGrid>
     </SectionContainer>
   );
