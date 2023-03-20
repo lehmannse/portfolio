@@ -8,6 +8,7 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
+import { height } from "@mui/system";
 import React from "react";
 import { Link as LinkScroll } from "react-scroll";
 
@@ -84,6 +85,7 @@ const Headshot = () => (
       alt="Filipe Lehmann"
       zIndex={1}
       className="image"
+      style={{height: "300px"}}
       onClick={() => {
         window.open("http://linkedin.com/in/filipe-lehmann-pereira/");
       }}
