@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
-import { Box, Text, useColorModeValue, VStack } from "@chakra-ui/react";
-import React from "react";
-import { BsChevronDown } from "react-icons/bs";
-import Jump from "react-reveal/Jump";
-import { animateScroll as scroll } from "react-scroll";
+import { Box, Text, useColorModeValue, VStack } from '@chakra-ui/react';
+import React from 'react';
+import { BsChevronDown } from 'react-icons/bs';
+import Jump from 'react-reveal/Jump';
+import { animateScroll as scroll } from 'react-scroll';
 
-import links from "../data/footerLinks";
-import styles from "../styles/sections/Footer.module.css";
-import { colors } from "../theme";
-import LinkIconBar from "./LinkIconBar";
+import links from '../data/footerLinks';
+import styles from '../styles/sections/Footer.module.css';
+import { colors } from '../theme';
+import LinkIconBar from './LinkIconBar';
 
 export default function Footer() {
   const secondary = useColorModeValue(
@@ -29,11 +29,11 @@ export default function Footer() {
           as="strong"
           _hover={{
             color: secondary,
-            cursor: "pointer",
-            transition: "all 0.2s ease-in-out",
+            cursor: 'pointer',
+            transition: 'all 0.2s ease-in-out',
           }}
         >
-          Voltar para o topo{" "}
+          Voltar para o topo{' '}
         </Text>
       </Box>
       <LinkIconBar links={links} />

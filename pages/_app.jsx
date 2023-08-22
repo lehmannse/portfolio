@@ -1,14 +1,14 @@
-import "../styles/globals.css";
+import '../styles/globals.css';
 
-import { ChakraProvider } from "@chakra-ui/react";
-import Head from "next/head";
-import { useRouter } from "next/router";
+import { ChakraProvider } from '@chakra-ui/react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 // import Script from "next/script";
-import React from "react";
+import React from 'react';
 
-import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
-import theme from "../theme";
+import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
+import theme from '../theme';
 
 const SiteHead = ({ title }) => (
   <Head>
@@ -50,7 +50,7 @@ function App({ Component, pageProps }) {
   const { pathname } = useRouter();
 
   const pathToTitle = {
-    "/": "Filipe Lehmann - Front End Developer",
+    '/': 'Filipe Lehmann - Front End Developer',
   };
 
   return (

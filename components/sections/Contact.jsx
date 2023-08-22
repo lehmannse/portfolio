@@ -1,11 +1,11 @@
 // import { EmailIcon } from "@chakra-ui/icons";
-import { Flex, Text } from "@chakra-ui/react";
-import { Grid } from "@material-ui/core";
-import React from "react";
+import { Flex, Text } from '@chakra-ui/react';
+import { Grid } from '@material-ui/core';
+import React from 'react';
 
-import links from "../../data/contactLinks";
-import LinkIconBar from "../LinkIconBar";
-import SectionContainer from "../SectionContainer";
+import links from '../../data/contactLinks';
+import LinkIconBar from '../LinkIconBar';
+import SectionContainer from '../SectionContainer';
 
 export default function Contact() {
   return (

@@ -6,15 +6,15 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
-} from "@chakra-ui/react";
-import { Grid } from "@material-ui/core";
-import React from "react";
-import Fade from "react-reveal/Fade";
+} from '@chakra-ui/react';
+import { Grid } from '@material-ui/core';
+import React from 'react';
+import Fade from 'react-reveal/Fade';
 
-import projects from "../data/projects";
-import { colors } from "../theme";
-import LinkIconBar from "./LinkIconBar";
-import Tech from "./Tech";
+import projects from '../data/projects';
+import { colors } from '../theme';
+import LinkIconBar from './LinkIconBar';
+import Tech from './Tech';
 
 const Card = ({ name, subtitle, description, links }) => {
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
@@ -23,7 +23,7 @@ const Card = ({ name, subtitle, description, links }) => {
     <Box
       bgColor={bg}
       borderRadius="lg"
-      borderWidth={bg === colors.bg.light ? "1px" : ""}
+      borderWidth={bg === colors.bg.light ? '1px' : ''}
       rounded="md"
       shadow="lg"
       mt={20}

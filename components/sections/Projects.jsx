@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import ProjectsOverview from "../ProjectsOverview";
-import SectionContainer from "../SectionContainer";
+import ProjectsOverview from '../ProjectsOverview';
+import SectionContainer from '../SectionContainer';
 
 export default function MoreProjects() {
   return (

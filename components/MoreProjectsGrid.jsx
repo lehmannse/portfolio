@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
@@ -16,18 +16,18 @@ import {
   Tooltip,
   Tr,
   useColorModeValue,
-} from "@chakra-ui/react";
-import { Grid } from "@material-ui/core";
-import React, { useState } from "react";
-import { BsGridFill } from "react-icons/bs";
-import { FaListUl } from "react-icons/fa";
-import { HiCode } from "react-icons/hi";
-import Fade from "react-reveal/Fade";
+} from '@chakra-ui/react';
+import { Grid } from '@material-ui/core';
+import React, { useState } from 'react';
+import { BsGridFill } from 'react-icons/bs';
+import { FaListUl } from 'react-icons/fa';
+import { HiCode } from 'react-icons/hi';
+import Fade from 'react-reveal/Fade';
 
-import { extraProjects } from "../data/projects";
-import { colors } from "../theme";
-import LinkIconBar from "./LinkIconBar";
-import Tech from "./Tech";
+import { extraProjects } from '../data/projects';
+import { colors } from '../theme';
+import LinkIconBar from './LinkIconBar';
+import Tech from './Tech';
 
 const DisplayBar = ({ showGridView, setShowGridView }) => (
   <Stack
@@ -73,12 +73,12 @@ const ProjectCard = ({ name, description, links, tech }) => {
       md={3}
       bgColor={bg}
       borderRadius="lg"
-      borderWidth={bg === colors.bg.light ? "1px" : ""}
+      borderWidth={bg === colors.bg.light ? '1px' : ''}
       direction="column"
       rounded="md"
       shadow="lg"
       textAlign="start"
-      style={{ margin: "24px" }}
+      style={{ margin: '24px' }}
     >
       <Grid container item direction="row">
         <Grid container item xs={6}>
@@ -94,7 +94,7 @@ const ProjectCard = ({ name, description, links, tech }) => {
           <LinkIconBar links={links} mr="24px" />
         </Grid>
       </Grid>
-      <Grid container item direction="row" style={{ marginTop: "-24px" }}>
+      <Grid container item direction="row" style={{ marginTop: '-24px' }}>
         <Heading as="h1" size="md" m={2} p={1} pt={6}>
           {name}
         </Heading>
@@ -109,7 +109,7 @@ const ProjectCard = ({ name, description, links, tech }) => {
         item
         direction="row"
         justifyContent="space-evenly"
-        style={{ marginBottom: "12px" }}
+        style={{ marginBottom: '12px' }}
       >
         <Tech tech={tech} />
       </Grid>
@@ -137,7 +137,7 @@ const ProjectRow = ({ name, type, description, tech, links }) => (
 
 const ProjectTable = ({ projs }) => (
   <Fade>
-    <div style={{ overflowX: "auto" }}>
+    <div style={{ overflowX: 'auto' }}>
       <Table size="md" w="100%">
         <Thead>
           <Tr>
@@ -189,7 +189,7 @@ export default function MoreProjectsGrid() {
           leftIcon={isExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          {`Mostrar ${isExpanded ? "Menos" : "Mais"}`}
+          {`Mostrar ${isExpanded ? 'Menos' : 'Mais'}`}
         </Button>
       </Flex>
     </>

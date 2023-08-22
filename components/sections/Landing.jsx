@@ -1,14 +1,14 @@
-import { Text, useColorModeValue, VStack } from "@chakra-ui/react";
-import React from "react";
-import { BsChevronDown } from "react-icons/bs";
-import Jump from "react-reveal/Jump";
-import { Link } from "react-scroll";
+import { Text, useColorModeValue, VStack } from '@chakra-ui/react';
+import React from 'react';
+import { BsChevronDown } from 'react-icons/bs';
+import Jump from 'react-reveal/Jump';
+import { Link } from 'react-scroll';
 
-import links from "../../data/footerLinks";
-import styles from "../../styles/sections/Landing.module.css";
-import { colors } from "../../theme";
-import LinkIconBar from "../LinkIconBar";
-import SectionContainer from "../SectionContainer";
+import links from '../../data/footerLinks';
+import styles from '../../styles/sections/Landing.module.css';
+import { colors } from '../../theme';
+import LinkIconBar from '../LinkIconBar';
+import SectionContainer from '../SectionContainer';
 
 export default function Landing() {
   const primary = useColorModeValue(colors.primary.dark, colors.primary.light);
@@ -23,7 +23,7 @@ export default function Landing() {
         Olá, eu sou Filipe Lehmann,
         {/* {" "}
       </h1>
-      <h1 className={styles.tagline} style={{ color: primary }}> */}{" "}
+      <h1 className={styles.tagline} style={{ color: primary }}> */}{' '}
         um <strong style={{ color: secondary }}>desenvolvedor web.</strong>
       </h1>
     </div>
@@ -60,7 +60,7 @@ export default function Landing() {
         <VStack>
           <Text
             as="strong"
-            _hover={{ color: secondary, cursor: "pointer" }}
+            _hover={{ color: secondary, cursor: 'pointer' }}
             className={styles.learn}
           >
             Saiba Mais

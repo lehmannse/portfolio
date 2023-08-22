@@ -1,4 +1,4 @@
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
@@ -14,30 +14,30 @@ import {
   useColorMode,
   useColorModeValue,
   useDisclosure,
-} from "@chakra-ui/react";
-import React from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
-import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
-import Sticky from "react-stickynode";
+} from '@chakra-ui/react';
+import React from 'react';
+import { FaMoon, FaSun } from 'react-icons/fa';
+import { animateScroll as scroll, Link as ScrollLink } from 'react-scroll';
+import Sticky from 'react-stickynode';
 
-import { colors } from "../theme";
+import { colors } from '../theme';
 
 const navBtns = [
   {
-    label: "Sobre",
-    section: "About",
+    label: 'Sobre',
+    section: 'About',
   },
   {
-    label: "Experiência",
-    section: "Experience",
+    label: 'Experiência',
+    section: 'Experience',
   },
   {
-    label: "Projetos",
-    section: "Projects",
+    label: 'Projetos',
+    section: 'Projects',
   },
   {
-    label: "Contato",
-    section: "Contact",
+    label: 'Contato',
+    section: 'Contact',
   },
   // {
   //   label: "Blog",
@@ -46,7 +46,7 @@ const navBtns = [
 ];
 
 const Logo = () => {
-  const logo = useColorModeValue("/logo.png", "/logo-dark.png");
+  const logo = useColorModeValue('/logo.png', '/logo-dark.png');
   return (
     <Box m="2" cursor="pointer">
       <img
@@ -61,7 +61,7 @@ const Logo = () => {
 };
 
 const MenuToggle = ({ isOpen, onOpen }) => (
-  <Box display={{ base: "block", md: "none" }} pr={4}>
+  <Box display={{ base: 'block', md: 'none' }} pr={4}>
     <Button onClick={onOpen}>
       {isOpen ? <CloseIcon /> : <HamburgerIcon />}
     </Button>
@@ -96,7 +96,7 @@ const NavButtons = ({ size, onClose }) => {
 const ColorModeButton = ({ mr }) => {
   const { toggleColorMode } = useColorMode();
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
-  const nextMode = useColorModeValue("dark", "light");
+  const nextMode = useColorModeValue('dark', 'light');
   return (
     <Tooltip
       label={`Toggle ${nextMode} mode`}
@@ -118,10 +118,10 @@ const ColorModeButton = ({ mr }) => {
 
 const MenuLinks = ({ onClose }) => (
   <Stack
-    display={{ base: "none", sm: "none", md: "block" }}
-    width={{ sm: "full", md: "auto" }}
+    display={{ base: 'none', sm: 'none', md: 'block' }}
+    width={{ sm: 'full', md: 'auto' }}
     spacing="24px"
-    direction={["column", "row", "row", "row"]}
+    direction={['column', 'row', 'row', 'row']}
     alignItems="center"
   >
     <NavButtons size="sm" onClose={onClose} />
@@ -137,7 +137,7 @@ const NavMenu = ({ isOpen, onClose }) => (
           <Stack
             alignItems="center"
             justifyContent="center"
-            direction={["column"]}
+            direction={['column']}
             spacing="24px"
             mt="20vh"
           >
@@ -159,7 +159,7 @@ export default function Navbar() {
       <Stack
         as="header"
         w="100%"
-        direction={["row", "row", "row", "row"]}
+        direction={['row', 'row', 'row', 'row']}
         alignItems="center"
         justifyContent="center"
         bg={primary}

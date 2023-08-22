@@ -4,16 +4,16 @@ import {
   Stack,
   Tooltip,
   useColorModeValue,
-} from "@chakra-ui/react";
-import React from "react";
-import { BiLink } from "react-icons/bi";
-import { FaDev, FaLinkedin, FaTelegram, FaYoutube } from "react-icons/fa";
-import { IoLogoWhatsapp, IoMdDocument } from "react-icons/io";
-import { IoLogoFigma } from "react-icons/io5";
-import { MdEmail } from "react-icons/md";
-import { VscGithubInverted } from "react-icons/vsc";
+} from '@chakra-ui/react';
+import React from 'react';
+import { BiLink } from 'react-icons/bi';
+import { FaDev, FaLinkedin, FaTelegram, FaYoutube } from 'react-icons/fa';
+import { IoLogoWhatsapp, IoMdDocument } from 'react-icons/io';
+import { IoLogoFigma } from 'react-icons/io5';
+import { MdEmail } from 'react-icons/md';
+import { VscGithubInverted } from 'react-icons/vsc';
 
-import { colors } from "../theme";
+import { colors } from '../theme';
 
 const icons = {
   github: VscGithubInverted,
@@ -30,7 +30,7 @@ const icons = {
 
 const LinkIcon = ({ index, color, onHoverColor, url, label, icon }) => (
   <Tooltip label={label} aria-label={`${label}-tooltip`} key={`link-${index}`}>
-    <div style={{ cursor: !url ? "not-allowed" : "pointer" }}>
+    <div style={{ cursor: !url ? 'not-allowed' : 'pointer' }}>
       <Link
         aria-label={`Open link to ${url}`}
         display="inline-block"
@@ -38,8 +38,8 @@ const LinkIcon = ({ index, color, onHoverColor, url, label, icon }) => (
         disabled={!url}
         _disabled={{
           opacity: 0.5,
-          textDecoration: "none",
-          pointerEvents: "none",
+          textDecoration: 'none',
+          pointerEvents: 'none',
         }}
         isExternal
       >

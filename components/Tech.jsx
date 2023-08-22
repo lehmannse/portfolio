@@ -1,6 +1,6 @@
-import { Text } from "@chakra-ui/react";
-import { Grid } from "@material-ui/core";
-import React from "react";
+import { Text } from '@chakra-ui/react';
+import { Grid } from '@material-ui/core';
+import React from 'react';
 
 const Tech = ({ tech, techMr }) => (
   <>

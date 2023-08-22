@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import MoreProjectsGrid from "../MoreProjectsGrid";
-import SectionContainer from "../SectionContainer";
+import MoreProjectsGrid from '../MoreProjectsGrid';
+import SectionContainer from '../SectionContainer';
 
 export default function MoreProjects() {
   return (

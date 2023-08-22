@@ -40,7 +40,7 @@ const ExperienceButtons = ({ expIndex, setIndex }) => (
         <Button
           isActive={expIndex === index}
           isFullWidth
-          flexWrap={'wrap'}
+          flexWrap="wrap"
           onClick={() => setIndex(index)}
         >
           {job.workplaceBtn}

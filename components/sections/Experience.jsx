@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import ExperienceOverview from "../ExperienceOverview";
-import SectionContainer from "../SectionContainer";
+import ExperienceOverview from '../ExperienceOverview';
+import SectionContainer from '../SectionContainer';
 
 export default function Experience() {
   return (
