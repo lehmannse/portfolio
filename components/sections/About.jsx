@@ -43,7 +43,7 @@ const Bio = ({ secondary }) => {
             isExternal
           >
             IFMG
-          </Link>{' '}
+          </Link>
           . Em minha trajetória como desenvolvedor fui{' '}
           <strong style={normalLinkStyle}>
             Estagiário em Desenvolvimento Web
