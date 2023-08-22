@@ -9,13 +9,13 @@ import {
   UnorderedList,
   useBreakpointValue,
   useColorModeValue,
-} from "@chakra-ui/react";
-import { Grid } from "@material-ui/core";
-import React, { useState } from "react";
+} from '@chakra-ui/react';
+import { Grid } from '@material-ui/core';
+import React, { useState } from 'react';
 
-import jobs from "../data/jobs";
-import styles from "../styles/components/ExperienceOverview.module.css";
-import { colors } from "../theme";
+import jobs from '../data/jobs';
+import styles from '../styles/components/ExperienceOverview.module.css';
+import { colors } from '../theme';
 
 const ExperienceSelect = ({ expIndex, setIndex }) => (
   <Select value={expIndex} onChange={(e) => setIndex(e.target.value)}>
@@ -33,16 +33,17 @@ const ExperienceButtons = ({ expIndex, setIndex }) => (
     item
     spacing={2}
     justifyContent="center"
-    style={{ margin: "auto" }}
+    style={{ margin: 'auto' }}
   >
     {jobs.map((job, index) => (
-      <Grid container item key={`${job.workplace}-btn`}>
+      <Grid container item key={`${job.workplaceBtn}-btn`}>
         <Button
           isActive={expIndex === index}
           isFullWidth
+          flexWrap={'wrap'}
           onClick={() => setIndex(index)}
         >
-          {job.workplace}
+          {job.workplaceBtn}
         </Button>
       </Grid>
     ))}
@@ -57,15 +58,15 @@ const ExperienceDetails = ({ index }) => {
   );
   return (
     <Grid container item direction="column">
-      <Grid container item style={{ margin: "12px" }}>
+      <Grid container item style={{ margin: '12px' }}>
         <Heading as="h1" size="md">
-          {job.position} @{" "}
+          {job.position} @{' '}
           <Link href={job.url} isExternal color={secondary}>
             {job.workplace}
           </Link>
         </Heading>
       </Grid>
-      <Grid container item style={{ marginLeft: "12px" }}>
+      <Grid container item style={{ marginLeft: '12px' }}>
         {job.duration.map((duration) => (
           <Grid key={duration} container item>
             <Text mt={2}>{duration}</Text>
@@ -77,9 +78,9 @@ const ExperienceDetails = ({ index }) => {
         item
         className={styles.grid_exp}
         style={{
-          marginLeft: "12px",
+          marginLeft: '12px',
           // marginBottom: "12px",
-          textAlign: "justify",
+          textAlign: 'justify',
         }}
       >
         <UnorderedList mt={2}>
@@ -110,12 +111,12 @@ export default function ExperienceOverview() {
       sm={9}
       md={8}
       borderRadius="lg"
-      borderWidth={bg === colors.bg.light ? "1px" : ""}
+      borderWidth={bg === colors.bg.light ? '1px' : ''}
       rounded="md"
       style={{
-        margin: "24px",
-        marginTop: "3vh",
-        height: "60vh",
+        margin: '24px',
+        marginTop: '3vh',
+        height: '60vh',
       }}
     >
       <Grid
@@ -127,7 +128,7 @@ export default function ExperienceOverview() {
         md={3}
         alignItems="center"
         justifyContent="flex-start"
-        style={{ marginTop: "24px", marginBottom: "24px", marginRight: "3vw" }}
+        style={{ marginTop: '24px', marginBottom: '24px', marginRight: '3vw' }}
       >
         {showSelect ? (
           <ExperienceButtons expIndex={index} setIndex={setIndex} />
@@ -141,10 +142,10 @@ export default function ExperienceOverview() {
         xs={9}
         sm={6}
         style={{
-          marginTop: "24px",
-          marginBottom: "24px",
-          marginLeft: "12px",
-          paddingBottom: "12px",
+          marginTop: '24px',
+          marginBottom: '24px',
+          marginLeft: '12px',
+          paddingBottom: '12px',
         }}
       >
         <ExperienceDetails index={index} />

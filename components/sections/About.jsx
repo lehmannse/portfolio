@@ -7,75 +7,111 @@ import {
   useBreakpointValue,
   useColorModeValue,
   VStack,
-} from "@chakra-ui/react";
-import { height } from "@mui/system";
-import React from "react";
-import { Link as LinkScroll } from "react-scroll";
+} from '@chakra-ui/react';
+import React from 'react';
+import { Link as LinkScroll } from 'react-scroll';
 
-import styles from "../../styles/sections/Landing.module.css";
-import { colors } from "../../theme";
-import SectionContainer from "../SectionContainer";
+import styles from '../../styles/sections/Landing.module.css';
+import { colors } from '../../theme';
+import SectionContainer from '../SectionContainer';
 
-const Bio = ({ secondary }) => (
-  <GridItem className={styles.grid}>
-    <VStack
-      style={{ textAlign: "justify" }}
-      m="auto"
-      w="75%"
-      spacing="12px"
-      pt="5%"
-    >
-      <Text>Quero ser uma ponte entre as pessoas e a tecnologia.</Text>
-      <Text>
-        Sou um desenvolvedor bem organizado, solucionador de problemas,
-        independente e com atenção aos detalhes.
-      </Text>
-      <Text>
-        Estou me formando em{" "}
-        <strong style={{ color: secondary }}>Engenharia de Computação</strong>{" "}
-        pelo{" "}
-        <Link
-          href="https://www.bambui.ifmg.edu.br/portal/"
-          style={{ color: secondary }}
-          isExternal
-        >
-          IFMG
-        </Link>{" "}
-        e em busca de novas experiências. Em minha trajetória como desenvolvedor
-        fui{" "}
-        <strong style={{ color: secondary }}>
-          Estagiário em Desenvolvimento Web
-        </strong>{" "}
-        na{" "}
-        <Link
-          href="https://www.guaranisistemas.com.br/"
-          style={{ color: secondary }}
-          isExternal
-        >
-          Guarani Sistemas
-        </Link>{" "}
-        e fiz diversos projetos pessoais e acadêmicos.
-      </Text>
-      <LinkScroll
-        to="contact"
-        spy
-        smooth
-        offset={-50}
-        duration={1500}
-        activeClass="active"
-        style={{ fontSize: "14px", opacity: 0.7 }}
+const Bio = ({ secondary }) => {
+  const normalLinkStyle = { color: secondary };
+  const strongLinkStyle = { color: secondary, fontWeight: 'bold' };
+  return (
+    <GridItem className={styles.grid}>
+      <VStack
+        style={{ textAlign: 'justify' }}
+        m="auto"
+        w="75%"
+        spacing="12px"
+        pt="5%"
       >
-        <Text
-          as="strong"
-          className={`${styles.learn}`}
-          _hover={{ cursor: "pointer", color: secondary }}
-        >
-          Me chame para um projeto.
+        <Text>Quero ser uma ponte entre as pessoas e a tecnologia.</Text>
+        <Text>
+          Sou um desenvolvedor atleta e poliglota em formação. Um aventureiro
+          engajado com a vida e procurando me associar a pessoas e organizações
+          que me ajudarão a alcançar metas, desempenho e relacionamentos
+          melhores.
         </Text>
-      </LinkScroll>
-    </VStack>
-  </GridItem>
-);
+        <Text>
+          Me formei em{' '}
+          <span style={strongLinkStyle}>Engenharia de Computação</span> pelo{' '}
+          <Link
+            href="https://www.bambui.ifmg.edu.br/portal/"
+            style={normalLinkStyle}
+            isExternal
+          >
+            IFMG
+          </Link>{' '}
+          . Em minha trajetória como desenvolvedor fui{' '}
+          <strong style={normalLinkStyle}>
+            Estagiário em Desenvolvimento Web
+          </strong>{' '}
+          na{' '}
+          <Link
+            href="https://www.guaranisistemas.com.br/"
+            style={normalLinkStyle}
+            isExternal
+          >
+            Guarani Sistemas
+          </Link>{' '}
+          e fiz diversos projetos pessoais e acadêmicos.
+        </Text>
+        <Text>
+          Em minha última experiência profissional, numa spin-off da{' '}
+          <Link
+            href="https://hypeempreendimentos.com.br/"
+            style={normalLinkStyle}
+            isExternal
+          >
+            Hype Empreendimentos
+          </Link>{' '}
+          tive não apenas a oportunidade de aperfeiçoar minhas habilidades em{' '}
+          <Link href="https://react.dev/" style={strongLinkStyle} isExternal>
+            React
+          </Link>
+          {', '}
+          <Link
+            href="https://www.scrum.org/"
+            style={strongLinkStyle}
+            isExternal
+          >
+            Typescript
+          </Link>
+          {', '}
+          <Link
+            href="https://www.typescriptlang.org/"
+            style={strongLinkStyle}
+            isExternal
+          >
+            Scrum
+          </Link>{' '}
+          e outras ferramentas para desenvolvimento de softwares web, mas também
+          a oportunidade de contribuir proativamente na criação de uma cultura
+          empresarial positiva, colaborativa e inclusiva
+        </Text>
+        <LinkScroll
+          to="contact"
+          spy
+          smooth
+          offset={-50}
+          duration={1500}
+          activeClass="active"
+          style={{ fontSize: '14px', opacity: 0.7 }}
+        >
+          <Text
+            as="strong"
+            className={`${styles.learn}`}
+            _hover={{ cursor: 'pointer', color: secondary }}
+          >
+            Me chame para um projeto.
+          </Text>
+        </LinkScroll>
+      </VStack>
+    </GridItem>
+  );
+};
 
 const Headshot = () => (
   <GridItem className={styles.grid}>
@@ -85,9 +121,9 @@ const Headshot = () => (
       alt="Filipe Lehmann"
       zIndex={1}
       className="image"
-      style={{height: "300px"}}
+      style={{ height: '300px' }}
       onClick={() => {
-        window.open("http://linkedin.com/in/filipe-lehmann-pereira/");
+        window.open('http://linkedin.com/in/filipe-lehmann-pereira/');
       }}
     />
   </GridItem>
