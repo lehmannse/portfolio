@@ -121,7 +121,7 @@ const Headshot = () => (
       alt="Filipe Lehmann"
       zIndex={1}
       className="image"
-      style={{ height: '300px' }}
+      style={{ height: '300px', borderRadius: '20px' }}
       onClick={() => {
         window.open('http://linkedin.com/in/filipe-lehmann-pereira/');
       }}
