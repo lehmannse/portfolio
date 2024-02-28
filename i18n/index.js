@@ -4,6 +4,11 @@ import { initReactI18next } from 'react-i18next';
 import enUsTranslation from './locales/en-us';
 import ptBrTranslations from './locales/pt-br';
 
+const options = {
+  order: ['querystring', 'navigator'],
+  lookupQuerystring: 'lng',
+};
+
 i18n
   // detect user language
   // learn more: https://github.com/i18next/i18next-browser-languageDetector
@@ -16,6 +21,8 @@ i18n
     debug: true,
     fallbackLng: 'en',
     useSuspense: false,
+    // lng: 'en',
+    detection: options,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
@@ -31,7 +38,6 @@ i18n
         },
       },
     },
-    lng: 'en',
   });
 
 export default i18n;
