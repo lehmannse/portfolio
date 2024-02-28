@@ -118,8 +118,6 @@ export default function About() {
     colors.secondary.dark
   );
 
-  const { t } = useTranslation();
-
   return (
     <SectionContainer
       id="about"
