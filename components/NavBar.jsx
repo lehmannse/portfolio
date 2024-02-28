@@ -17,33 +17,18 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { animateScroll as scroll, Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import Sticky from 'react-stickynode';
 
+import { useTranslation } from 'react-i18next';
 import { colors } from '../theme';
+import { BRAFlagIcon } from './icons/BRAFlagIcon';
+import { EUAFlagIcon } from './icons/EUAFlagIcon';
 
-const navBtns = [
-  {
-    label: 'Sobre',
-    section: 'About',
-  },
-  {
-    label: 'Experiência',
-    section: 'Experience',
-  },
-  {
-    label: 'Projetos',
-    section: 'Projects',
-  },
-  {
-    label: 'Contato',
-    section: 'Contact',
-  },
-  // {
-  //   label: "Blog",
-  //   href: "https://google.com/",
-  // },
-];
+const lngs = {
+  en: 'en',
+  pt: 'pt',
+};
 
 const Logo = () => {
   const logo = useColorModeValue('/logo.png', '/logo-dark.png');
@@ -69,7 +54,11 @@ const MenuToggle = ({ isOpen, onOpen }) => (
 );
 
 const NavButtons = ({ size, onClose }) => {
-  const btns = navBtns.map((btn) => (
+  const { t } = useTranslation();
+
+  const navbarOptions = t('navbar', { returnObjects: true });
+
+  const btns = navbarOptions?.map((btn) => (
     <Button key={btn.label} size={size} variant="link" mb={2} onClick={onClose}>
       {btn.href ? (
         <Link href={btn.href} isExternal>
@@ -116,6 +105,37 @@ const ColorModeButton = ({ mr }) => {
   );
 };
 
+const LanguageButton = ({ mr }) => {
+  const { t, i18n } = useTranslation();
+  const resolveLanguage = i18n.resolvedLanguage;
+
+  console.log(resolveLanguage);
+
+  const handleChangeLanguage = (lng) => {
+    if (lng === 'pt') {
+      i18n.changeLanguage('en');
+    } else {
+      i18n.changeLanguage('pt');
+    }
+  };
+
+  return (
+    <Tooltip label={`Switch language`} aria-label={`Switch language`}>
+      <IconButton
+        aria-label={
+          resolveLanguage === 'pt' ? 'Trocar de linguagem' : 'Switch language'
+        }
+        variant="ghost"
+        color="current"
+        key={resolveLanguage}
+        onClick={() => handleChangeLanguage(resolveLanguage)}
+        icon={resolveLanguage === 'pt' ? <BRAFlagIcon /> : <EUAFlagIcon />}
+        style={{ marginRight: mr }}
+      />
+    </Tooltip>
+  );
+};
+
 const MenuLinks = ({ onClose }) => (
   <Stack
     display={{ base: 'none', sm: 'none', md: 'block' }}
@@ -125,6 +145,7 @@ const MenuLinks = ({ onClose }) => (
     alignItems="center"
   >
     <NavButtons size="sm" onClose={onClose} />
+    <LanguageButton mr="-12px" />
     <ColorModeButton mr="12px" />
   </Stack>
 );
@@ -142,6 +163,7 @@ const NavMenu = ({ isOpen, onClose }) => (
             mt="20vh"
           >
             <NavButtons size="lg" onClose={onClose} />
+            <LanguageButton />
             <ColorModeButton />
           </Stack>
         </DrawerBody>
