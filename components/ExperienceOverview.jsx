@@ -13,11 +13,12 @@ import {
 import { Grid } from '@material-ui/core';
 import React, { useState } from 'react';
 
-import jobs from '../data/jobs';
+// import jobs from '../data/jobs';
+import { useTranslation } from 'react-i18next';
 import styles from '../styles/components/ExperienceOverview.module.css';
 import { colors } from '../theme';
 
-const ExperienceSelect = ({ expIndex, setIndex }) => (
+const ExperienceSelect = ({ expIndex, setIndex, jobs }) => (
   <Select value={expIndex} onChange={(e) => setIndex(e.target.value)}>
     {jobs.map((job, index) => (
       <option key={`${job.workplace}-select-option`} value={index}>
@@ -27,7 +28,7 @@ const ExperienceSelect = ({ expIndex, setIndex }) => (
   </Select>
 );
 
-const ExperienceButtons = ({ expIndex, setIndex }) => (
+const ExperienceButtons = ({ expIndex, setIndex, jobs }) => (
   <Grid
     container
     item
@@ -50,7 +51,7 @@ const ExperienceButtons = ({ expIndex, setIndex }) => (
   </Grid>
 );
 
-const ExperienceDetails = ({ index }) => {
+const ExperienceDetails = ({ index, jobs }) => {
   const job = jobs[index];
   const secondary = useColorModeValue(
     colors.secondary.light,
@@ -100,6 +101,11 @@ export default function ExperienceOverview() {
     lg: true,
   });
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
+
+  const { t } = useTranslation();
+
+  const jobs = t('jobs', { returnObjects: true });
+
   return (
     <Flex
       as={Grid}
@@ -131,9 +137,9 @@ export default function ExperienceOverview() {
         style={{ marginTop: '24px', marginBottom: '24px', marginRight: '3vw' }}
       >
         {showSelect ? (
-          <ExperienceButtons expIndex={index} setIndex={setIndex} />
+          <ExperienceButtons expIndex={index} setIndex={setIndex} jobs={jobs} />
         ) : (
-          <ExperienceSelect expIndex={index} setIndex={setIndex} />
+          <ExperienceSelect expIndex={index} setIndex={setIndex} jobs={jobs} />
         )}
       </Grid>
       <Grid
@@ -148,7 +154,7 @@ export default function ExperienceOverview() {
           paddingBottom: '12px',
         }}
       >
-        <ExperienceDetails index={index} />
+        <ExperienceDetails index={index} jobs={jobs} />
       </Grid>
     </Flex>
   );
