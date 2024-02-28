@@ -11,7 +11,7 @@ import { Grid } from '@material-ui/core';
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 
-import projects from '../data/projects';
+import { useTranslation } from 'react-i18next';
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
 import Tech from './Tech';
@@ -107,6 +107,11 @@ const Project = ({ index, shouldAlternate, ...props }) => (
 
 export default function ProjectsOverview() {
   const shouldAlternate = useBreakpointValue({ base: false, md: true });
+
+  const { t } = useTranslation();
+
+  const projects = t('projects', { returnObjects: true });
+
   return (
     <Flex pt={12}>
       <Grid container direction="column" justifyContent="center">

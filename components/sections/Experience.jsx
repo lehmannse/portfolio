@@ -1,14 +1,18 @@
 import React from 'react';
 
+import { useTranslation } from 'react-i18next';
 import ExperienceOverview from '../ExperienceOverview';
 import SectionContainer from '../SectionContainer';
 
 export default function Experience() {
+  const { i18n } = useTranslation();
+
   return (
     <SectionContainer
       id="experience"
       name="experience"
-      headerText="Experiência"
+      // headerMt="-5%"
+      headerText={i18n.resolvedLanguage === 'pt' ? 'Experiência' : 'Experience'}
       useHeaderStyle
     >
       <ExperienceOverview />

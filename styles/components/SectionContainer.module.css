@@ -1,17 +1,17 @@
 .header {
   font-size: 2.3em;
-  color: "#19aad5";
+  color: '#19aad5';
   margin-top: 20vh;
 }
-@media only screen and (max-width: 600px){
-	.header{
-		font-size: 2em;
-	}
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: 2em;
+  }
 }
 
 .container {
   width: 100vw;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

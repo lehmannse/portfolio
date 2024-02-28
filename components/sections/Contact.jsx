@@ -3,16 +3,20 @@ import { Flex, Text } from '@chakra-ui/react';
 import { Grid } from '@material-ui/core';
 import React from 'react';
 
+import { useTranslation } from 'react-i18next';
 import links from '../../data/contactLinks';
 import LinkIconBar from '../LinkIconBar';
 import SectionContainer from '../SectionContainer';
 
 export default function Contact() {
+  const { t, i18n } = useTranslation();
   return (
     <SectionContainer
       id="contact"
       name="contact"
-      headerText="Entre em Contato"
+      headerText={
+        i18n.resolvedLanguage === 'pt' ? 'Entre em Contato' : 'Contact Me'
+      }
       useHeaderStyle
     >
       <Flex
@@ -27,8 +31,7 @@ export default function Contact() {
         pr={4}
       >
         <Text fontSize="xl" m="auto" mt={3}>
-          Seja uma oportunidade de trabalho, sugestões ou feedback, seu contato
-          será bem vindo!
+          {t('contact')}
         </Text>
         {/* <Text fontSize="xl" m="auto">
           

@@ -6,7 +6,7 @@ import styles from '../styles/components/SectionContainer.module.css';
 
 export default function SectionContainer({
   children,
-  headerMt = '',
+  headerMt = '2%',
   headerText = '',
   useHeaderStyle = false,
   ...props

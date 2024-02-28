@@ -5,6 +5,7 @@ import { BsChevronDown } from 'react-icons/bs';
 import Jump from 'react-reveal/Jump';
 import { animateScroll as scroll } from 'react-scroll';
 
+import { useTranslation } from 'react-i18next';
 import links from '../data/footerLinks';
 import styles from '../styles/sections/Footer.module.css';
 import { colors } from '../theme';
@@ -15,6 +16,8 @@ export default function Footer() {
     colors.secondary.light,
     colors.secondary.dark
   );
+
+  const { t } = useTranslation();
 
   return (
     <Box as="footer" mt={12} height="100%" textAlign="center" className="app">
@@ -33,7 +36,7 @@ export default function Footer() {
             transition: 'all 0.2s ease-in-out',
           }}
         >
-          Voltar para o topo{' '}
+          {t('footer')}{' '}
         </Text>
       </Box>
       <LinkIconBar links={links} />

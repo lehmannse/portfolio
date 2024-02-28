@@ -118,17 +118,19 @@ export default function About() {
     colors.secondary.dark
   );
 
+  const { i18n } = useTranslation();
+
   return (
     <SectionContainer
       id="about"
       name="about"
-      headerMt="-5%"
-      headerText="Sobre Mim"
+      headerMt="-2%"
+      headerText={i18n.resolvedLanguage === 'pt' ? 'Sobre Mim' : 'About Me'}
       useHeaderStyle
     >
       <SimpleGrid
         pl="10%"
-        pt="5%"
+        // pt="1%"
         pr="10%"
         spacing={12}
         columns={[1, null, 2]}
