@@ -108,9 +108,6 @@ const ColorModeButton = ({ mr }) => {
 const LanguageButton = ({ mr }) => {
   const { t, i18n } = useTranslation();
   const resolveLanguage = i18n.resolvedLanguage;
-
-  console.log(resolveLanguage);
-
   const handleChangeLanguage = (lng) => {
     if (lng === 'pt') {
       i18n.changeLanguage('en');
