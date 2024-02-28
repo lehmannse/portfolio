@@ -11,6 +11,7 @@ import {
 import React from 'react';
 import { Link as LinkScroll } from 'react-scroll';
 
+import { useTranslation } from 'react-i18next';
 import styles from '../../styles/sections/Landing.module.css';
 import { colors } from '../../theme';
 import SectionContainer from '../SectionContainer';
@@ -18,6 +19,9 @@ import SectionContainer from '../SectionContainer';
 const Bio = ({ secondary }) => {
   const normalLinkStyle = { color: secondary };
   const strongLinkStyle = { color: secondary, fontWeight: 'bold' };
+
+  const { t } = useTranslation();
+
   return (
     <GridItem className={styles.grid}>
       <VStack
@@ -27,47 +31,27 @@ const Bio = ({ secondary }) => {
         spacing="12px"
         pt="5%"
       >
-        <Text>Quero ser uma ponte entre as pessoas e a tecnologia.</Text>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontStyle: 'italic',
+            textAlign: 'center',
+          }}
+        >
+          {t('about.headline')}
+        </Text>
+        <Text>{t('about.intro')}</Text>
         <Text>
-          Sou um desenvolvedor atleta e poliglota em formação. Um aventureiro
-          engajado com a vida e procurando me associar a pessoas e organizações
-          que me ajudarão a alcançar metas, desempenho e relacionamentos
-          melhores.
+          {t('about.resume1')}{' '}
+          <span style={strongLinkStyle}>{t('about.course')}</span>{' '}
+          {t('about.resume2')}{' '}
+          <strong style={normalLinkStyle}>{t('about.job1')}</strong>{' '}
+          {t('about.resume3')}{' '}
+          <strong style={normalLinkStyle}>{t('about.job2')}</strong>{' '}
+          {t('about.resume4')}
         </Text>
         <Text>
-          Me formei em{' '}
-          <span style={strongLinkStyle}>Engenharia de Computação</span> pelo{' '}
-          <Link
-            href="https://www.bambui.ifmg.edu.br/portal/"
-            style={normalLinkStyle}
-            isExternal
-          >
-            IFMG
-          </Link>
-          . Em minha trajetória como desenvolvedor fui{' '}
-          <strong style={normalLinkStyle}>
-            Estagiário em Desenvolvimento Web
-          </strong>{' '}
-          na{' '}
-          <Link
-            href="https://www.guaranisistemas.com.br/"
-            style={normalLinkStyle}
-            isExternal
-          >
-            Guarani Sistemas
-          </Link>{' '}
-          e fiz diversos projetos pessoais e acadêmicos.
-        </Text>
-        <Text>
-          Em minha última experiência profissional, numa spin-off da{' '}
-          <Link
-            href="https://hypeempreendimentos.com.br/"
-            style={normalLinkStyle}
-            isExternal
-          >
-            Hype Empreendimentos
-          </Link>{' '}
-          tive não apenas a oportunidade de aperfeiçoar minhas habilidades em{' '}
+          {t('about.resume5')}{' '}
           <Link href="https://react.dev/" style={strongLinkStyle} isExternal>
             React
           </Link>
@@ -87,9 +71,7 @@ const Bio = ({ secondary }) => {
           >
             Scrum
           </Link>{' '}
-          e outras ferramentas para desenvolvimento de softwares web, mas também
-          a oportunidade de contribuir proativamente na criação de uma cultura
-          empresarial positiva, colaborativa e inclusiva
+          {t('about.resume6')}
         </Text>
         <LinkScroll
           to="contact"
@@ -98,14 +80,14 @@ const Bio = ({ secondary }) => {
           offset={-50}
           duration={1500}
           activeClass="active"
-          style={{ fontSize: '14px', opacity: 0.7 }}
+          style={{ fontSize: '14px' }}
         >
           <Text
             as="strong"
             className={`${styles.learn}`}
             _hover={{ cursor: 'pointer', color: secondary }}
           >
-            Me chame para um projeto.
+            {t('about.cta')}
           </Text>
         </LinkScroll>
       </VStack>
@@ -135,6 +117,9 @@ export default function About() {
     colors.secondary.light,
     colors.secondary.dark
   );
+
+  const { t } = useTranslation();
+
   return (
     <SectionContainer
       id="about"

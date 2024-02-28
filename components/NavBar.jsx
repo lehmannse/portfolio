@@ -86,15 +86,28 @@ const ColorModeButton = ({ mr }) => {
   const { toggleColorMode } = useColorMode();
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const nextMode = useColorModeValue('dark', 'light');
+  const { i18n } = useTranslation();
   return (
     <Tooltip
-      label={`Toggle ${nextMode} mode`}
-      aria-label={`Toggle ${nextMode} mode`}
+      label={
+        i18n.resolvedLanguage === 'pt'
+          ? `Alternar para modo ${nextMode}`
+          : `Toggle ${nextMode} mode`
+      }
+      aria-label={
+        i18n.resolvedLanguage === 'pt'
+          ? `Alternar para modo ${nextMode}`
+          : `Toggle ${nextMode} mode`
+      }
     >
       <IconButton
         size="md"
         fontSize="lg"
-        aria-label={`Toggle ${nextMode} mode`}
+        aria-label={
+          i18n.resolvedLanguage === 'pt'
+            ? `Alternar para modo ${nextMode}`
+            : `Toggle ${nextMode} mode`
+        }
         variant="ghost"
         color="current"
         onClick={toggleColorMode}
