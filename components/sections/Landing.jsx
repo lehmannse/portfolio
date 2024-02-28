@@ -4,6 +4,7 @@ import { BsChevronDown } from 'react-icons/bs';
 import Jump from 'react-reveal/Jump';
 import { Link } from 'react-scroll';
 
+import { useTranslation } from 'react-i18next';
 import links from '../../data/footerLinks';
 import styles from '../../styles/sections/Landing.module.css';
 import { colors } from '../../theme';
@@ -17,14 +18,13 @@ export default function Landing() {
     colors.secondary.dark
   );
 
+  const { t, i18n } = useTranslation();
+
   const header = (
     <div className={styles.center}>
       <h1 className={styles.tagline} style={{ color: primary }}>
-        Olá, eu sou Filipe Lehmann,
-        {/* {" "}
-      </h1>
-      <h1 className={styles.tagline} style={{ color: primary }}> */}{' '}
-        um <strong style={{ color: secondary }}>desenvolvedor web.</strong>
+        {t('landing.intro')}{' '}
+        <strong style={{ color: secondary }}>{t('landing.job')}</strong>
       </h1>
     </div>
   );
@@ -63,7 +63,7 @@ export default function Landing() {
             _hover={{ color: secondary, cursor: 'pointer' }}
             className={styles.learn}
           >
-            Saiba Mais
+            {t('landing.more')}
           </Text>
           <VStack>
             <Jump forever duration={1500}>
