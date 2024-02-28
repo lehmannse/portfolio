@@ -17,47 +17,68 @@ export default {
       section: 'Contact',
     },
   ],
-  navbarFlag: 'usa',
+  landing: {
+    intro: "Hello, I'm Filipe Lehmann, a",
+    job: 'web developer.',
+    more: 'Learn More',
+  },
+  about: {
+    headline: 'I want to be a bridge between people and technology.',
+    intro:
+      'I am a developer, athlete and polyglot in training, engaged with life and looking to partner with people and organizations to carry out worthwhile projects, improve relationships and achieve the best version of myself.',
+    resume1: 'I graduated in',
+    course: 'Computer Engineering',
+    resume2: 'from IFMG. In my career as a developer I was',
+    job1: 'Web Development Intern',
+    resume3: 'at Guarani Sistemas, in São Carlos - SP, Brazil, as well as a',
+    job2: 'Front-end developer',
+    resume4:
+      'in a spin-off from Hype Empreendimentos, in Curitiba - PR, Brazil.',
+    resume5:
+      'In my last professional experience, I not only had the opportunity to improve my skills in',
+    resume6:
+      'and other tools for web software development, but also the opportunity to proactively contribute to creating a positive, proactive and collaborative work culture.',
+    cta: 'Invite me to a project!',
+  },
   jobs: [
     {
-      workplace: 'Spin-off de Hype Empreendimentos',
+      workplace: 'Spin-off from Hype Empreendimentos',
       workplaceBtn: 'Spin-off',
-      position: 'Desenvolvedor Web Front-end',
-      duration: ['Agosto 2022 - Agosto 2023'],
+      position: 'Front-end Developer',
+      duration: ['August 2022 - August 2023'],
       description: [
-        'Contribuindo na construção de SaaS de alta complexidade.',
-        'Escrevendo código moderno, de alto desempenho e de fácil manutenção.',
-        'Aplicando CI/CD e testes de integração.',
-        'Se comunicando com equipes multidisciplinares de engenheiros, analistas e designers semanalmente.',
-        'Utilizando React, Next.js, Typescript, Tailwind, Jest, Cypress, TanStack Libraries.',
+        'Building highly complex SaaS',
+        'Writing modern, high-performance, maintainable code.',
+        'Applying  CI/CD.',
+        'Communicating with multidisciplinary teams of engineers, analysts and designers on a weekly basis.',
       ],
       url: 'https://hypeempreendimentos.com.br/',
     },
     {
       workplace: 'Guarani Sistemas',
       workplaceBtn: 'Guarani Sistemas',
-      position: 'Estagiário em Desenvolvimento Web',
-      duration: ['Maio 2021 - Novembro 2021'],
+      position: 'Web Development Intern',
+      duration: ['May 2021 - November 2021'],
       description: [
-        'Treinamento front-end: HTML, CSS, JavaScrip e framework Vue.js, versões 2 e 3.',
-        'Contribuições em projeto de ERP de gestão de escritórios de representação comercial.',
-        'Resolução de issues de baixa e média prioridade - Jira.',
-        'Versionamento de projeto utilizando GitLab.',
-        'Práticas com bibliotecas: Chakra UI, Vuex, Vuelidate e Axios.',
-        'Acompanhamento de reuniões diárias - Daily Scrum.',
+        'Training in Vue.js, HTML, CSS and JavaScript.',
+        'Contributions to an ERP project for managing commercial representation offices.',
+        'Resolution of low and medium priority issues - Jira.',
+        'Software version control using GitLab.',
+        'Used libs: Chakra UI, Vuex, Vuelidate e Axios.',
+        'Attending to daily meetings - Daily Scrum.',
       ],
       url: 'https://www.guaranisistemas.com.br/',
     },
     {
       workplace: 'IFMG - Campus Bambuí',
       workplaceBtn: 'IFMG',
-      position: 'Monitor ',
-      duration: ['Março 2018 - Dezembro 2018'],
+      position: 'Teaching Assistant ',
+      duration: ['March 2018 - December 2018'],
       description: [
-        'Disciplina: Geometria Analítica e Álgebra Linear (GAAL).',
-        'Assistência aos estudantes para resolução de exercícios e esclarecimento de dúvidas.',
-        'Preparação de atividades teóricas compatíveis com próprio grau de conhecimento e experiência.',
-        'Elaboração de material didático complementar, sob supervisão e aprovação do professor-orientador.',
+        'Subject: Analytical Geometry and Linear Algebra.',
+        'Assistance to students in solving problems and clarifying doubts.',
+        'Preparation of theoretical activities compatible with students’ level of knowledge and experience.',
+        'Preparation of complementary teaching material, under the supervision and approval of the teacher-advisor.',
       ],
       url: 'https://www.bambui.ifmg.edu.br/portal/',
     },
@@ -66,8 +87,8 @@ export default {
     {
       name: 'Issue Tracker',
       description:
-        'Issue tracker é um projeto que propõe fazer o rastreamento de tarefas para equipes de desenvolvimento. Como ponto de partida, foi produzido um arquivo de Especificação de Requisitos de Software (SRS) e um Backlog de Produto para guiar Sprints semanais. Utilizará Stack MERN.',
-      subtitle: '(Em desenvolvimento!)',
+        'Issue tracker is a project that proposes tracking tasks for development teams. As a starting point, a Software Requirements Specification (SRS) file and a Product Backlog were produced to guide weekly Sprints. Will use MERN Stack.',
+      subtitle: '(Under development!)',
       pic: '/issue_tracker.jpg',
       tech: ['MongoDB', 'Express', 'React', 'Node.js'],
       links: [
@@ -86,7 +107,7 @@ export default {
     {
       name: 'Desafio ACME Inc.',
       description:
-        'Aplicativo web, feito como desafio de front-end, para exibir os produtos da empresa fictícia Acme Inc. O aplicativo exibe 15 itens, de maneira responsiva, com imagens, descrições e valores gerados aleatoriamente a partir de bases de dados internas ou a partir de APIs.',
+        'Web application, made as a front-end challenge, to display the products of the fictional company Acme Inc. The application displays 15 items, in a responsive way, with images, descriptions and values generated randomly from internal databases or from APIs.',
       pic: '/acme.png',
       tech: ['React.js', 'Chakra-UI', 'Front-end Challenge'],
       links: [
@@ -105,7 +126,7 @@ export default {
     {
       name: 'IP Adress Tracker',
       description:
-        'Web app no qual o usuário pode obter localizações por meio de endereços de IP, com exibição em mapa. Ao carregar a página, o app retorna o endereço físico e de IP associado ao próprio usuário.',
+        'Web app in which the user can obtain locations through IP addresses, with map display. When loading the page, the app returns the physical and IP address associated with the user.',
       pic: '/ip_tracker_done.jpg',
       tech: ['Vue.js', 'Leaflet', 'AbstractAPI'],
       links: [
@@ -124,7 +145,7 @@ export default {
     {
       name: 'Playlister',
       description:
-        'Playlister é um criador de playlists, que disponibiliza e compartilha as entradas entre os usuários. Possui autenticação, autorização, banco de dados e hospedagem via Firebase. O projeto é uma prova de conceito e não permite armazenamento de formatos em áudio.',
+        'Playlister is a playlist creator that makes entries available and shared among users. It has authentication, authorization, database and hosting via Firebase. The project is a proof of concept and does not allow storage of audio formats.',
       pic: '/playlister.jpg',
       tech: ['Vue.js', 'Firebase', 'Node.js'],
       links: [
@@ -146,7 +167,7 @@ export default {
       name: 'Mock Car Rental',
       type: 'Projeto',
       description:
-        'Aplicativo de gerenciamento de aluguel de carros, permitindo registro de veículos, clientes, aluguéis e pagamentos. Consultas com multiplas condicionais e geração de 3 tipos de relatório.',
+        'Car rental management application, allowing registration of vehicles, customers, rentals and payments. Queries with multiple conditionals and generation of 3 types of reports.',
       tech: ['Pascal', 'SQLite3', 'PostgreSQL'],
       links: [
         {
@@ -160,7 +181,7 @@ export default {
       name: 'Projetos Front-end',
       type: 'Work',
       description:
-        'Projetos para aprendizagem e desenvolvimento dos fundamentos de HTML, CSS e JavaScript. Último projeto, chamado Infusion, hospedado via Netlify.',
+        'Projects for learning the fundamentals of HTML, CSS and JavaScript. Latest project, called Infusion, hosted via Netlify.',
       tech: ['HTML', 'CSS', 'JS'],
       links: [
         {
@@ -176,10 +197,10 @@ export default {
       ],
     },
     {
-      name: 'Práticas de Machine Learning',
+      name: 'Machine Learning Practices',
       type: 'Curso',
       description:
-        'Registros e implementações de Machine Learning feitas em curso pela IBM.',
+        'Records and ongoing Machine Learning implementations carried out by IBM.',
       tech: ['Python', 'Jupyter Notebook', 'Scikit-learn'],
       links: [
         {
@@ -193,7 +214,7 @@ export default {
       name: 'Programação Competitiva',
       type: 'Personal',
       description:
-        '88 exercícios de programação competitiva solucionados em Python na plataforma Beecrowd, antiga URI Online Judge',
+        '88 competitive programming exercises solved in Python on the Beecrowd platform, formerly URI Online Judge.',
       tech: ['Python'],
       links: [
         {
@@ -209,4 +230,7 @@ export default {
       ],
     },
   ],
+  contact:
+    "Whether it's a job opportunity, an invite to coffee, or feedback on my portfolio, my inbox is open!",
+  footer: 'Scroll to the top!',
 };

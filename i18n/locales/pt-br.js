@@ -17,7 +17,28 @@ export default {
       section: 'Contact',
     },
   ],
-  navbarFlag: 'bra',
+  landing: {
+    intro: 'Olá, eu sou Filipe Lehmann, um',
+    job: 'desenvolvedor web.',
+    more: 'Saiba Mais',
+  },
+  about: {
+    headline: 'Quero ser uma ponte entre as pessoas e a tecnologia.',
+    intro:
+      'Sou um desenvolvedor atleta e poliglota em formação, engajado com a vida e procurando me associar a pessoas e organizações para realizar projetos que valem a pena, melhorar relacionamentos e alcançar a minha melhor versão.',
+    resume1: 'Me formei em',
+    course: 'Engenharia de Computação',
+    resume2: 'pelo IFMG. Em minha trajetória como desenvolvedor fui',
+    job1: 'Estagiário em Desenvolvimento Web',
+    resume3: 'na Guarani Sistemas, em São Carlos - SP, e ',
+    job2: 'Desenvolvedor Front-end',
+    resume4: 'em uma spin-off da Hype Empreendimentos, em Curitiba - PR.',
+    resume5:
+      'Em minha última experiência profissional, tive não apenas a oportunidade de aperfeiçoar minhas habilidades em',
+    resume6:
+      'e outras ferramentas para desenvolvimento de softwares web, mas também a oportunidade de contribuir proativamente na criação de uma cultura empresarial positiva, proativa e colaborativa.',
+    cta: 'Me convide para um projeto!',
+  },
   jobs: [
     {
       workplace: 'Spin-off de Hype Empreendimentos',
@@ -209,4 +230,7 @@ export default {
       ],
     },
   ],
+  contact:
+    'Seja uma oportunidade de trabalho, sugestões ou feedback, seu contato será bem vindo!',
+  footer: 'Scroll to the top!',
 };
