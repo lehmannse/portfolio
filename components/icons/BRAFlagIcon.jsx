@@ -21,8 +21,8 @@ export const BRAFlagIcon = () => {
           y2="100%"
           id="linearGradient-1"
         >
-          <stop stop-color="#FFFFFF" offset="0%"></stop>
-          <stop stop-color="#F0F0F0" offset="100%"></stop>
+          <stop stopColor="#FFFFFF" offset="0%"></stop>
+          <stop stopColor="#F0F0F0" offset="100%"></stop>
         </linearGradient>
         <linearGradient
           x1="50%"
@@ -31,8 +31,8 @@ export const BRAFlagIcon = () => {
           y2="100%"
           id="linearGradient-2"
         >
-          <stop stop-color="#05AB41" offset="0%"></stop>
-          <stop stop-color="#019C39" offset="100%"></stop>
+          <stop stopColor="#05AB41" offset="0%"></stop>
+          <stop stopColor="#019C39" offset="100%"></stop>
         </linearGradient>
         <linearGradient
           x1="50%"
@@ -41,17 +41,17 @@ export const BRAFlagIcon = () => {
           y2="100%"
           id="linearGradient-3"
         >
-          <stop stop-color="#053087" offset="0%"></stop>
-          <stop stop-color="#012877" offset="100%"></stop>
+          <stop stopColor="#053087" offset="0%"></stop>
+          <stop stopColor="#012877" offset="100%"></stop>
         </linearGradient>
         <circle id="path-4" cx="3.5" cy="3.5" r="3.5"></circle>
       </defs>
       <g
         id="Symbols"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g id="BR">
           <rect
@@ -88,7 +88,7 @@ export const BRAFlagIcon = () => {
               d="M-0.100381226,2.97376324 C0.164901149,2.75894182 1.36252192,2.933788 3.43417519,3.48641101 C4.90835176,3.87965437 6.60707006,4.747859 6.9957681,5.22786103 L7.31042832,5.61643399 L8.08757424,4.98711354 L7.77291401,4.59854058 C7.22285434,3.91927356 5.35175728,2.96296719 3.69191715,2.52019722 C1.10596471,1.83038255 -0.0661252244,1.65926374 -0.7297016,2.19661727 L-1.11827459,2.51127745 L-0.488954213,3.28842343 L-0.100381226,2.97376324 Z"
               id="Line"
               fill="#FFFFFF"
-              fill-rule="nonzero"
+              fillRule="nonzero"
               mask="url(#mask-5)"
             ></path>
           </g>

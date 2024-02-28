@@ -21,8 +21,8 @@ export const EUAFlagIcon = () => {
           y2="100%"
           id="linearGradient-1"
         >
-          <stop stop-color="#FFFFFF" offset="0%"></stop>
-          <stop stop-color="#F0F0F0" offset="100%"></stop>
+          <stop stopColor="#FFFFFF" offset="0%"></stop>
+          <stop stopColor="#F0F0F0" offset="100%"></stop>
         </linearGradient>
         <linearGradient
           x1="50%"
@@ -31,8 +31,8 @@ export const EUAFlagIcon = () => {
           y2="100%"
           id="linearGradient-2"
         >
-          <stop stop-color="#D02F44" offset="0%"></stop>
-          <stop stop-color="#B12537" offset="100%"></stop>
+          <stop stopColor="#D02F44" offset="0%"></stop>
+          <stop stopColor="#B12537" offset="100%"></stop>
         </linearGradient>
         <linearGradient
           x1="50%"
@@ -41,16 +41,16 @@ export const EUAFlagIcon = () => {
           y2="100%"
           id="linearGradient-3"
         >
-          <stop stop-color="#46467F" offset="0%"></stop>
-          <stop stop-color="#3C3C6D" offset="100%"></stop>
+          <stop stopColor="#46467F" offset="0%"></stop>
+          <stop stopColor="#3C3C6D" offset="100%"></stop>
         </linearGradient>
       </defs>
       <g
         id="Symbols"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g id="US">
           <rect
