@@ -1,3 +1,5 @@
+import '../i18n';
+
 import React from 'react';
 
 import About from '../components/sections/About';
@@ -7,7 +9,6 @@ import Experience from '../components/sections/Experience';
 import Landing from '../components/sections/Landing';
 import MoreProjects from '../components/sections/MoreProjects';
 import Projects from '../components/sections/Projects';
-import '../i18n';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {

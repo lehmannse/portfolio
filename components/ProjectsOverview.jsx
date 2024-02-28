@@ -9,9 +9,9 @@ import {
 } from '@chakra-ui/react';
 import { Grid } from '@material-ui/core';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Fade from 'react-reveal/Fade';
 
-import { useTranslation } from 'react-i18next';
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
 import Tech from './Tech';

@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 import { Box, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { BsChevronDown } from 'react-icons/bs';
 import Jump from 'react-reveal/Jump';
 import { animateScroll as scroll } from 'react-scroll';
 
-import { useTranslation } from 'react-i18next';
 import links from '../data/footerLinks';
 import styles from '../styles/sections/Footer.module.css';
 import { colors } from '../theme';

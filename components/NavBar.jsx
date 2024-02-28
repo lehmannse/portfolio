@@ -16,19 +16,14 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll, Link as ScrollLink } from 'react-scroll';
 import Sticky from 'react-stickynode';
 
-import { useTranslation } from 'react-i18next';
 import { colors } from '../theme';
-import { BRAFlagIcon } from './icons/BRAFlagIcon';
-import { EUAFlagIcon } from './icons/EUAFlagIcon';
-
-const lngs = {
-  en: 'en',
-  pt: 'pt',
-};
+import BRAFlagIcon from './icons/BRAFlagIcon';
+import EUAFlagIcon from './icons/EUAFlagIcon';
 
 const Logo = () => {
   const logo = useColorModeValue('/logo.png', '/logo-dark.png');
@@ -119,7 +114,7 @@ const ColorModeButton = ({ mr }) => {
 };
 
 const LanguageButton = ({ mr }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const resolveLanguage = i18n.resolvedLanguage;
   const handleChangeLanguage = (lng) => {
     if (lng === 'pt') {
@@ -130,7 +125,7 @@ const LanguageButton = ({ mr }) => {
   };
 
   return (
-    <Tooltip label={`Switch language`} aria-label={`Switch language`}>
+    <Tooltip label="Switch language" aria-label="Switch language">
       <IconButton
         aria-label={
           resolveLanguage === 'pt' ? 'Trocar de linguagem' : 'Switch language'

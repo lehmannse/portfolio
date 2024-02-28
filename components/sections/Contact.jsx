@@ -2,8 +2,8 @@
 import { Flex, Text } from '@chakra-ui/react';
 import { Grid } from '@material-ui/core';
 import React from 'react';
-
 import { useTranslation } from 'react-i18next';
+
 import links from '../../data/contactLinks';
 import LinkIconBar from '../LinkIconBar';
 import SectionContainer from '../SectionContainer';

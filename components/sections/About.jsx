@@ -9,9 +9,9 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link as LinkScroll } from 'react-scroll';
 
-import { useTranslation } from 'react-i18next';
 import styles from '../../styles/sections/Landing.module.css';
 import { colors } from '../../theme';
 import SectionContainer from '../SectionContainer';

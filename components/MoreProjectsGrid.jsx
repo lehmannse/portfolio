@@ -19,12 +19,12 @@ import {
 } from '@chakra-ui/react';
 import { Grid } from '@material-ui/core';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BsGridFill } from 'react-icons/bs';
 import { FaListUl } from 'react-icons/fa';
 import { HiCode } from 'react-icons/hi';
 import Fade from 'react-reveal/Fade';
 
-import { useTranslation } from 'react-i18next';
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
 import Tech from './Tech';

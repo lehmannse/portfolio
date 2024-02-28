@@ -12,9 +12,9 @@ import {
 } from '@chakra-ui/react';
 import { Grid } from '@material-ui/core';
 import React, { useState } from 'react';
-
 // import jobs from '../data/jobs';
 import { useTranslation } from 'react-i18next';
+
 import styles from '../styles/components/ExperienceOverview.module.css';
 import { colors } from '../theme';
 

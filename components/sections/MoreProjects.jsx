@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { useTranslation } from 'react-i18next';
+
 import MoreProjectsGrid from '../MoreProjectsGrid';
 import SectionContainer from '../SectionContainer';
 
