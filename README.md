@@ -8,7 +8,7 @@ This portfolio is a work and expansion on the one by [Jarrod Servilla](https://g
 - [x] Important mobile layout fixes
 - [ ] Carousel for displaying certificates
 - [ ] Addition of different palettes for Chakra UI themes
-- [ ] Localization with i18n internationalization framework
+- [x] Localization with i18n internationalization framework
 
 ## 💼 Prerequisites
 
