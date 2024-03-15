@@ -85,22 +85,22 @@ export default {
   ],
   projects: [
     {
-      name: 'Issue Tracker',
+      name: 'Expert Speech Recognition',
       description:
         'Issue tracker é um projeto que propõe fazer o rastreamento de tarefas para equipes de desenvolvimento. Como ponto de partida, foi produzido um arquivo de Especificação de Requisitos de Software (SRS) e um Backlog de Produto para guiar Sprints semanais. Utilizará Stack MERN.',
       subtitle: '(Em desenvolvimento!)',
-      pic: '/issue_tracker.jpg',
-      tech: ['MongoDB', 'Express', 'React', 'Node.js'],
+      pic: '/expert_speech.png',
+      tech: ['React', 'Typescript', 'Speech-to-Text'],
       links: [
         {
-          label: 'SRS',
-          icon: 'document',
-          url: '/srs-eit-ieee.pdf',
+          label: 'Website',
+          icon: 'link',
+          url: 'https://speechtotextproject.netlify.app/',
         },
         {
           label: 'Github',
           icon: 'github',
-          url: '',
+          url: 'https://github.com/LehmannPi/nlw-expert-speechrecognition',
         },
       ],
     },

@@ -85,22 +85,22 @@ export default {
   ],
   projects: [
     {
-      name: 'Issue Tracker',
+      name: 'Expert Speech Recognition',
       description:
-        'Issue tracker is a project that proposes tracking tasks for development teams. As a starting point, a Software Requirements Specification (SRS) file and a Product Backlog were produced to guide weekly Sprints. Will use MERN Stack.',
-      subtitle: '(Under development!)',
-      pic: '/issue_tracker.jpg',
-      tech: ['MongoDB', 'Express', 'React', 'Node.js'],
+        'Expert Speech Recognition is an application for creating notes with text and transcribed audio. The project was developed during NLW Expert (ReactJS track), an event presented by Rocketseat. The speech recognition API is set for Portuguese audios and only works in some browsers.',
+      // subtitle: '(Under development!)',
+      pic: '/expert_speech.png',
+      tech: ['React', 'Typescript', 'Speech-to-Text'],
       links: [
         {
-          label: 'SRS',
-          icon: 'document',
-          url: '/srs-eit-ieee.pdf',
+          label: 'Website',
+          icon: 'link',
+          url: 'https://speechtotextproject.netlify.app/',
         },
         {
           label: 'Github',
           icon: 'github',
-          url: '',
+          url: 'https://github.com/LehmannPi/nlw-expert-speechrecognition',
         },
       ],
     },
