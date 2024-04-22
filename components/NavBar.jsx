@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -18,9 +19,8 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { animateScroll as scroll, Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import Sticky from 'react-stickynode';
-
 import { colors } from '../theme';
 import BRAFlagIcon from './icons/BRAFlagIcon';
 import EUAFlagIcon from './icons/EUAFlagIcon';
@@ -53,27 +53,37 @@ const NavButtons = ({ size, onClose }) => {
 
   const navbarOptions = t('navbar', { returnObjects: true });
 
-  const btns = navbarOptions?.map((btn) => (
-    <Button key={btn.label} size={size} variant="link" mb={2} onClick={onClose}>
-      {btn.href ? (
-        <Link href={btn.href} isExternal>
-          {btn.label}
-        </Link>
-      ) : (
-        <ScrollLink
-          to={btn.section.toLowerCase()}
-          href={btn.href}
-          spy
-          smooth
-          offset={-70}
-          duration={500}
-          onClick={onClose}
-        >
-          {btn.label}
-        </ScrollLink>
-      )}
-    </Button>
-  ));
+  const btns =
+    navbarOptions && Array.isArray(navbarOptions)
+      ? navbarOptions?.map((btn) => (
+          // eslint-disable-next-line
+          <Button
+            key={btn.label}
+            size={size}
+            variant="link"
+            mb={2}
+            onClick={onClose}
+          >
+            {btn.href ? (
+              <Link href={btn.href} isExternal>
+                {btn.label}
+              </Link>
+            ) : (
+              <ScrollLink
+                to={btn.section.toLowerCase()}
+                href={btn.href}
+                spy
+                smooth
+                offset={-70}
+                duration={500}
+                onClick={onClose}
+              >
+                {btn.label}
+              </ScrollLink>
+            )}
+          </Button>
+        ))
+      : [];
   return <>{btns}</>;
 };
 
