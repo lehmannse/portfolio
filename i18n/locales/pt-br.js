@@ -41,9 +41,21 @@ export default {
   },
   jobs: [
     {
+      workplace: 'Volunteers for Ukraine',
+      workplaceBtn: 'VFU',
+      position: 'Desenvolvedor Front-end',
+      duration: ['Março 2024 - Presente'],
+      description: [
+        'Contribuir para o desenvolvimento de uma aplicação web para gestão de projetos e crises para apoiar a Ucrânia.',
+        'Front-end: React, Next.js, Typescript and TailwindCSS.',
+        'Backend: .NET and Node.js',
+      ],
+      url: 'https://volunteersforukraine.org/',
+    },
+    {
       workplace: 'Spin-off de Hype Empreendimentos',
       workplaceBtn: 'Spin-off',
-      position: 'Desenvolvedor Web Front-end',
+      position: 'Desenvolvedor Front-end',
       duration: ['Agosto 2022 - Agosto 2023'],
       description: [
         'Contribuindo na construção de SaaS de alta complexidade.',
@@ -85,10 +97,29 @@ export default {
   ],
   projects: [
     {
+      name: 'Lingo',
+      description:
+        'Lingo é um projeto de SaaS de aprendizagem de idiomas, semelhante ao Duolingo. Os usuários poderão escolher um curso de idioma e ter aulas guiadas com belo design, personagens, efeitos sonoros e visuais.',
+      subtitle: '(Em desenvolvimento)',
+      pic: '/lingo.png',
+      tech: ['React', 'Typescript', 'Speech-to-Text'],
+      links: [
+        {
+          label: 'Website',
+          icon: 'link',
+        },
+        {
+          label: 'Github',
+          icon: 'github',
+          url: 'https://github.com/LehmannPi/duolingo_clone',
+        },
+      ],
+    },
+    {
       name: 'Expert Speech Recognition',
       description:
-        'Issue tracker é um projeto que propõe fazer o rastreamento de tarefas para equipes de desenvolvimento. Como ponto de partida, foi produzido um arquivo de Especificação de Requisitos de Software (SRS) e um Backlog de Produto para guiar Sprints semanais. Utilizará Stack MERN.',
-      subtitle: '(Em desenvolvimento!)',
+        'Expert Speech Recognition é um aplicativo para criação de notas com texto e áudio transcrito. O projeto foi desenvolvido durante o NLW Expert (track ReactJS), evento apresentado pela Rocketseat. A API de reconhecimento de fala está configurada para áudios em português e só funciona em alguns navegadores.',
+      // subtitle: '(Em desenvolvimento!)',
       pic: '/expert_speech.png',
       tech: ['React', 'Typescript', 'Speech-to-Text'],
       links: [
