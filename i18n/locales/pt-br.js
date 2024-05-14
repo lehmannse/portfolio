@@ -46,7 +46,7 @@ export default {
       position: 'Desenvolvedor Front-end',
       duration: ['Março 2024 - Presente'],
       description: [
-        'Contribuir para o desenvolvimento de uma aplicação web para gestão de projetos e crises para apoiar a Ucrânia.',
+        'Contribuindo no desenvolvimento de uma aplicação web para gestão de projetos e crises para apoiar a Ucrânia.',
         'Front-end: React, Next.js, Typescript and TailwindCSS.',
         'Backend: .NET and Node.js',
       ],
@@ -99,7 +99,7 @@ export default {
     {
       name: 'Lingo',
       description:
-        'Lingo é um projeto de SaaS de aprendizagem de idiomas, semelhante ao Duolingo. Os usuários poderão escolher um curso de idioma e ter aulas guiadas com belo design, personagens, efeitos sonoros e visuais.',
+        'Lingo é um projeto de SaaS de aprendizagem de idiomas, semelhante ao Duolingo. Os usuários poderão escolher um curso de idioma e ter aulas guiadas com belo design, personagens e efeitos sonoros e visuais.',
       subtitle: '(Em desenvolvimento)',
       pic: '/lingo.png',
       tech: ['React', 'Typescript', 'Speech-to-Text'],
