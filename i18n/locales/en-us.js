@@ -42,6 +42,18 @@ export default {
   },
   jobs: [
     {
+      workplace: 'Volunteers for Ukraine',
+      workplaceBtn: 'VFU',
+      position: 'Front-end Developer',
+      duration: ['March 2024 - Present'],
+      description: [
+        'Contributing to the development of a web application for project and crisis management to support Ukraine.',
+        'Front-end: React, Next.js, Typescript and TailwindCSS.',
+        'Backend: .NET and Node.js',
+      ],
+      url: 'https://volunteersforukraine.org/',
+    },
+    {
       workplace: 'Spin-off from Hype Empreendimentos',
       workplaceBtn: 'Spin-off',
       position: 'Front-end Developer',
@@ -84,6 +96,25 @@ export default {
     },
   ],
   projects: [
+    {
+      name: 'Lingo',
+      description:
+        'Lingo is a project of a language learning SaaS, similar to Duolingo. Users will be able to choose a language course, and have guided lessons with beautiful design, characters, audio & visual effects.',
+      subtitle: '(Under development)',
+      pic: '/lingo.png',
+      tech: ['React', 'Typescript', 'Next.js', 'Shadcn/UI'],
+      links: [
+        {
+          label: 'Website',
+          icon: 'link',
+        },
+        {
+          label: 'Github',
+          icon: 'github',
+          url: 'https://github.com/LehmannPi/duolingo_clone',
+        },
+      ],
+    },
     {
       name: 'Expert Speech Recognition',
       description:
