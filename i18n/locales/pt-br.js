@@ -156,7 +156,7 @@ export default {
     },
     {
       name: 'Mock Newspaper API',
-      subtitle: 'Leia mais no repositório do Github',
+      subtitle: '- Leia mais no repositório do Github -',
       description:
         'Este é um projeto para utilização em uma API de Jornal com acesso, manipulação e agregação de dados. O objetivo era implementar operações CRUD (CREATE, READ, UPDATE e DELETE) usando um objeto de repositório de jornal simulado.',
       pic: '/mongodb.png',
