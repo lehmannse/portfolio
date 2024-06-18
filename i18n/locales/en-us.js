@@ -155,6 +155,36 @@ export default {
       ],
     },
     {
+      name: 'Mock Newspaper API',
+      subtitle: '- Read more at the Github repository -',
+      description: `This is a project for use in a Newspaper API with access, manipulation, and aggregation of data. The goal was to implement CRUD (CREATE, READ, UPDATE and DELETE) operations using a mock newspaper repository object.`,
+      pic: '/mongodb.png',
+      tech: ['MongoDB', 'Node.js'],
+      links: [
+        {
+          label: 'Github',
+          icon: 'github',
+          url: 'https://github.com/LehmannPi/pluralsight_mongodb_nodejs',
+        },
+      ],
+    },
+    {
+      name: 'Mock Car Rental',
+      description:
+        'Car rental management application, allowing registration of vehicles, customers, rentals and payments. Queries with multiple conditionals and generation of 3 types of reports.',
+      pic: '/pascal.png',
+      tech: ['Pascal', 'SQLite3', 'PostgreSQL'],
+      links: [
+        {
+          label: 'Github',
+          icon: 'github',
+          url: 'https://github.com/LehmannPi/mock-car-rental-project',
+        },
+      ],
+    },
+  ],
+  extraProjects: [
+    {
       name: 'IP Adress Tracker',
       description:
         'Web app in which the user can obtain locations through IP addresses, with map display. When loading the page, the app returns the physical and IP address associated with the user.',
@@ -175,9 +205,9 @@ export default {
     },
     {
       name: 'Playlister',
+      type: 'Projeto',
       description:
         'Playlister is a playlist creator that makes entries available and shared among users. It has authentication, authorization, database and hosting via Firebase. The project is a proof of concept and does not allow storage of audio formats.',
-      pic: '/playlister.jpg',
       tech: ['Vue.js', 'Firebase', 'Node.js'],
       links: [
         {
@@ -189,22 +219,6 @@ export default {
           label: 'Github',
           icon: 'github',
           url: 'https://github.com/LehmannPi/playlist-creator-vue',
-        },
-      ],
-    },
-  ],
-  extraProjects: [
-    {
-      name: 'Mock Car Rental',
-      type: 'Projeto',
-      description:
-        'Car rental management application, allowing registration of vehicles, customers, rentals and payments. Queries with multiple conditionals and generation of 3 types of reports.',
-      tech: ['Pascal', 'SQLite3', 'PostgreSQL'],
-      links: [
-        {
-          label: 'Github',
-          icon: 'github',
-          url: 'https://github.com/LehmannPi/mock-car-rental-project',
         },
       ],
     },

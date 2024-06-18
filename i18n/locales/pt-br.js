@@ -155,6 +155,56 @@ export default {
       ],
     },
     {
+      name: 'Mock Newspaper API',
+      subtitle: 'Leia mais no repositório do Github',
+      description:
+        'Este é um projeto para utilização em uma API de Jornal com acesso, manipulação e agregação de dados. O objetivo era implementar operações CRUD (CREATE, READ, UPDATE e DELETE) usando um objeto de repositório de jornal simulado.',
+      pic: '/mongodb.png',
+      tech: ['MongoDB', 'Node.js'],
+      links: [
+        {
+          label: 'Github',
+          icon: 'github',
+          url: 'https://github.com/LehmannPi/pluralsight_mongodb_nodejs',
+        },
+      ],
+    },
+    {
+      name: 'Mock Car Rental',
+      description:
+        'Aplicativo de gerenciamento de aluguel de carros, permitindo registro de veículos, clientes, aluguéis e pagamentos. Consultas com multiplas condicionais e geração de 3 tipos de relatório.',
+      pic: '/pascal.png',
+      tech: ['Pascal', 'SQLite3', 'PostgreSQL'],
+      links: [
+        {
+          label: 'Github',
+          icon: 'github',
+          url: 'https://github.com/LehmannPi/mock-car-rental-project',
+        },
+      ],
+    },
+  ],
+  extraProjects: [
+    {
+      name: 'Playlister',
+      type: 'Projeto',
+      description:
+        'Playlister é um criador de playlists, que disponibiliza e compartilha as entradas entre os usuários. Possui autenticação, autorização, banco de dados e hospedagem via Firebase. O projeto é uma prova de conceito e não permite armazenamento de formatos em áudio.',
+      tech: ['Vue.js', 'Firebase', 'Node.js'],
+      links: [
+        {
+          label: 'Website',
+          icon: 'link',
+          url: 'https://playlist-vue-project-a4e60.web.app/',
+        },
+        {
+          label: 'Github',
+          icon: 'github',
+          url: 'https://github.com/LehmannPi/playlist-creator-vue',
+        },
+      ],
+    },
+    {
       name: 'IP Adress Tracker',
       description:
         'Web app no qual o usuário pode obter localizações por meio de endereços de IP, com exibição em mapa. Ao carregar a página, o app retorna o endereço físico e de IP associado ao próprio usuário.',
@@ -170,41 +220,6 @@ export default {
           label: 'Github',
           icon: 'github',
           url: 'https://github.com/LehmannPi/ip-adress-tracker/tree/develop',
-        },
-      ],
-    },
-    {
-      name: 'Playlister',
-      description:
-        'Playlister é um criador de playlists, que disponibiliza e compartilha as entradas entre os usuários. Possui autenticação, autorização, banco de dados e hospedagem via Firebase. O projeto é uma prova de conceito e não permite armazenamento de formatos em áudio.',
-      pic: '/playlister.jpg',
-      tech: ['Vue.js', 'Firebase', 'Node.js'],
-      links: [
-        {
-          label: 'Website',
-          icon: 'link',
-          url: 'https://playlist-vue-project-a4e60.web.app/',
-        },
-        {
-          label: 'Github',
-          icon: 'github',
-          url: 'https://github.com/LehmannPi/playlist-creator-vue',
-        },
-      ],
-    },
-  ],
-  extraProjects: [
-    {
-      name: 'Mock Car Rental',
-      type: 'Projeto',
-      description:
-        'Aplicativo de gerenciamento de aluguel de carros, permitindo registro de veículos, clientes, aluguéis e pagamentos. Consultas com multiplas condicionais e geração de 3 tipos de relatório.',
-      tech: ['Pascal', 'SQLite3', 'PostgreSQL'],
-      links: [
-        {
-          label: 'Github',
-          icon: 'github',
-          url: 'https://github.com/LehmannPi/mock-car-rental-project',
         },
       ],
     },
