@@ -58,8 +58,16 @@ const ExperienceDetails = ({ index, jobs }) => {
     colors.secondary.dark
   );
   return (
-    <Grid container item direction="column">
-      <Grid container item style={{ margin: '12px' }}>
+    <Grid
+      container
+      direction="column"
+      style={{
+        width: '100%',
+        maxWidth: '30vw',
+        padding: '12px',
+      }}
+    >
+      <Grid item width="100%">
         <Heading as="h1" size="md">
           {job.position} @{' '}
           <Link href={job.url} isExternal color={secondary}>
@@ -67,26 +75,30 @@ const ExperienceDetails = ({ index, jobs }) => {
           </Link>
         </Heading>
       </Grid>
-      <Grid container item style={{ marginLeft: '12px' }}>
+      <Grid item width="100%">
         {job.duration.map((duration) => (
-          <Grid key={duration} container item>
-            <Text mt={2}>{duration}</Text>
-          </Grid>
+          <Text key={duration} mt={2}>
+            {duration}
+          </Text>
         ))}
       </Grid>
       <Grid
-        container
         item
-        className={styles.grid_exp}
+        width="100%"
         style={{
-          marginLeft: '12px',
-          // marginBottom: "12px",
           textAlign: 'justify',
         }}
       >
-        <UnorderedList mt={2}>
+        <UnorderedList
+          mt={2}
+          style={{
+            width: '100%',
+          }}
+        >
           {job.description.map((desc) => (
-            <ListItem key={desc}>{desc}</ListItem>
+            <ListItem key={desc} style={{ wordBreak: 'break-word' }}>
+              {desc}
+            </ListItem>
           ))}
         </UnorderedList>
       </Grid>
@@ -113,6 +125,7 @@ export default function ExperienceOverview() {
       item
       direction="row"
       justifyContent="center"
+      alignItems="flex-start"
       xs={10}
       sm={9}
       md={8}
@@ -122,7 +135,8 @@ export default function ExperienceOverview() {
       style={{
         margin: '24px',
         marginTop: '3vh',
-        height: '60vh',
+        minHeight: '60vh',
+        maxWidth: '60vw',
       }}
     >
       <Grid
