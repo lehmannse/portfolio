@@ -20,6 +20,7 @@ export default function SectionContainer({
             as="h1"
             color={color}
             mt={headerMt}
+            mb={12}
             className={useHeaderStyle ? styles.header : ''}
           >
             {headerText}

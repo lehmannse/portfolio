@@ -7,6 +7,9 @@
   .header {
     font-size: 2em;
   }
+  .container {
+    margin-top: 20%;
+  }
 }
 
 .container {
