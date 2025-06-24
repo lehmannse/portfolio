@@ -19,44 +19,111 @@ export default {
   ],
   landing: {
     intro: "Hello, I'm Filipe Lehmann, a",
-    job: 'web developer.',
+    job: 'Software Engineer.',
     more: 'Learn More',
   },
   about: {
     headline: 'I want to be a bridge between people and technology.',
     intro:
-      'I am a developer, athlete and polyglot in training, engaged with life and looking to partner with people and organizations to carry out worthwhile projects, improve relationships and achieve the best version of myself.',
-    resume1: 'I graduated in',
-    course: 'Computer Engineering',
-    resume2: 'from IFMG. In my career as a developer I was',
-    job1: 'Web Development Intern',
-    resume3: 'at Guarani Sistemas, in São Carlos - SP, Brazil, as well as a',
-    job2: 'Front-end developer',
-    resume4:
-      'in a spin-off from Hype Empreendimentos, in Curitiba - PR, Brazil.',
-    resume5:
-      'In my last professional experience, I not only had the opportunity to improve my skills in',
-    resume6:
-      'and other tools for web software development, but also the opportunity to proactively contribute to creating a positive, proactive and collaborative work culture.',
+      "I'm a software engineer with 3+ years of experience, a lifelong learner, and a language enthusiast currently based in Curitiba, Brazil. I'm looking to partner with people and organizations to carry out worthwhile projects, create good relationships and fight entropy.",
+    education: {
+      text: 'Specializing in React, Next.js, TypeScript, and modern UI development, I’ve contributed to full product lifecycles - from building B2B SaaS platforms from scratch to internationalizing their interfaces and improving system reliability through Atomic Design, Clean Architecture and automated testing with Selenium and Cypress.',
+      highlights: [
+        {
+          text: 'React',
+          style: 'strong',
+          url: 'https://react.dev/',
+        },
+        {
+          text: 'Next.js',
+          style: 'strong',
+          url: 'https://nextjs.org/',
+        },
+        {
+          text: 'TypeScript',
+          style: 'strong',
+          url: 'https://www.typescriptlang.org/',
+        },
+        {
+          text: 'Atomic Design',
+          style: 'normal',
+          url: 'https://atomicdesign.bradfrost.com/chapter-2/',
+        },
+        {
+          text: 'Clean Architecture',
+          style: 'normal',
+          url: 'https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html',
+        },
+        {
+          text: 'Selenium',
+          style: 'normal',
+          url: 'https://www.selenium.dev/',
+        },
+        {
+          text: 'Cypress',
+          style: 'normal',
+          url: 'https://www.cypress.io/',
+        },
+      ],
+    },
+    skills: {
+      text: 'I’m driven by the opportunity to build things that are both technically solid and genuinely useful - solutions that people rely on and enjoy using. I’m at my best when I’m deeply focused on creation with peers that are also engaged in the mission of refining our craft and ourselves.',
+      highlights: [
+        {
+          text: 'technically solid',
+          style: 'normal',
+        },
+        {
+          text: 'genuinely useful',
+          style: 'normal',
+        },
+      ],
+    },
     cta: 'Invite me to a project!',
   },
   jobs: [
     {
+      workplace: 'Pixlog',
+      workplaceBtn: 'Pixlog',
+      position: 'Software Engineer',
+      duration: ['June 2024 - June 2025'],
+      description: [
+        'Spearheaded frontend development for a B2B SaaS web platform integrating data from AR measurements, using React, Next.js, TypeScript, and Tailwind, which resulted in clients quickly integrating the platform to their daily office routine and workflow.',
+        'Built an elegant dashboard with Google Maps, dynamic lists with TanStack Table, state management structures with Zustand and several reusable components, facilitating rapid prototyping of new features and maintenance with automated testing.',
+        "Refactored the platform's PDF generation system, enabling cost savings of thousands of reais per month and increasing the reliability of the company's infrastructure.",
+      ],
+      url: 'https://pixlog.com.br/',
+    },
+    {
       workplace: 'Volunteers for Ukraine',
       workplaceBtn: 'VFU',
-      position: 'Front-end Developer',
-      duration: ['March 2024 - Present'],
+      position: 'Software Engineer',
+      duration: ['March 2024 - July 2024'],
       description: [
-        'Contributing to the development of a web application for project and crisis management to support Ukraine.',
-        'Front-end: React, Next.js, Typescript and TailwindCSS.',
-        'Backend: .NET and Node.js',
+        'Took part on the front-end development of a React web application for a project on crisis management to support Ukraine humanitarian crisis.',
+        'Worked on the UI/UX responsive design and coding of layouts for Projects, Organizations and Volunteers sections.',
+        "Learned Nodejs to contribute to the project's back-end.",
+        'Used Atomic design pattern to create project components and reusable, easy to maintain, code.',
+      ],
+      url: 'https://volunteersforukraine.org/',
+    },
+    {
+      workplace: 'Freelance',
+      workplaceBtn: 'Freelance',
+      position: 'Software Engineer',
+      duration: ['September 2024 - Jul 2024'],
+      description: [
+        'Improved my client’s platform to better convey authority, convert sales, and manage customer information, improving their productivity, experience and profit.',
+        'Designed and implemented layouts so the client could create and deliver their own courses within their platform.',
+        'Assisted with the client’s vision for the evolution of their platform, creating roadmaps to present and implement desired changes in sensible steps.',
+        'Provided insight and helped the customer cut relevant costs monthly by reviewing their tool subscriptions.',
       ],
       url: 'https://volunteersforukraine.org/',
     },
     {
       workplace: 'Spin-off from Hype Empreendimentos',
       workplaceBtn: 'Spin-off',
-      position: 'Front-end Developer',
+      position: 'Front-end Software Engineer',
       duration: ['August 2022 - August 2023'],
       description: [
         'Building highly complex SaaS',
@@ -69,7 +136,7 @@ export default {
     {
       workplace: 'Guarani Sistemas',
       workplaceBtn: 'Guarani Sistemas',
-      position: 'Web Development Intern',
+      position: 'Software Engineering Intern',
       duration: ['May 2021 - November 2021'],
       description: [
         'Training in Vue.js, HTML, CSS and JavaScript.',
@@ -89,7 +156,7 @@ export default {
       description: [
         'Subject: Analytical Geometry and Linear Algebra.',
         'Assistance to students in solving problems and clarifying doubts.',
-        'Preparation of theoretical activities compatible with students’ level of knowledge and experience.',
+        'Preparation of theoretical activities compatible with students´ level of knowledge and experience.',
         'Preparation of complementary teaching material, under the supervision and approval of the teacher-advisor.',
       ],
       url: 'https://www.bambui.ifmg.edu.br/portal/',
