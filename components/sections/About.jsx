@@ -12,14 +12,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as LinkScroll } from 'react-scroll';
 
-import styles from '../../styles/sections/Landing.module.css';
+import landingStyles from '../../styles/sections/Landing.module.css';
 import { colors } from '../../theme';
 import SectionContainer from '../SectionContainer';
 
-const HighlightedText = ({ text, highlights, styles }) => {
-  // Create a copy of the text to modify
-  let result = text;
-  let elements = [];
+const HighlightedText = ({ text, highlights, styleProps }) => {
+  const elements = [];
   let lastIndex = 0;
 
   // Sort highlights by their position in the text to process them in order
@@ -48,7 +46,7 @@ const HighlightedText = ({ text, highlights, styles }) => {
         <Link
           key={`highlight-${idx}`}
           href={highlight.url}
-          style={styles[highlight.style]}
+          style={styleProps[highlight.style]}
           isExternal
         >
           {highlight.text}
@@ -56,7 +54,7 @@ const HighlightedText = ({ text, highlights, styles }) => {
       );
     } else {
       elements.push(
-        <span key={`highlight-${idx}`} style={styles[highlight.style]}>
+        <span key={`highlight-${idx}`} style={styleProps[highlight.style]}>
           {highlight.text}
         </span>
       );
@@ -80,12 +78,12 @@ const HighlightedText = ({ text, highlights, styles }) => {
 const Bio = ({ secondary }) => {
   const normalLinkStyle = { color: secondary };
   const strongLinkStyle = { color: secondary, fontWeight: 'bold' };
-  const styles = { normal: normalLinkStyle, strong: strongLinkStyle };
+  const textStyles = { normal: normalLinkStyle, strong: strongLinkStyle };
 
   const { t } = useTranslation();
 
   return (
-    <GridItem className={styles.grid}>
+    <GridItem className={landingStyles.grid}>
       <VStack
         style={{ textAlign: 'justify' }}
         m="auto"
@@ -106,12 +104,12 @@ const Bio = ({ secondary }) => {
         <HighlightedText
           text={t('about.education.text')}
           highlights={t('about.education.highlights', { returnObjects: true })}
-          styles={styles}
+          styleProps={textStyles}
         />
         <HighlightedText
           text={t('about.skills.text')}
           highlights={t('about.skills.highlights', { returnObjects: true })}
-          styles={styles}
+          styleProps={textStyles}
         />
         <LinkScroll
           to="contact"
@@ -124,7 +122,7 @@ const Bio = ({ secondary }) => {
         >
           <Text
             as="strong"
-            className={`${styles.learn}`}
+            className={`${landingStyles.learn}`}
             _hover={{ cursor: 'pointer', color: secondary }}
           >
             {t('about.cta')}
@@ -136,14 +134,17 @@ const Bio = ({ secondary }) => {
 };
 
 const Headshot = () => (
-  <GridItem className={styles.grid}>
+  <GridItem className={landingStyles.grid}>
     <Image
       m="auto"
       src="/me.jpg"
       alt="Filipe Lehmann"
       zIndex={1}
       className="image"
-      style={{ height: '300px', borderRadius: '20px' }}
+      style={{
+        height: '300px',
+        borderRadius: '20px',
+      }}
       onClick={() => {
         window.open('http://linkedin.com/in/filipe-lehmann-pereira/');
       }}
@@ -170,7 +171,6 @@ export default function About() {
     >
       <SimpleGrid
         pl="10%"
-        // pt="1%"
         pr="10%"
         spacing={12}
         columns={[1, null, 2]}
