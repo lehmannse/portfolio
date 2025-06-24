@@ -89,13 +89,13 @@ const ProjectContent = ({
 const Project = ({ index, shouldAlternate, ...props }) => (
   <Fade>
     <Grid container direction="row">
-      <Grid container item xs={12} sm={6} className="projects-correction">
+      <Grid container item sm={12} md={6} className="projects-correction">
         <ProjectContent
           alternate={shouldAlternate ? index % 2 === 0 : false}
           {...props}
         />
       </Grid>
-      <Grid container item xs={12} sm={6} className="projects-correction">
+      <Grid container item sm={12} md={6} className="projects-correction">
         <ProjectContent
           alternate={shouldAlternate ? index % 2 === 1 : true}
           {...props}
@@ -106,7 +106,7 @@ const Project = ({ index, shouldAlternate, ...props }) => (
 );
 
 export default function ProjectsOverview() {
-  const shouldAlternate = useBreakpointValue({ base: false, md: true });
+  const shouldAlternate = useBreakpointValue({ md: false, lg: true });
 
   const { t } = useTranslation();
 
