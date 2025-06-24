@@ -125,7 +125,15 @@ const ColorModeButton = ({ mr }) => {
 
 const LanguageButton = ({ mr }) => {
   const { i18n } = useTranslation();
-  const resolveLanguage = i18n.resolvedLanguage;
+  const resolveLanguage = i18n.resolvedLanguage || 'en';
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    if (i18n.resolvedLanguage) {
+      setIsLoading(false);
+    }
+  }, [i18n.resolvedLanguage]);
+
   const handleChangeLanguage = (lng) => {
     if (lng === 'pt') {
       i18n.changeLanguage('en');
@@ -133,6 +141,10 @@ const LanguageButton = ({ mr }) => {
       i18n.changeLanguage('pt');
     }
   };
+
+  const flag =
+    !isLoading &&
+    (resolveLanguage === 'pt' ? <BRAFlagIcon /> : <EUAFlagIcon />);
 
   return (
     <Tooltip label="Switch language" aria-label="Switch language">
@@ -144,8 +156,9 @@ const LanguageButton = ({ mr }) => {
         color="current"
         key={resolveLanguage}
         onClick={() => handleChangeLanguage(resolveLanguage)}
-        icon={resolveLanguage === 'pt' ? <BRAFlagIcon /> : <EUAFlagIcon />}
+        icon={flag}
         style={{ marginRight: mr }}
+        isLoading={isLoading}
       />
     </Tooltip>
   );
