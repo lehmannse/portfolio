@@ -16,9 +16,71 @@ import styles from '../../styles/sections/Landing.module.css';
 import { colors } from '../../theme';
 import SectionContainer from '../SectionContainer';
 
+const HighlightedText = ({ text, highlights, styles }) => {
+  // Create a copy of the text to modify
+  let result = text;
+  let elements = [];
+  let lastIndex = 0;
+
+  // Sort highlights by their position in the text to process them in order
+  const sortedHighlights = [...highlights].sort((a, b) => {
+    const indexA = text.indexOf(a.text);
+    const indexB = text.indexOf(b.text);
+    return indexA - indexB;
+  });
+
+  sortedHighlights.forEach((highlight, idx) => {
+    const index = text.indexOf(highlight.text, lastIndex);
+    if (index === -1) return; // Skip if text not found
+
+    // Add text before the highlight
+    if (index > lastIndex) {
+      elements.push(
+        <React.Fragment key={`text-${idx}`}>
+          {text.substring(lastIndex, index)}
+        </React.Fragment>
+      );
+    }
+
+    // Add the highlighted element
+    if (highlight.url) {
+      elements.push(
+        <Link
+          key={`highlight-${idx}`}
+          href={highlight.url}
+          style={styles[highlight.style]}
+          isExternal
+        >
+          {highlight.text}
+        </Link>
+      );
+    } else {
+      elements.push(
+        <span key={`highlight-${idx}`} style={styles[highlight.style]}>
+          {highlight.text}
+        </span>
+      );
+    }
+
+    lastIndex = index + highlight.text.length;
+  });
+
+  // Add any remaining text
+  if (lastIndex < text.length) {
+    elements.push(
+      <React.Fragment key="text-final">
+        {text.substring(lastIndex)}
+      </React.Fragment>
+    );
+  }
+
+  return <Text>{elements}</Text>;
+};
+
 const Bio = ({ secondary }) => {
   const normalLinkStyle = { color: secondary };
   const strongLinkStyle = { color: secondary, fontWeight: 'bold' };
+  const styles = { normal: normalLinkStyle, strong: strongLinkStyle };
 
   const { t } = useTranslation();
 
@@ -41,38 +103,16 @@ const Bio = ({ secondary }) => {
           {t('about.headline')}
         </Text>
         <Text>{t('about.intro')}</Text>
-        <Text>
-          {t('about.resume1')}{' '}
-          <span style={strongLinkStyle}>{t('about.course')}</span>{' '}
-          {t('about.resume2')}{' '}
-          <strong style={normalLinkStyle}>{t('about.job1')}</strong>{' '}
-          {t('about.resume3')}{' '}
-          <strong style={normalLinkStyle}>{t('about.job2')}</strong>{' '}
-          {t('about.resume4')}
-        </Text>
-        <Text>
-          {t('about.resume5')}{' '}
-          <Link href="https://react.dev/" style={strongLinkStyle} isExternal>
-            React
-          </Link>
-          {', '}
-          <Link
-            href="https://www.scrum.org/"
-            style={strongLinkStyle}
-            isExternal
-          >
-            Typescript
-          </Link>
-          {', '}
-          <Link
-            href="https://www.typescriptlang.org/"
-            style={strongLinkStyle}
-            isExternal
-          >
-            Scrum
-          </Link>{' '}
-          {t('about.resume6')}
-        </Text>
+        <HighlightedText
+          text={t('about.education.text')}
+          highlights={t('about.education.highlights', { returnObjects: true })}
+          styles={styles}
+        />
+        <HighlightedText
+          text={t('about.skills.text')}
+          highlights={t('about.skills.highlights', { returnObjects: true })}
+          styles={styles}
+        />
         <LinkScroll
           to="contact"
           spy
