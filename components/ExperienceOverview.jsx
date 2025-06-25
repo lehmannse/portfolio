@@ -109,16 +109,15 @@ export default function ExperienceOverview() {
 
   const borderConfig = () => {
     if (!showSelect) return null;
-    else if (bg === colors.bg.light)
+    if (bg === colors.bg.light)
       return {
         border: '1px solid',
         borderColor: 'gray.200',
       };
-    else
-      return {
-        border: '2px solid',
-        borderColor: 'gray.700',
-      };
+    return {
+      border: '2px solid',
+      borderColor: 'gray.700',
+    };
   };
 
   return (
