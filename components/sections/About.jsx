@@ -173,7 +173,7 @@ export default function About() {
         pl="10%"
         pr="10%"
         spacing={12}
-        columns={[1, null, 2]}
+        columns={[1, 1, 2]}
         justifyContent="center"
       >
         {shouldAlternate ? <Bio secondary={secondary} /> : <Headshot />}

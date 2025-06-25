@@ -10,9 +10,8 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Grid } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import React, { useState } from 'react';
-// import jobs from '../data/jobs';
 import { useTranslation } from 'react-i18next';
 
 import { colors } from '../theme';
@@ -28,26 +27,22 @@ const ExperienceSelect = ({ expIndex, setIndex, jobs }) => (
 );
 
 const ExperienceButtons = ({ expIndex, setIndex, jobs }) => (
-  <Grid
-    container
-    item
-    spacing={2}
-    justifyContent="center"
-    style={{ margin: 'auto' }}
-  >
-    {jobs.map((job, index) => (
-      <Grid container item key={`${job.workplaceBtn}-btn`}>
-        <Button
-          isActive={expIndex === index}
-          isFullWidth
-          flexWrap="wrap"
-          onClick={() => setIndex(index)}
-        >
-          {job.workplaceBtn}
-        </Button>
-      </Grid>
-    ))}
-  </Grid>
+  <Container style={{ padding: '0px' }}>
+    <Grid container spacing={2} justifyContent="center">
+      {jobs.map((job, index) => (
+        <Grid container item key={`${job.workplaceBtn}-btn`}>
+          <Button
+            isActive={expIndex === index}
+            isFullWidth
+            flexWrap="wrap"
+            onClick={() => setIndex(index)}
+          >
+            {job.workplaceBtn}
+          </Button>
+        </Grid>
+      ))}
+    </Grid>
+  </Container>
 );
 
 const ExperienceDetails = ({ index, jobs }) => {
@@ -61,20 +56,20 @@ const ExperienceDetails = ({ index, jobs }) => {
       container
       direction="column"
       style={{
-        width: '100%',
-        maxWidth: '30vw',
-        padding: '12px',
+        // maxWidth: { base: '90vw', sm: '70vw', md: '30vw' },
+        margin: 'auto',
+        padding: { base: '8px', sm: '12px' },
       }}
     >
-      <Grid item width="100%">
-        <Heading as="h1" size="md">
+      <Grid item>
+        <Heading as="h1" size="md" textAlign={{ base: 'center', sm: 'left' }}>
           {job.position} @{' '}
           <Link href={job.url} isExternal color={secondary}>
             {job.workplace}
           </Link>
         </Heading>
       </Grid>
-      <Grid item width="100%">
+      <Grid item textAlign={{ base: 'center', sm: 'left' }}>
         {job.duration.map((duration) => (
           <Text key={duration} mt={2}>
             {duration}
@@ -83,17 +78,12 @@ const ExperienceDetails = ({ index, jobs }) => {
       </Grid>
       <Grid
         item
-        width="100%"
         style={{
-          textAlign: 'justify',
+          textAlign: { base: 'left', sm: 'justify' },
+          paddingX: { base: '4px', sm: '0' },
         }}
       >
-        <UnorderedList
-          mt={2}
-          style={{
-            width: '100%',
-          }}
-        >
+        <UnorderedList mt={2}>
           {job.description.map((desc) => (
             <ListItem key={desc} style={{ wordBreak: 'break-word' }}>
               {desc}
@@ -108,7 +98,7 @@ const ExperienceDetails = ({ index, jobs }) => {
 export default function ExperienceOverview() {
   const [index, setIndex] = useState(0);
   const showSelect = useBreakpointValue({
-    base: false,
+    md: false,
     lg: true,
   });
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
@@ -117,37 +107,50 @@ export default function ExperienceOverview() {
 
   const jobs = t('jobs', { returnObjects: true });
 
+  const borderConfig = () => {
+    if (!showSelect) return null;
+    else if (bg === colors.bg.light)
+      return {
+        border: '1px solid',
+        borderColor: 'gray.200',
+      };
+    else
+      return {
+        border: '2px solid',
+        borderColor: 'gray.700',
+      };
+  };
+
   return (
     <Flex
       as={Grid}
       container
       item
-      direction="row"
+      direction={{ base: 'column', md: 'row' }}
       justifyContent="center"
-      alignItems="flex-start"
-      xs={10}
-      sm={9}
-      md={8}
+      alignItems={{ base: 'center', md: 'flex-start' }}
+      xs={12}
+      sm={11}
+      md={10}
       borderRadius="lg"
-      borderWidth={bg === colors.bg.light ? '1px' : ''}
+      {...borderConfig()}
       rounded="md"
+      spacing={8}
       style={{
-        margin: '24px',
-        marginTop: '3vh',
-        minHeight: '60vh',
-        maxWidth: '60vw',
+        margin: 'auto',
+        maxWidth: { md: '900px', sm: '70vw' },
+        width: { md: '100%', sm: '70%' },
       }}
     >
       <Grid
         container
         direction="column"
         item
-        xs={9}
-        sm={6}
-        md={3}
+        xs={12}
+        sm={12}
+        md={4}
         alignItems="center"
         justifyContent="flex-start"
-        style={{ marginTop: '24px', marginBottom: '24px', marginRight: '3vw' }}
       >
         {showSelect ? (
           <ExperienceButtons expIndex={index} setIndex={setIndex} jobs={jobs} />
@@ -155,18 +158,7 @@ export default function ExperienceOverview() {
           <ExperienceSelect expIndex={index} setIndex={setIndex} jobs={jobs} />
         )}
       </Grid>
-      <Grid
-        container
-        item
-        xs={9}
-        sm={6}
-        style={{
-          marginTop: '24px',
-          marginBottom: '24px',
-          marginLeft: '12px',
-          paddingBottom: '12px',
-        }}
-      >
+      <Grid container item xs={12} sm={12} md={8}>
         <ExperienceDetails index={index} jobs={jobs} />
       </Grid>
     </Flex>

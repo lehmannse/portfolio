@@ -14,6 +14,7 @@ export default function MoreProjects() {
       headerText={
         i18n.resolvedLanguage === 'pt' ? 'Mais Projetos' : 'More Projects'
       }
+      headerMt="20%"
       useHeaderStyle
     >
       <MoreProjectsGrid />
