@@ -28,12 +28,12 @@ import EUAFlagIcon from './icons/EUAFlagIcon';
 const Logo = () => {
   const logo = useColorModeValue('/logo.png', '/logo-dark.png');
   return (
-    <Box m="2" cursor="pointer">
+    <Box m="4" cursor="pointer">
       <img
         alt=""
         src={logo}
-        width="60"
-        height="60"
+        width={46}
+        height={46}
         onClick={scroll.scrollToTop}
       />
     </Box>
