@@ -18,19 +18,33 @@ import Tech from './Tech';
 
 const Card = ({ name, subtitle, description, links }) => {
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
+  const shadowColor = useColorModeValue(
+    'rgba(0, 0, 0, 0.1)',
+    'rgba(59, 130, 246, 0.15)'
+  );
+  const hoverShadowColor = useColorModeValue(
+    'rgba(0, 0, 0, 0.15)',
+    'rgba(59, 130, 246, 0.25)'
+  );
 
   return (
     <Box
       bgColor={bg}
       borderRadius="lg"
       borderWidth={bg === colors.bg.light ? '1px' : ''}
+      borderColor={useColorModeValue('gray.200', 'gray.700')}
       rounded="md"
-      shadow="lg"
+      shadow={`0 10px 30px ${shadowColor}`}
       mt={20}
       m="auto"
       mb={3}
       w="75%"
       textAlign="start"
+      transition="all 0.3s ease"
+      _hover={{
+        transform: 'translateY(-6px)',
+        shadow: `0 20px 40px ${hoverShadowColor}`,
+      }}
     >
       <Heading as="h1" size="lg" m={2} p={2} pt={6}>
         {name}

@@ -63,6 +63,15 @@ const ProjectCard = ({ name, description, links, tech }) => {
     colors.secondary.dark
   );
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
+  const shadowColor = useColorModeValue(
+    'rgba(0, 0, 0, 0.1)',
+    'rgba(59, 130, 246, 0.15)'
+  );
+  const hoverShadowColor = useColorModeValue(
+    'rgba(0, 0, 0, 0.15)',
+    'rgba(59, 130, 246, 0.25)'
+  );
+
   return (
     <Box
       as={Grid}
@@ -74,10 +83,16 @@ const ProjectCard = ({ name, description, links, tech }) => {
       bgColor={bg}
       borderRadius="lg"
       borderWidth={bg === colors.bg.light ? '1px' : ''}
+      borderColor={useColorModeValue('gray.200', 'gray.700')}
       direction="column"
       rounded="md"
-      shadow="lg"
+      shadow={`0 8px 25px ${shadowColor}`}
       textAlign="start"
+      transition="all 0.3s ease"
+      _hover={{
+        transform: 'translateY(-4px)',
+        shadow: `0 15px 35px ${hoverShadowColor}`,
+      }}
       style={{ margin: '24px' }}
     >
       <Grid container item direction="row">

@@ -105,6 +105,14 @@ export default function ExperienceOverview() {
     lg: true,
   });
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
+  const shadowColor = useColorModeValue(
+    'rgba(0, 0, 0, 0.08)',
+    'rgba(59, 130, 246, 0.12)'
+  );
+  const hoverShadowColor = useColorModeValue(
+    'rgba(0, 0, 0, 0.12)',
+    'rgba(59, 130, 246, 0.2)'
+  );
 
   const { t } = useTranslation();
 
@@ -125,9 +133,10 @@ export default function ExperienceOverview() {
 
   return (
     <Container
+      maxWidth={false}
       style={{
         padding: 0,
-        // maxWidth: { sm: '70%', md: '900px' },
+        maxWidth: { sm: '70%', md: '900px' },
         margin: 'auto',
       }}
     >
@@ -145,6 +154,11 @@ export default function ExperienceOverview() {
         {...borderConfig()}
         rounded="md"
         spacing={8}
+        shadow={`0 12px 40px ${shadowColor}`}
+        transition="all 0.3s ease"
+        _hover={{
+          shadow: `0 20px 50px ${hoverShadowColor}`,
+        }}
         style={{
           margin: 'auto',
           width: '100%',
