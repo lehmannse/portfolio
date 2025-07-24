@@ -9,7 +9,6 @@ import {
   DrawerOverlay,
   IconButton,
   Link,
-  Spacer,
   Stack,
   Tooltip,
   useColorMode,
@@ -17,7 +16,6 @@ import {
   useDisclosure,
   Container,
   HStack,
-  Text,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -30,10 +28,6 @@ import EUAFlagIcon from './icons/EUAFlagIcon';
 
 const Logo = () => {
   const logo = useColorModeValue('/logo.png', '/logo-dark.png');
-  const shadowColor = useColorModeValue(
-    'rgba(0, 0, 0, 0.1)',
-    'rgba(59, 130, 246, 0.15)'
-  );
 
   return (
     <Box m="4">
