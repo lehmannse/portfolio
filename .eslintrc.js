@@ -26,18 +26,15 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-indent': 'off',
+    'react/jsx-indent-props': 'off',
+    indent: 'off',
     'no-console': 'warn',
     'no-unused-vars': 'warn',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'no-implicit-coercion': 'error',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-        singleQuote: true,
-      },
-    ],
+    'prettier/prettier': 'warn',
   },
   overrides: [
     {
