@@ -94,7 +94,7 @@ const ProjectContent = ({
       className="image"
       maxHeight="90%"
       onClick={() => {
-        links[0].url ? window.open(links[0].url) : window.open(links[1].url);
+        window.open(links[0].url || links[1].url);
       }}
     />
   );
