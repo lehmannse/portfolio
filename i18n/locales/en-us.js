@@ -193,7 +193,7 @@ export default {
         {
           label: 'Website',
           icon: 'link',
-          url: 'https://speechtotextproject.netlify.app/',
+          url: 'https://speech-recognition.filipelehmannp.workers.dev/',
         },
         {
           label: 'Github',
@@ -212,7 +212,7 @@ export default {
         {
           label: 'Website',
           icon: 'link',
-          url: 'https://desafio-acme-flp.netlify.app/',
+          url: 'https://desafio-acme-hype.filipelehmannp.workers.dev/',
         },
         {
           label: 'Github',

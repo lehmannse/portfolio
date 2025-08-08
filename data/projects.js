@@ -29,7 +29,7 @@ const projects = [
       {
         label: 'Website',
         icon: 'link',
-        url: 'https://desafio-acme-flp.netlify.app/',
+        url: 'https://desafio-acme-hype.filipelehmannp.workers.dev/',
       },
       {
         label: 'Github',
