@@ -174,6 +174,7 @@ export default {
         {
           label: 'Website',
           icon: 'link',
+          url: 'https://duolingo-clone-lehmannpi.vercel.app/',
         },
         {
           label: 'Github',
