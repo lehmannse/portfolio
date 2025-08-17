@@ -133,7 +133,7 @@ export default function ExperienceOverview() {
 
   return (
     <Container
-      maxWidth={'lg'}
+      maxWidth="lg"
       style={{
         padding: 0,
         maxWidth: { sm: '70%', md: '900px' },

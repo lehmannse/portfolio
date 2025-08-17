@@ -1,9 +1,8 @@
 import '../styles/globals.css';
 
-import { ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider, useColorModeValue } from '@chakra-ui/react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-// import Script from "next/script";
 import React from 'react';
 
 import Footer from '../components/Footer';
@@ -37,8 +36,6 @@ const SiteHead = ({ title }) => (
   </Head>
 );
 
-import { Box, useColorModeValue } from '@chakra-ui/react';
-
 const PageWrapper = ({ children, title }) => {
   // Gradient backgrounds for light and dark mode (same as Landing.jsx)
   const gradientBgTop = useColorModeValue(
@@ -60,7 +57,7 @@ const PageWrapper = ({ children, title }) => {
         justifyContent="flex-end"
         bg={gradientBgTop}
         transition="background 0.5s"
-        position={'absolute'}
+        position="absolute"
         top={0}
         zIndex={-1}
       />
@@ -72,7 +69,7 @@ const PageWrapper = ({ children, title }) => {
         justifyContent="flex-end"
         bg={gradientBgBottom}
         transition="background 0.5s"
-        position={'absolute'}
+        position="absolute"
         bottom={0}
         zIndex={-1}
       />
