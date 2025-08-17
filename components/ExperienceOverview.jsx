@@ -133,7 +133,7 @@ export default function ExperienceOverview() {
 
   return (
     <Container
-      maxWidth={false}
+      maxWidth={'lg'}
       style={{
         padding: 0,
         maxWidth: { sm: '70%', md: '900px' },
@@ -147,8 +147,7 @@ export default function ExperienceOverview() {
         direction={{ base: 'column', md: 'row' }}
         justifyContent="center"
         alignItems={{ base: 'center', md: 'flex-start' }}
-        xs={12}
-        sm={11}
+        xs={9}
         md={10}
         borderRadius="lg"
         {...borderConfig()}
