@@ -37,14 +37,53 @@ const SiteHead = ({ title }) => (
   </Head>
 );
 
-const PageWrapper = ({ children, title }) => (
-  <div className="container">
-    <SiteHead title={title} />
-    <NavBar />
-    <main className="main">{children}</main>
-    <Footer />
-  </div>
-);
+import { Box, useColorModeValue } from '@chakra-ui/react';
+
+const PageWrapper = ({ children, title }) => {
+  // Gradient backgrounds for light and dark mode (same as Landing.jsx)
+  const gradientBgTop = useColorModeValue(
+    `linear-gradient(0deg, #fff 10%, rgb(186 230 253 / 0.8) 100%)`, // light
+    'linear-gradient(0deg, #1a202c 0%, #2a4365 100%)' // dark
+  );
+  const gradientBgBottom = useColorModeValue(
+    'linear-gradient(180deg, #fff 10%, rgb(186 230 253 / 0.8) 100%)', // light
+    'linear-gradient(180deg, #1a202c 0%, #2a4365 100%)' // dark
+  );
+
+  return (
+    <div className="container relative">
+      <Box
+        minH="100vh"
+        w="100%"
+        display="flex"
+        flexDirection="column"
+        justifyContent="flex-end"
+        bg={gradientBgTop}
+        transition="background 0.5s"
+        position={'absolute'}
+        top={0}
+        zIndex={-1}
+      />
+      <Box
+        minH="100vh"
+        w="100%"
+        display="flex"
+        flexDirection="column"
+        justifyContent="flex-end"
+        bg={gradientBgBottom}
+        transition="background 0.5s"
+        position={'absolute'}
+        bottom={0}
+        zIndex={-1}
+      />
+      <SiteHead title={title} />
+      <NavBar />
+
+      <main className="main">{children}</main>
+      <Footer />
+    </div>
+  );
+};
 
 function App({ Component, pageProps }) {
   const { pathname } = useRouter();

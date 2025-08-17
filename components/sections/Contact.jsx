@@ -17,6 +17,7 @@ export default function Contact() {
       headerText={
         i18n.resolvedLanguage === 'pt' ? 'Entre em Contato' : 'Contact Me'
       }
+      style={{ paddingTop: '45px', minHeight: '75vh' }}
       useHeaderStyle
     >
       <Flex
