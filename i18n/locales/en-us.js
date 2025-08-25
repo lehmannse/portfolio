@@ -169,6 +169,7 @@ export default {
         'Lingo is a project of a language learning SaaS, similar to Duolingo. Users will be able to choose a language course, and have guided lessons with beautiful design, characters, audio & visual effects.',
       subtitle: '(Under development)',
       pic: '/lingo.png',
+      picDark: '/lingo-dark.png',
       tech: ['React', 'Typescript', 'Next.js', 'Shadcn/UI'],
       links: [
         {

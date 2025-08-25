@@ -66,9 +66,11 @@ const ProjectContent = ({
   subtitle,
   description,
   pic,
+  picDark,
   tech,
   links,
 }) => {
+  const src = useColorModeValue(pic, picDark ?? pic);
   if (alternate) {
     return (
       <>
@@ -89,7 +91,7 @@ const ProjectContent = ({
       m="auto"
       p="auto"
       // w="85%"
-      src={pic}
+      src={src}
       alt={`${name} picture`}
       className="image"
       maxHeight="90%"
