@@ -143,7 +143,7 @@ const Headshot = () => (
       className="image"
       style={{
         height: '300px',
-        borderRadius: '20px',
+        borderRadius: '100%',
       }}
       onClick={() => {
         window.open('http://linkedin.com/in/filipe-lehmann-pereira/');
