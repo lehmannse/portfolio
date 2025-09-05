@@ -1,3 +1,15 @@
+:root {
+  --bg: #080b12;
+  --text: #cfb3e6;
+  --border-grd1: #6c6499;
+  --border-grd2: #111222;
+  --card-grd1: #1f193d;
+  --card-grd2: #05060d;
+  --radial-center: rgba(173, 155, 255, 0.3);
+  --radial-edge: rgba(11, 12, 22, 0.3);
+  --shadow: rgba(173, 155, 255, 0.5);
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -14,6 +26,16 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.navbar {
+  width: 75%;
+  border-radius: 13px;
+}
+
+.inside-sticky {
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 770px) {

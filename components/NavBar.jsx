@@ -25,6 +25,7 @@ import Sticky from 'react-stickynode';
 import { colors } from '../theme';
 import BRAFlagIcon from './icons/BRAFlagIcon';
 import EUAFlagIcon from './icons/EUAFlagIcon';
+import { transform } from 'async';
 
 const Logo = () => {
   const logo = useColorModeValue('/logo.png', '/logo-dark.png');
@@ -34,8 +35,8 @@ const Logo = () => {
       <img
         alt="Portfolio Logo"
         src={logo}
-        width={50}
-        height={50}
+        width={30}
+        height={30}
         onClick={scroll.scrollToTop}
       />
     </Box>
@@ -247,7 +248,10 @@ const NavMenu = ({ isOpen, onClose }) => (
 );
 
 export default function Navbar() {
-  const primary = useColorModeValue(colors.primary.light, colors.primary.dark);
+  const primary = useColorModeValue(
+    colors.primary07.light,
+    colors.primary07.dark
+  );
   const shadowColor = useColorModeValue(
     'rgba(0, 0, 0, 0.08)',
     'rgba(59, 130, 246, 0.12)'
@@ -255,15 +259,15 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Sticky enabled innerZ={99}>
+    <Sticky enabled innerZ={99} top={24} innerClass="inside-sticky">
       <Box
+        className="navbar"
         as="header"
-        w="100%"
         bg={primary}
         boxShadow={`0 4px 20px ${shadowColor}`}
         borderBottom="1px solid"
         borderColor={useColorModeValue('gray.200', 'gray.700')}
-        backdropFilter="blur(10px)"
+        backdropFilter="blur(13px)"
         position="relative"
         zIndex={99}
       >
