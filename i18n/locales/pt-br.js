@@ -272,6 +272,7 @@ export default {
         },
       ],
     },
+
     {
       name: 'IP Adress Tracker',
       description:
@@ -347,4 +348,9 @@ export default {
   contact:
     'Seja uma oportunidade de trabalho, sugestões ou feedback, seu contato será bem vindo!',
   footer: 'Voltar ao topo!',
+  extraProjectsBtn: {
+    show: 'Mostrar',
+    more: 'mais',
+    less: 'menos',
+  },
 };

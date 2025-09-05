@@ -347,4 +347,9 @@ export default {
   contact:
     "Whether it's a job opportunity, an invite to coffee, or feedback on my portfolio, my inbox is open!",
   footer: 'Scroll to the top!',
+  extraProjectsBtn: {
+    show: 'Show',
+    more: 'more',
+    less: 'less',
+  },
 };

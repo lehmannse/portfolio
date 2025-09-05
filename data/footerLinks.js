@@ -10,7 +10,7 @@ const links = [
     url: 'https://www.linkedin.com/in/filipe-lehmann-pereira/',
   },
   {
-    label: 'Currículo',
+    label: 'CV',
     icon: 'document',
     url: '/resume.pdf',
   },

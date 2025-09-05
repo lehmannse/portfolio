@@ -180,6 +180,7 @@ export default function MoreProjectsGrid() {
   const { t } = useTranslation();
 
   const extraProjects = t('extraProjects', { returnObjects: true });
+  const expandedButton = t('extraProjectsBtn', { returnObjects: true });
 
   const projects = isExpanded ? extraProjects : extraProjects.slice(0, 3);
 
@@ -208,7 +209,9 @@ export default function MoreProjectsGrid() {
           leftIcon={isExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          {`Mostrar ${isExpanded ? 'Menos' : 'Mais'}`}
+          {`${expandedButton.show} ${
+            isExpanded ? expandedButton.less : expandedButton.more
+          }`}
         </Button>
       </Flex>
     </>
