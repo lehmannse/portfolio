@@ -1,16 +1,13 @@
 import {
   Button,
-  ColorModeContext,
   Flex,
   Heading,
-  LightMode,
   Link,
   ListItem,
   Select,
   Text,
   UnorderedList,
   useBreakpointValue,
-  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Container, Grid } from '@material-ui/core';
@@ -110,7 +107,6 @@ export default function ExperienceOverview() {
     lg: true,
   });
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
-  const { colorMode } = useColorMode();
   const shadowColor = useColorModeValue(
     'rgba(0, 0, 0, 0.08)',
     'rgba(59, 130, 246, 0.12)'

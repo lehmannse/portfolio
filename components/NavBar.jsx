@@ -17,7 +17,7 @@ import {
   Container,
   HStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
@@ -25,7 +25,6 @@ import Sticky from 'react-stickynode';
 import { colors } from '../theme';
 import BRAFlagIcon from './icons/BRAFlagIcon';
 import EUAFlagIcon from './icons/EUAFlagIcon';
-import { transform } from 'async';
 
 const Logo = () => {
   const logo = useColorModeValue('/logo.png', '/logo-dark.png');
@@ -258,33 +257,75 @@ export default function Navbar() {
   );
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const [scrollProgress, setScrollProgress] = useState(0); // 0 to 1: how close to bottom
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    const { scrollY } = window;
+    const { scrollHeight, clientHeight } = document.documentElement;
+
+    // Calculate how close we are to the bottom (0 = not close, 1 = at bottom)
+    const maxScroll = scrollHeight - clientHeight;
+
+    // Start fading out when within 300px of bottom
+    const bottomThreshold = 300;
+    const distanceFromBottom = maxScroll - scrollY;
+
+    let progress = 0;
+    if (distanceFromBottom < bottomThreshold) {
+      progress = 1 - distanceFromBottom / bottomThreshold;
+    }
+
+    setScrollProgress(progress);
+    setLastScrollY(scrollY);
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
+
+  const border = useColorModeValue('gray.200', 'gray.700');
+
   return (
-    <Sticky enabled innerZ={99} top={24} innerClass="inside-sticky">
-      <Box
-        className="navbar"
-        as="header"
-        bg={primary}
-        boxShadow={`0 4px 20px ${shadowColor}`}
-        borderBottom="1px solid"
-        borderColor={useColorModeValue('gray.200', 'gray.700')}
-        backdropFilter="blur(13px)"
-        position="relative"
-        zIndex={99}
-      >
-        <Container maxW="container.xl" px={4}>
-          <HStack
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-            py={2}
+    <Sticky enabled innerZ={99} top={18} innerClass="inside-sticky">
+      {({ style }) => {
+        const translateY = -148 * scrollProgress; // Moves from 0 to -100%
+
+        return (
+          <Box
+            className="navbar"
+            as="header"
+            bg={primary}
+            boxShadow={`0 4px 20px ${shadowColor}`}
+            borderBottom="1px solid"
+            borderColor={border}
+            backdropFilter="blur(13px)"
+            position="relative"
+            zIndex={99}
+            transform={`translateY(${translateY}%)`}
+            transition="transform 0.3s ease-in-out"
+            style={{ ...style }}
           >
-            <Logo />
-            <MenuLinks onClose={onClose} />
-            <NavMenu isOpen={isOpen} onClose={onClose} />
-            <MenuToggle isOpen={isOpen} onOpen={onOpen} />
-          </HStack>
-        </Container>
-      </Box>
+            <Container maxW="container.xl" px={4}>
+              <HStack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
+                // py={2}
+              >
+                <Logo />
+                <MenuLinks onClose={onClose} />
+                <NavMenu isOpen={isOpen} onClose={onClose} />
+                <MenuToggle isOpen={isOpen} onOpen={onOpen} />
+              </HStack>
+            </Container>
+          </Box>
+        );
+      }}
     </Sticky>
   );
 }
