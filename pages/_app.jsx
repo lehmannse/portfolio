@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import Footer from '../components/Footer';
+import FractalFilterDefs from '../components/FractalFilterDefs';
 import NavBar from '../components/NavBar';
 import theme from '../theme';
 
@@ -48,7 +49,7 @@ const PageWrapper = ({ children, title }) => {
   );
 
   return (
-    <div className="container relative">
+    <div className="relative container relative">
       <Box
         minH="100vh"
         w="100%"
@@ -93,6 +94,7 @@ function App({ Component, pageProps }) {
     <ChakraProvider theme={theme}>
       <PageWrapper title={pathToTitle[pathname]}>
         <Component {...pageProps} />
+        <FractalFilterDefs />
       </PageWrapper>
     </ChakraProvider>
   );
