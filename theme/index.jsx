@@ -10,6 +10,14 @@ export const colors = {
     light: '#F7F8FA',
     dark: '#252934',
   },
+  primary07: {
+    light: '#F7F8FAB3',
+    dark: '#252934B3',
+  },
+  primary05: {
+    light: '#F7F8FA80',
+    dark: '#25293480',
+  },
   secondary: {
     light: '#1ca7d0',
     dark: '#90cdf4',

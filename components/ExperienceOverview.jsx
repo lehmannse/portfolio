@@ -1,19 +1,23 @@
 import {
   Button,
+  ColorModeContext,
   Flex,
   Heading,
+  LightMode,
   Link,
   ListItem,
   Select,
   Text,
   UnorderedList,
   useBreakpointValue,
+  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Container, Grid } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import styles from '../styles/components/ExperienceOverview.module.css';
 import { colors } from '../theme';
 
 const ExperienceSelect = ({ expIndex, setIndex, jobs }) => (
@@ -36,6 +40,7 @@ const ExperienceButtons = ({ expIndex, setIndex, jobs }) => (
             isFullWidth
             flexWrap="wrap"
             onClick={() => setIndex(index)}
+            style={{ zIndex: 2 }}
           >
             {job.workplaceBtn}
           </Button>
@@ -105,6 +110,7 @@ export default function ExperienceOverview() {
     lg: true,
   });
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
+  const { colorMode } = useColorMode();
   const shadowColor = useColorModeValue(
     'rgba(0, 0, 0, 0.08)',
     'rgba(59, 130, 246, 0.12)'
@@ -138,10 +144,12 @@ export default function ExperienceOverview() {
         padding: 0,
         maxWidth: { sm: '70%', md: '900px' },
         margin: 'auto',
+        position: 'relative',
       }}
     >
       <Flex
         as={Grid}
+        className={styles.card}
         container
         item
         direction={{ base: 'column', md: 'row' }}
@@ -161,8 +169,15 @@ export default function ExperienceOverview() {
         style={{
           margin: 'auto',
           width: '100%',
+          position: 'relative',
         }}
       >
+        {/* new layers */}
+        <div className={styles.backdrop} />
+        <div className={styles.filter} />
+        <div className={styles.shadow} />
+
+        {/* content */}
         <Grid
           container
           direction="column"
@@ -172,6 +187,7 @@ export default function ExperienceOverview() {
           md={4}
           alignItems="center"
           justifyContent="flex-start"
+          style={{ position: 'relative', zIndex: 1 }}
         >
           {showSelect ? (
             <ExperienceButtons
@@ -187,7 +203,16 @@ export default function ExperienceOverview() {
             />
           )}
         </Grid>
-        <Grid container item xs={12} sm={12} md={8} maxWidth="680px">
+
+        <Grid
+          container
+          item
+          xs={12}
+          sm={12}
+          md={8}
+          maxWidth="680px"
+          style={{ position: 'relative', zIndex: 1 }}
+        >
           <ExperienceDetails index={index} jobs={jobs} />
         </Grid>
       </Flex>
