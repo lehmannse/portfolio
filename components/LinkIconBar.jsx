@@ -33,7 +33,7 @@ const LinkIcon = ({ index, color, onHoverColor, url, label, icon }) => (
     <div style={{ cursor: !url ? 'not-allowed' : 'pointer' }}>
       <Link
         aria-label={`Open link to ${url}`}
-        display="inline-block"
+        display="flex"
         href={url}
         disabled={!url}
         _disabled={{
@@ -42,6 +42,7 @@ const LinkIcon = ({ index, color, onHoverColor, url, label, icon }) => (
           pointerEvents: 'none',
         }}
         isExternal
+        alignItems="center"
       >
         <Icon
           as={icons[icon]}
@@ -62,12 +63,11 @@ const LinkIconBar = ({ links, color, onHoverColor, ...props }) => {
     useColorModeValue(colors.secondary.light, colors.secondary.dark);
   return (
     <Stack
-      mt={4}
       direction="row"
       spacing="22px"
       justify="center"
-      mb={10}
       transform="scale(1.2)"
+      alignItems="center"
       {...props}
     >
       {links.map((link, index) => (
