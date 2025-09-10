@@ -1,5 +1,5 @@
 // import { EmailIcon } from "@chakra-ui/icons";
-import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 

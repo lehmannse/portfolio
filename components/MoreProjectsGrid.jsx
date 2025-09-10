@@ -24,7 +24,7 @@ import { useTranslation } from 'react-i18next';
 import { BsGridFill } from 'react-icons/bs';
 import { FaListUl } from 'react-icons/fa';
 import { HiCode } from 'react-icons/hi';
-import Fade from 'react-reveal/Fade';
+import { motion } from 'framer-motion';
 
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
@@ -148,7 +148,11 @@ const ProjectRow = ({ name, type, description, tech, links }) => (
 );
 
 const ProjectTable = ({ projs }) => (
-  <Fade>
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: 'easeOut' }}
+  >
     <div style={{ overflowX: 'auto' }}>
       <Table size="md" w="100%">
         <Thead>
@@ -167,7 +171,7 @@ const ProjectTable = ({ projs }) => (
         </Tbody>
       </Table>
     </div>
-  </Fade>
+  </motion.div>
 );
 
 export default function MoreProjectsGrid() {
@@ -182,7 +186,11 @@ export default function MoreProjectsGrid() {
   const projects = isExpanded ? extraProjects : extraProjects.slice(0, 3);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
       <Flex justifyContent="flex-end" pl="15%" pr="15%" w="100vw">
         <DisplayBar
           showGridView={showGridView}
@@ -213,6 +221,6 @@ export default function MoreProjectsGrid() {
           }`}
         </Button>
       </Flex>
-    </>
+    </motion.div>
   );
 }

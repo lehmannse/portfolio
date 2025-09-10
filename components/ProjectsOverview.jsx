@@ -1,5 +1,4 @@
 import {
-  Box,
   Flex,
   Grid,
   GridItem,
@@ -11,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Fade from 'react-reveal/Fade';
+import { motion } from 'framer-motion';
 
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
@@ -75,7 +74,11 @@ const ProjectContent = ({
   const src = useColorModeValue(pic, picDark ?? pic);
   if (alternate) {
     return (
-      <>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
         <Card
           name={name}
           subtitle={subtitle}
@@ -85,7 +88,7 @@ const ProjectContent = ({
         <Flex mt={2} gap={2} justifyContent="center">
           <Tech tech={tech} />
         </Flex>
-      </>
+      </motion.div>
     );
   }
   return (
@@ -105,22 +108,20 @@ const ProjectContent = ({
 };
 
 const Project = ({ index, shouldAlternate, ...props }) => (
-  <Fade>
-    <Grid templateColumns="repeat(2, 1fr)">
-      <GridItem colSpan={{ base: 2, md: 1 }} h={'full'} alignContent={'center'}>
-        <ProjectContent
-          alternate={shouldAlternate ? index % 2 === 0 : false}
-          {...props}
-        />
-      </GridItem>
-      <GridItem colSpan={{ base: 2, md: 1 }} h={'full'} alignContent={'center'}>
-        <ProjectContent
-          alternate={shouldAlternate ? index % 2 === 1 : true}
-          {...props}
-        />
-      </GridItem>
-    </Grid>
-  </Fade>
+  <Grid templateColumns="repeat(2, 1fr)">
+    <GridItem colSpan={{ base: 2, md: 1 }} h={'full'} alignContent={'center'}>
+      <ProjectContent
+        alternate={shouldAlternate ? index % 2 === 0 : false}
+        {...props}
+      />
+    </GridItem>
+    <GridItem colSpan={{ base: 2, md: 1 }} h={'full'} alignContent={'center'}>
+      <ProjectContent
+        alternate={shouldAlternate ? index % 2 === 1 : true}
+        {...props}
+      />
+    </GridItem>
+  </Grid>
 );
 
 export default function ProjectsOverview() {
