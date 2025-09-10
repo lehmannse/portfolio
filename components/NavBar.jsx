@@ -21,7 +21,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
-import Sticky from 'react-stickynode';
 import { colors } from '../theme';
 import BRAFlagIcon from './icons/BRAFlagIcon';
 import EUAFlagIcon from './icons/EUAFlagIcon';
@@ -47,7 +46,7 @@ const MenuToggle = ({ isOpen, onOpen }) => {
   const hoverBg = useColorModeValue('gray.200', 'gray.600');
 
   return (
-    <Box display={{ base: 'block', md: 'none' }} pr={4}>
+    <Box display={{ base: 'block', md: 'none' }}>
       <Button
         onClick={onOpen}
         bg={bg}
@@ -283,72 +282,70 @@ export default function Navbar() {
   const [scrollProgress, setScrollProgress] = useState(0); // 0 to 1: how close to bottom
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // const controls = useAnimation();
+
   const handleScroll = useCallback(() => {
     const { scrollY } = window;
     const { scrollHeight, clientHeight } = document.documentElement;
-
-    // Calculate how close we are to the bottom (0 = not close, 1 = at bottom)
     const maxScroll = scrollHeight - clientHeight;
-
-    // Start fading out when within 300px of bottom
     const bottomThreshold = 300;
     const distanceFromBottom = maxScroll - scrollY;
-
     let progress = 0;
     if (distanceFromBottom < bottomThreshold) {
       progress = 1 - distanceFromBottom / bottomThreshold;
     }
-
     setScrollProgress(progress);
     setLastScrollY(scrollY);
   }, [lastScrollY]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [handleScroll]);
 
   const border = useColorModeValue('gray.200', 'gray.700');
+  const translateScroll = -148 * scrollProgress;
 
   return (
-    <Sticky enabled innerZ={99} top={18} innerClass="inside-sticky">
-      {({ style }) => {
-        const translateY = -148 * scrollProgress; // Moves from 0 to -100%
-
-        return (
-          <Box
-            className="navbar"
-            as="header"
-            bg={primary}
-            boxShadow={`0 4px 20px ${shadowColor}`}
-            borderBottom="1px solid"
-            borderColor={border}
-            backdropFilter="blur(13px)"
-            position="relative"
-            zIndex={99}
-            transform={`translateY(${translateY}%)`}
-            transition="transform 0.3s ease-in-out"
-            style={{ ...style }}
-          >
-            <Container maxW="container.xl" px={4}>
-              <HStack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-                // py={2}
-              >
-                <Logo />
-                <MenuLinks onClose={onClose} />
-                <NavMenu isOpen={isOpen} onClose={onClose} />
-                <MenuToggle isOpen={isOpen} onOpen={onOpen} />
-              </HStack>
-            </Container>
-          </Box>
-        );
+    <div
+      style={{
+        position: 'fixed',
+        top: 18,
+        left: 0,
+        right: 0,
+        zIndex: 99,
+        display: 'flex',
+        justifyContent: 'center',
+        width: '100vw',
+        boxSizing: 'border-box',
+        transform: `translateY(${translateScroll}%)`,
       }}
-    </Sticky>
+    >
+      <Box
+        className="navbar"
+        as="header"
+        bg={primary}
+        boxShadow={`0 4px 20px ${shadowColor}`}
+        borderBottom="1px solid"
+        borderColor={border}
+        backdropFilter="blur(13px)"
+        zIndex={99}
+      >
+        <Container maxW="container.xl">
+          <HStack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Logo />
+            <MenuLinks onClose={onClose} />
+            <NavMenu isOpen={isOpen} onClose={onClose} />
+            <MenuToggle isOpen={isOpen} onOpen={onOpen} />
+          </HStack>
+        </Container>
+      </Box>
+    </div>
   );
 }

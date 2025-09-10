@@ -9,11 +9,18 @@ import Experience from '../components/sections/Experience';
 import Landing from '../components/sections/Landing';
 import MoreProjects from '../components/sections/MoreProjects';
 import Projects from '../components/sections/Projects';
-import styles from '../styles/Home.module.css';
+// import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
+      {/* <div className={styles.container}> */}
       <Landing />
       <About />
       <Experience />

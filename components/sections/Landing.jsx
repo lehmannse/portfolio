@@ -27,7 +27,7 @@ export default function Landing() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      <h1 className={styles.tagline} style={{ color: primary }}>
+      <h1 style={{ color: primary }}>
         {t('landing.intro')}{' '}
         <strong style={{ color: secondary }}>{t('landing.job')}</strong>
       </h1>
@@ -35,49 +35,35 @@ export default function Landing() {
   );
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
-      style={{
-        position: 'relative',
-        // bottom: '2rem',
-        // left: '50%',
-        // transform: 'translateX(-50%)',
-        // textAlign: 'center',
-        width: '100%',
-      }}
+    <SectionContainer
+      id="landing"
+      name="landing"
+      headerText={header}
+      style={{ height: '100vh' }}
     >
-      <SectionContainer
-        id="landing"
-        name="landing"
-        headerText={header}
-        style={{ height: 'calc(100vh-63px)' }}
+      {/* bottom bar */}
+      <Flex
+        gap={4}
+        flexDir="column"
+        style={{
+          position: 'absolute',
+          bottom: '2rem',
+          // left: '50%',
+          // transform: 'translateX(-50%)',
+          textAlign: 'center',
+          width: '100%',
+        }}
       >
-        {/* bottom bar */}
-        <Flex
-          gap={4}
-          flexDir="column"
-          style={{
-            position: 'absolute',
-            bottom: '2rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            textAlign: 'center',
-            width: '100%',
-          }}
-        >
-          <LinkIconBar links={links} />
-          <Link activeClass="active" to="about" spy smooth>
-            <Text as="strong" _hover={{ color: secondary, cursor: 'pointer' }}>
-              {t('landing.more')}
-            </Text>
-            <VStack mt={2}>
-              <BsChevronDown />
-            </VStack>
-          </Link>
-        </Flex>
-      </SectionContainer>
-    </motion.div>
+        <LinkIconBar links={links} />
+        <Link activeClass="active" to="about" spy smooth>
+          <Text as="strong" _hover={{ color: secondary, cursor: 'pointer' }}>
+            {t('landing.more')}
+          </Text>
+          <VStack mt={2}>
+            <BsChevronDown />
+          </VStack>
+        </Link>
+      </Flex>
+    </SectionContainer>
   );
 }
