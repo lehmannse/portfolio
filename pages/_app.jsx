@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 
 import { Box, ChakraProvider, useColorModeValue } from '@chakra-ui/react';
+import Lenis from '@studio-freight/lenis';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -13,7 +14,7 @@ import theme from '../theme';
 const SiteHead = ({ title }) => (
   <Head>
     <title>{title}</title>
-    <meta name="title" content="Filipe Lehmann - Front End Developer" />
+    <meta name="title" content="Filipe Lehmann - Software Engineer" />
     <meta name="description" content="Filipe Lehmann - Portfolio" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/logo192.png" />
@@ -21,7 +22,7 @@ const SiteHead = ({ title }) => (
     <meta name="theme-color" content="#252934" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://filipelehmann.vercel.app/" />
-    <meta property="og:title" content="Filipe Lehmann - Front End Developer" />
+    <meta property="og:title" content="Filipe Lehmann - Software Engineer" />
     <meta
       property="og:description"
       content="Filipe Lehmann's personal portfolio"
@@ -90,6 +91,23 @@ function App({ Component, pageProps }) {
   // Only show the application after first client-side render to prevent hydration issues
   React.useEffect(() => {
     setMounted(true);
+    const lenis = new Lenis({
+      lerp: 0.1, // smoothness
+      smooth: true,
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      mouseMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    return () => {
+      lenis.destroy();
+    };
   }, []);
 
   const pathToTitle = {
@@ -100,11 +118,11 @@ function App({ Component, pageProps }) {
   if (!mounted) {
     return (
       <ChakraProvider theme={theme}>
-        <div style={{ visibility: 'hidden' }}>
-          <PageWrapper title={pathToTitle[pathname]}>
-            <Component {...pageProps} />
-          </PageWrapper>
-        </div>
+        {/* <div style={{ visibility: 'hidden' }}> */}
+        <PageWrapper title={pathToTitle[pathname]}>
+          <Component {...pageProps} />
+        </PageWrapper>
+        {/* </div> */}
       </ChakraProvider>
     );
   }
