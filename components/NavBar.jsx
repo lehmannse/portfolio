@@ -65,54 +65,77 @@ const MenuToggle = ({ isOpen, onOpen }) => {
 };
 
 const NavButtons = ({ size, onClose }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const secondary = useColorModeValue(
     colors.secondary.light,
     colors.secondary.dark
   );
+  // Hoist color mode value out of the map to avoid calling hooks inside loops
+  const hoverBgButton = useColorModeValue('gray.100', 'gray.700');
 
-  const navbarOptions = t('navbar', { returnObjects: true });
+  // Use state to handle client-side rendering
+  const [isClient, setIsClient] = React.useState(false);
+  const [navItems, setNavItems] = React.useState([]);
 
-  const btns =
-    navbarOptions && Array.isArray(navbarOptions)
-      ? navbarOptions?.map((btn) => (
-          <Button
-            key={btn.label}
-            size={size}
-            variant="ghost"
-            onClick={onClose}
-            borderRadius="lg"
-            transition="all 0.3s ease"
-            _hover={{
-              bg: useColorModeValue('gray.100', 'gray.700'),
-              color: secondary,
-              transform: 'translateY(-2px)',
-            }}
-            _active={{
-              transform: 'scale(0.95)',
-            }}
-            fontWeight="medium"
-          >
-            {btn.href ? (
-              <Link href={btn.href} isExternal>
-                {btn.label}
-              </Link>
-            ) : (
-              <ScrollLink
-                to={btn.section.toLowerCase()}
-                href={btn.href}
-                spy
-                smooth
-                offset={-70}
-                duration={500}
-                onClick={onClose}
-              >
-                {btn.label}
-              </ScrollLink>
-            )}
-          </Button>
-        ))
-      : [];
+  // Only update navigation items after component mounts on client
+  React.useEffect(() => {
+    setIsClient(true);
+    const options = t('navbar', { returnObjects: true });
+    if (options && Array.isArray(options)) {
+      setNavItems(options);
+    }
+  }, [t, i18n.resolvedLanguage]);
+
+  // For server-side rendering, use a simple placeholder that will be replaced on client
+  if (!isClient) {
+    return (
+      <>
+        <Button size={size} variant="ghost" visibility="hidden">
+          Loading
+        </Button>
+      </>
+    );
+  }
+
+  // Client-side rendering with actual navigation items
+  const btns = navItems.map((btn) => (
+    <Button
+      key={btn.label}
+      size={size}
+      variant="ghost"
+      onClick={onClose}
+      borderRadius="lg"
+      transition="all 0.3s ease"
+      _hover={{
+        bg: hoverBgButton,
+        color: secondary,
+        transform: 'translateY(-2px)',
+      }}
+      _active={{
+        transform: 'scale(0.95)',
+      }}
+      fontWeight="medium"
+    >
+      {btn.href ? (
+        <Link href={btn.href} isExternal>
+          {btn.label}
+        </Link>
+      ) : (
+        <ScrollLink
+          to={btn.section.toLowerCase()}
+          href={btn.href}
+          spy
+          smooth
+          offset={-70}
+          duration={500}
+          onClick={onClose}
+        >
+          {btn.label}
+        </ScrollLink>
+      )}
+    </Button>
+  ));
+
   return <>{btns}</>;
 };
 
@@ -164,44 +187,44 @@ const ColorModeButton = ({ mr }) => {
 
 const LanguageButton = ({ mr }) => {
   const { i18n } = useTranslation();
-  const resolveLanguage = i18n.resolvedLanguage || 'en';
-  const [isLoading, setIsLoading] = React.useState(true);
+  // Use state to track client-side language to prevent hydration mismatch
+  const [currentLanguage, setCurrentLanguage] = React.useState('en');
+  const [isClient, setIsClient] = React.useState(false);
   const bg = useColorModeValue('gray.100', 'gray.700');
   const hoverBg = useColorModeValue('gray.200', 'gray.600');
 
+  // Only update language state after component mounts on client
   React.useEffect(() => {
-    if (i18n.resolvedLanguage) {
-      setIsLoading(false);
-    }
+    setIsClient(true);
+    setCurrentLanguage(i18n.resolvedLanguage || 'en');
   }, [i18n.resolvedLanguage]);
 
   const handleChangeLanguage = (lng) => {
-    if (lng === 'pt') {
-      i18n.changeLanguage('en');
-    } else {
-      i18n.changeLanguage('pt');
-    }
+    const newLang = lng === 'pt' ? 'en' : 'pt';
+    i18n.changeLanguage(newLang);
+    setCurrentLanguage(newLang);
   };
 
+  // Only render the actual flag icon on client-side to prevent hydration mismatch
   const flag =
-    !isLoading &&
-    (resolveLanguage === 'pt' ? <BRAFlagIcon /> : <EUAFlagIcon />);
+    isClient && (currentLanguage === 'pt' ? <BRAFlagIcon /> : <EUAFlagIcon />);
 
   return (
     <Tooltip label="Switch language" aria-label="Switch language">
       <IconButton
         aria-label={
-          resolveLanguage === 'pt' ? 'Trocar de linguagem' : 'Switch language'
+          isClient && currentLanguage === 'pt'
+            ? 'Trocar de linguagem'
+            : 'Switch language'
         }
         variant="ghost"
         bg={bg}
         _hover={{ bg: hoverBg }}
         color="current"
-        key={resolveLanguage}
-        onClick={() => handleChangeLanguage(resolveLanguage)}
+        onClick={() => handleChangeLanguage(currentLanguage)}
         icon={flag}
         style={{ marginRight: mr }}
-        isLoading={isLoading}
+        isLoading={!isClient}
         borderRadius="lg"
         transition="all 0.3s ease"
         _active={{

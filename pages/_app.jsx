@@ -85,11 +85,31 @@ const PageWrapper = ({ children, title }) => {
 
 function App({ Component, pageProps }) {
   const { pathname } = useRouter();
+  const [mounted, setMounted] = React.useState(false);
+
+  // Only show the application after first client-side render to prevent hydration issues
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const pathToTitle = {
-    '/': 'Filipe Lehmann - Front End Developer',
+    '/': 'Filipe Lehmann - Sofware Engineer',
   };
 
+  // During SSR and first render, use a minimal layout to avoid hydration issues
+  if (!mounted) {
+    return (
+      <ChakraProvider theme={theme}>
+        <div style={{ visibility: 'hidden' }}>
+          <PageWrapper title={pathToTitle[pathname]}>
+            <Component {...pageProps} />
+          </PageWrapper>
+        </div>
+      </ChakraProvider>
+    );
+  }
+
+  // After client-side hydration, render the full application
   return (
     <ChakraProvider theme={theme}>
       <PageWrapper title={pathToTitle[pathname]}>
