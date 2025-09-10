@@ -1,8 +1,6 @@
-import { Text, useColorModeValue, VStack } from '@chakra-ui/react';
-import React from 'react';
+import { Flex, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { BsChevronDown } from 'react-icons/bs';
-import Jump from 'react-reveal/Jump';
 import { Link } from 'react-scroll';
 
 import links from '../../data/footerLinks';
@@ -33,45 +31,32 @@ export default function Landing() {
     <SectionContainer
       id="landing"
       name="landing"
-      display="flex"
-      justify="center"
       headerText={header}
+      style={{ height: 'calc(100vh-63px)' }}
     >
-      <LinkIconBar links={links} />
-      {/* <Button
-        as={URL}
-        colorScheme={secondary}
-        variant="ghost"
-        size="lg"
-        mb="2"
-        href="/resume.pdf"
-        isExternal
+      {/* bottom bar */}
+      <Flex
+        gap={4}
+        flexDir={`column`}
+        style={{
+          position: 'absolute',
+          bottom: '2rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          textAlign: 'center',
+        }}
       >
-        Download resume
-      </Button> */}
-      <Link
-        activeClass="active"
-        to="about"
-        spy
-        smooth
-        offset={-70}
-        duration={500}
-      >
-        <VStack>
-          <Text
-            as="strong"
-            _hover={{ color: secondary, cursor: 'pointer' }}
-            className={styles.learn}
-          >
+        <LinkIconBar links={links} />
+
+        <Link activeClass="active" to="about" spy smooth>
+          <Text as="strong" _hover={{ color: secondary, cursor: 'pointer' }}>
             {t('landing.more')}
           </Text>
-          <VStack>
-            <Jump forever duration={1500}>
-              <BsChevronDown />
-            </Jump>
+          <VStack mt={2}>
+            <BsChevronDown />
           </VStack>
-        </VStack>
-      </Link>
+        </Link>
+      </Flex>
     </SectionContainer>
   );
 }

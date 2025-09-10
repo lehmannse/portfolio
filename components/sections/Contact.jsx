@@ -1,6 +1,5 @@
 // import { EmailIcon } from "@chakra-ui/icons";
-import { Flex, Text } from '@chakra-ui/react';
-import { Grid } from '@material-ui/core';
+import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -17,27 +16,23 @@ export default function Contact() {
       headerText={
         i18n.resolvedLanguage === 'pt' ? 'Entre em Contato' : 'Contact Me'
       }
-      style={{ paddingTop: '45px', minHeight: '75vh' }}
+      style={{ minHeight: '80vh' }}
       useHeaderStyle
     >
       <Flex
-        as={Grid}
-        container
-        item
-        xs={9}
-        sm={6}
-        justify="center"
+        width={{ base: '75%', sm: '50%' }}
+        justifyContent="center"
         textAlign="center"
-        pl={4}
-        pr={4}
+        flexDirection="column"
+        px={4}
       >
-        <Text fontSize="xl" m="auto" mt={3}>
+        <Text fontSize="xl" m="auto">
           {t('contact')}
         </Text>
         {/* <Text fontSize="xl" m="auto">
           
         </Text> */}
-        <LinkIconBar mt={8} links={links} />
+        <LinkIconBar pt={12} links={links} />
         {/* <Button
           as={Link}
           leftIcon={<EmailIcon />}

@@ -80,16 +80,21 @@ const Bio = ({ secondary }) => {
   const strongLinkStyle = { color: secondary, fontWeight: 'bold' };
   const textStyles = { normal: normalLinkStyle, strong: strongLinkStyle };
 
+  // const tertiary = useColorModeValue(
+  //   colors.tertiary.light,
+  //   colors.tertiary.dark
+  // );
   const { t } = useTranslation();
 
   return (
-    <GridItem className={landingStyles.grid}>
+    <GridItem className={landingStyles.grid} style={{ position: 'relative' }}>
       <VStack
         style={{ textAlign: 'justify' }}
         m="auto"
         w="75%"
         spacing="12px"
         pt="5%"
+        zIndex={10}
       >
         <Text
           style={{
@@ -129,6 +134,30 @@ const Bio = ({ secondary }) => {
           </Text>
         </LinkScroll>
       </VStack>
+      {/* <div
+        style={{
+          background: secondary,
+          height: '160px',
+          width: '160px',
+          position: 'absolute',
+          zIndex: 2,
+          top: -40,
+          left: -20,
+          // filter: 'blur(80.5px)',
+        }}
+      />
+      <div
+        style={{
+          background: tertiary,
+          height: '160px',
+          width: '160px',
+          position: 'absolute',
+          zIndex: 1,
+          top: -60,
+          left: -35,
+          // filter: 'blur(80.5px)',
+        }}
+      /> */}
     </GridItem>
   );
 };
@@ -159,14 +188,13 @@ export default function About() {
     colors.secondary.dark
   );
 
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <SectionContainer
       id="about"
       name="about"
-      headerMt="-2%"
-      headerText={i18n.resolvedLanguage === 'pt' ? 'Sobre Mim' : 'About Me'}
+      headerText={t('about.header')}
       useHeaderStyle
     >
       <SimpleGrid
@@ -175,6 +203,7 @@ export default function About() {
         spacing={12}
         columns={[1, 1, 2]}
         justifyContent="center"
+        position="relative"
       >
         {shouldAlternate ? <Bio secondary={secondary} /> : <Headshot />}
         {shouldAlternate ? <Headshot /> : <Bio secondary={secondary} />}
