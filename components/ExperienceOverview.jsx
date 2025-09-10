@@ -55,11 +55,13 @@ const ExperienceButtons = ({ expIndex, setIndex, jobs }) => (
               {expIndex === index ? (
                 <motion.div
                   layoutId="exp-underline"
+                  animate={{ opacity: 1 }}
                   style={{
                     position: 'absolute',
-                    left: 0,
-                    right: 0,
+                    left: 3,
+                    right: 3,
                     bottom: 0,
+                    opacity: 0.2,
                     height: '2px',
                     background: 'var(--chakra-colors-blue-400)',
                   }}
