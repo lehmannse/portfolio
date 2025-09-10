@@ -23,6 +23,7 @@ export default {
     more: 'Learn More',
   },
   about: {
+    header: 'About Me',
     headline: 'I want to be a bridge between people and technology.',
     intro:
       "I'm a software engineer with 3+ years of experience, a lifelong learner, and a language enthusiast currently based in Curitiba, Brazil. I'm looking to partner with people and organizations to carry out worthwhile projects, create good relationships and fight entropy.",
@@ -122,14 +123,12 @@ export default {
     },
     {
       workplace: 'Spin-off from Hype Empreendimentos',
-      workplaceBtn: 'Spin-off',
+      workplaceBtn: 'CapLink',
       position: 'Front-end Software Engineer',
-      duration: ['August 2022 - August 2023'],
+      duration: ['April 2022 - October 2023'],
       description: [
-        'Building highly complex SaaS',
-        'Writing modern, high-performance, maintainable code.',
-        'Applying  CI/CD.',
-        'Communicating with multidisciplinary teams of engineers, analysts and designers on a weekly basis.',
+        'Lead the development of a SaaS platform for a financial technology spinoff (CapLink) by designing and deploying the first version of a platform that streamlined multi-million Brazilian Real real estate credit for large-scale construction projects using React and Next.js.',
+        'Accelerated a complex credit approval pipeline by developing the frontend for a financial platform that digitized a previously slow and bureaucratic process, achieved by using D3.js to visually represent the pipeline steps, which significantly improved the user experience and contributed to faster client adoption',
       ],
       url: 'https://hypeempreendimentos.com.br/',
     },

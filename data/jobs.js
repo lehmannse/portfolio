@@ -3,7 +3,7 @@ const jobs = [
     workplace: 'Spin-off de Hype Empreendimentos',
     workplaceBtn: 'Spin-off',
     position: 'Desenvolvedor Web Front-end',
-    duration: ['Agosto 2022 - Agosto 2023'],
+    duration: ['Abril 2022 - Outubro 2023'],
     description: [
       'Contribuindo na construção de SaaS de alta complexidade.',
       'Escrevendo código moderno, de alto desempenho e de fácil manutenção.',

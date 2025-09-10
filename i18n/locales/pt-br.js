@@ -23,6 +23,7 @@ export default {
     more: 'Saiba Mais',
   },
   about: {
+    header: 'Sobre Mim',
     headline: 'Quero ser uma ponte entre as pessoas e a tecnologia.',
     intro:
       'Sou um engenheiro de software com mais de 3 anos de experiência, um eterno aprendiz e entusiasta de idiomas vivendo em Curitiba, Paraná, Brasil. Busco me associar a pessoas e organizações para realizar projetos relevantes, criar bons relacionamentos e combater a entropia.',
@@ -122,14 +123,12 @@ export default {
     },
     {
       workplace: 'Spin-off da Hype Empreendimentos',
-      workplaceBtn: 'Spin-off',
+      workplaceBtn: 'CapLink',
       position: 'Engenheiro de Software Front-end',
-      duration: ['Agosto 2022 - Agosto 2023'],
+      duration: ['April 2022 - October 2023'],
       description: [
-        'Construção de SaaS altamente complexo',
-        'Escrita de código moderno, de alto desempenho e de fácil manutenção.',
-        'Aplicação de CI/CD.',
-        'Comunicação com equipes multidisciplinares de engenheiros, analistas e designers semanalmente.',
+        'Liderei o desenvolvimento de uma plataforma SaaS para uma spinoff de tecnologia financeira (CapLink) projetando e implementando a primeira versão de uma plataforma que simplificou o crédito imobiliário multimilionário em reais brasileiros para projetos de construção de grande escala usando React e Next.js.',
+        'Acelerou um complexo processo de aprovação de crédito desenvolvendo o frontend para uma plataforma financeira que digitalizou um processo antes lento e burocrático, alcançado através do uso do D3.js para representar visualmente as etapas do processo, o que melhorou significativamente a experiência do usuário e contribuiu para uma adoção mais rápida por parte do cliente',
       ],
       url: 'https://hypeempreendimentos.com.br/',
     },
