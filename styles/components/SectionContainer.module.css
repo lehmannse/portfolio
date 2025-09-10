@@ -1,7 +1,7 @@
 .header {
   font-size: 2.3em;
   color: '#19aad5';
-  margin-top: 20vh;
+  /* margin-top: 20vh; */
 }
 @media only screen and (max-width: 600px) {
   .header {
@@ -13,8 +13,9 @@
 }
 
 .container {
+  position: relative;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
