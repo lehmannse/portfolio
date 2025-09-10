@@ -36,7 +36,14 @@ export const colors = {
   },
 };
 
+const fonts = {
+  body: 'Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+  heading:
+    'Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+};
+
 export default extendTheme({
   config,
   colors,
+  fonts,
 });
