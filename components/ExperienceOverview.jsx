@@ -1,6 +1,9 @@
 import {
   Button,
+  Container,
   Flex,
+  Grid,
+  GridItem,
   Heading,
   Link,
   ListItem,
@@ -10,9 +13,9 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Container, Grid } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import styles from '../styles/components/ExperienceOverview.module.css';
 import { colors } from '../theme';
@@ -28,23 +31,46 @@ const ExperienceSelect = ({ expIndex, setIndex, jobs }) => (
 );
 
 const ExperienceButtons = ({ expIndex, setIndex, jobs }) => (
-  <Container style={{ padding: '0px' }}>
-    <Grid container spacing={2} justifyContent="center">
+  <Flex alignItems="center">
+    <Grid
+      templateColumns="repeat(auto-fit, minmax(120px, 1fr))"
+      gap={2}
+      justifyContent="center"
+      alignItems="center"
+      as={motion.div}
+      layout
+    >
       {jobs.map((job, index) => (
-        <Grid container item key={`${job.workplaceBtn}-btn`}>
-          <Button
-            isActive={expIndex === index}
-            isFullWidth
-            flexWrap="wrap"
-            onClick={() => setIndex(index)}
-            style={{ zIndex: 2 }}
-          >
-            {job.workplaceBtn}
-          </Button>
-        </Grid>
+        <GridItem as={motion.div} layout key={`${job.workplaceBtn}-btn`}>
+          <div>
+            <Button
+              isActive={expIndex === index}
+              width="100%"
+              flexWrap="wrap"
+              onClick={() => setIndex(index)}
+              zIndex={2}
+              position="relative"
+            >
+              {job.workplaceBtn}
+              {expIndex === index ? (
+                <motion.div
+                  layoutId="exp-underline"
+                  style={{
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    height: '2px',
+                    background: 'var(--chakra-colors-blue-400)',
+                  }}
+                />
+              ) : null}
+            </Button>
+          </div>
+        </GridItem>
       ))}
     </Grid>
-  </Container>
+  </Flex>
 );
 
 const ExperienceDetails = ({ index, jobs }) => {
@@ -54,46 +80,41 @@ const ExperienceDetails = ({ index, jobs }) => {
     colors.secondary.dark
   );
   return (
-    <Container maxWidth="680px" style={{ padding: 0 }}>
+    <Container>
       <Grid
-        container
-        direction="column"
-        style={{
-          margin: 'auto',
-          padding: { base: '8px', sm: '12px' },
-        }}
+        templateColumns="1fr"
+        gap={2}
+        m="auto"
+        p={{ base: '8px', sm: '12px' }}
       >
-        <Grid item>
+        <GridItem>
           <Heading as="h1" size="md" textAlign={{ base: 'center', sm: 'left' }}>
             {job.position} @{' '}
             <Link href={job.url} isExternal color={secondary}>
               {job.workplace}
             </Link>
           </Heading>
-        </Grid>
-        <Grid item textAlign={{ base: 'center', sm: 'left' }}>
+        </GridItem>
+        <GridItem textAlign={{ base: 'center', sm: 'left' }}>
           {job.duration.map((duration) => (
             <Text key={duration} mt={2}>
               {duration}
             </Text>
           ))}
-        </Grid>
-        <Container maxWidth="680px">
-          <Grid
-            item
-            style={{
-              textAlign: { base: 'left', sm: 'justify' },
-              paddingX: { base: '4px', sm: '0' },
-            }}
+        </GridItem>
+        <Container w="100%">
+          <GridItem
+            textAlign={{ base: 'left', sm: 'justify' }}
+            px={{ base: '4px', sm: '0' }}
           >
-            <UnorderedList mt={2}>
+            <UnorderedList flex mt={2} spacing={2}>
               {job.description.map((desc) => (
-                <ListItem key={desc} style={{ wordBreak: 'break-word' }}>
+                <ListItem key={desc} wordBreak="break-word" minWidth="100%">
                   {desc}
                 </ListItem>
               ))}
             </UnorderedList>
-          </Grid>
+          </GridItem>
         </Container>
       </Grid>
     </Container>
@@ -134,34 +155,26 @@ export default function ExperienceOverview() {
   };
 
   return (
-    <Container
-      maxWidth="lg"
-      style={{
-        padding: 0,
-        maxWidth: { sm: '70%', md: '900px' },
-        margin: 'auto',
-        position: 'relative',
-      }}
-    >
+    <Container maxWidth={{ base: '70%', lg: '1200px' }} position="relative">
       <Flex
-        as={Grid}
+        as={motion.div}
+        layout
         className={styles.card}
-        container
-        item
         direction={{ base: 'column', md: 'row' }}
         justifyContent="center"
         alignItems={{ base: 'center', md: 'flex-start' }}
-        xs={9}
         md={10}
         borderRadius="lg"
         {...borderConfig()}
         rounded="md"
+        p={{ base: '12px', sm: '20px' }}
         spacing={8}
         shadow={`0 12px 40px ${shadowColor}`}
         transition="all 0.3s ease"
         _hover={{
           shadow: `0 20px 50px ${hoverShadowColor}`,
         }}
+        minH="476px"
         style={{
           margin: 'auto',
           width: '100%',
@@ -173,18 +186,7 @@ export default function ExperienceOverview() {
         <div className={styles.filter} />
         <div className={styles.shadow} />
 
-        {/* content */}
-        <Grid
-          container
-          direction="column"
-          item
-          xs={12}
-          sm={12}
-          md={4}
-          alignItems="center"
-          justifyContent="flex-start"
-          style={{ position: 'relative', zIndex: 1 }}
-        >
+        <Grid direction="column" style={{ position: 'relative', zIndex: 1 }}>
           {showSelect ? (
             <ExperienceButtons
               expIndex={index}
@@ -200,16 +202,19 @@ export default function ExperienceOverview() {
           )}
         </Grid>
 
-        <Grid
-          container
-          item
-          xs={12}
-          sm={12}
-          md={8}
-          maxWidth="680px"
-          style={{ position: 'relative', zIndex: 1 }}
-        >
-          <ExperienceDetails index={index} jobs={jobs} />
+        <Grid style={{ position: 'relative', zIndex: 1 }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              layout
+            >
+              <ExperienceDetails index={index} jobs={jobs} />
+            </motion.div>
+          </AnimatePresence>
         </Grid>
       </Flex>
     </Container>

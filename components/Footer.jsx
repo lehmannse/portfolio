@@ -20,15 +20,12 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <Box as="footer" mt={12} height="100%" textAlign="center" className="app">
+    <Box as="footer" textAlign="center" className="app" pb={8}>
+      <VStack className={styles.reverse}>
+        <BsChevronDown />
+      </VStack>
       <Box onClick={scroll.scrollToTop}>
-        <VStack className={styles.reverse}>
-          <Jump forever duration={1500}>
-            <BsChevronDown />
-          </Jump>
-        </VStack>
         <Text
-          mt={2}
           as="strong"
           _hover={{
             color: secondary,
@@ -39,7 +36,7 @@ export default function Footer() {
           {t('footer')}{' '}
         </Text>
       </Box>
-      <LinkIconBar links={links} />
+      <LinkIconBar mt={4} links={links} />
     </Box>
   );
 }

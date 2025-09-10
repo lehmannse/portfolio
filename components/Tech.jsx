@@ -1,15 +1,14 @@
-import { Text } from '@chakra-ui/react';
-import { Grid } from '@material-ui/core';
+import { Grid, GridItem, Text } from '@chakra-ui/react';
 import React from 'react';
 
 const Tech = ({ tech, techMr }) => (
   <>
     {tech.map((item, index) => (
-      <Grid item key={`${item}-${index}`}>
+      <GridItem key={`${item}-${index}`}>
         <Text as="kbd" mr={techMr}>
           {item}
         </Text>
-      </Grid>
+      </GridItem>
     ))}
   </>
 );

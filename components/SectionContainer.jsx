@@ -1,6 +1,4 @@
 import { Text, useColorModeValue } from '@chakra-ui/react';
-import React from 'react';
-import Fade from 'react-reveal/Fade';
 
 import styles from '../styles/components/SectionContainer.module.css';
 
@@ -14,20 +12,18 @@ export default function SectionContainer({
   const color = useColorModeValue('secondary.light', 'secondary.dark');
   return (
     <div className={styles.container} {...props}>
-      <Fade>
-        <div className={styles.column}>
-          <Text
-            as="h1"
-            color={color}
-            mt={headerMt}
-            mb={12}
-            className={useHeaderStyle ? styles.header : ''}
-          >
-            {headerText}
-          </Text>
-          {children}
-        </div>
-      </Fade>
+      <div className={styles.column}>
+        <Text
+          as="h1"
+          color={color}
+          mt={headerMt}
+          pb={12}
+          className={useHeaderStyle ? styles.header : ''}
+        >
+          {headerText}
+        </Text>
+        {children}
+      </div>
     </div>
   );
 }

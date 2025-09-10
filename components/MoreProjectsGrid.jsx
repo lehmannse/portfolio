@@ -3,6 +3,8 @@ import {
   Box,
   Button,
   Flex,
+  Grid,
+  GridItem,
   Heading,
   Icon,
   IconButton,
@@ -17,7 +19,6 @@ import {
   Tr,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Grid } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsGridFill } from 'react-icons/bs';
@@ -73,18 +74,11 @@ const ProjectCard = ({ name, description, links, tech }) => {
   );
 
   return (
-    <Box
-      as={Grid}
-      container
-      item
-      xs={9}
-      sm={6}
-      md={3}
+    <Grid
       bgColor={bg}
       borderRadius="lg"
       borderWidth={bg === colors.bg.light ? '1px' : ''}
       borderColor={useColorModeValue('gray.200', 'gray.700')}
-      direction="column"
       rounded="md"
       shadow={`0 8px 25px ${shadowColor}`}
       textAlign="start"
@@ -93,10 +87,13 @@ const ProjectCard = ({ name, description, links, tech }) => {
         transform: 'translateY(-4px)',
         shadow: `0 15px 35px ${hoverShadowColor}`,
       }}
-      style={{ margin: '24px' }}
+      m="24px"
+      p={4}
+      gap={4}
+      width={{ base: '75%', sm: '40%', md: '28%' }}
     >
-      <Grid container item direction="row">
-        <Grid container item xs={6}>
+      <Grid templateColumns="repeat(2, 1fr)">
+        <GridItem colSpan={1}>
           <Icon
             as={HiCode}
             boxSize="3em"
@@ -104,31 +101,31 @@ const ProjectCard = ({ name, description, links, tech }) => {
             m="auto"
             marginLeft="10px"
           />
-        </Grid>
-        <Grid container item xs={6} justifyContent="flex-end">
-          <LinkIconBar links={links} mr="24px" />
-        </Grid>
+        </GridItem>
+
+        <GridItem colSpan={1} justifyItems={'end'} mr={2} mt={1}>
+          <LinkIconBar links={links} />
+        </GridItem>
       </Grid>
-      <Grid container item direction="row" style={{ marginTop: '-24px' }}>
-        <Heading as="h1" size="md" m={2} p={1} pt={6}>
+      <Grid templateColumns="1fr">
+        <Heading as="h1" size="md">
           {name}
         </Heading>
       </Grid>
-      <Grid container item direction="row">
-        <Text fontSize="md" m={2} p={1}>
-          {description}
-        </Text>
+      <Grid templateColumns="1fr">
+        <Text fontSize="md">{description}</Text>
       </Grid>
       <Grid
-        container
-        item
-        direction="row"
-        justifyContent="space-evenly"
-        style={{ marginBottom: '12px' }}
+        // templateColumns="repeat(auto-fit, minmax(80px, 1fr))"
+        alignContent={'end'}
+        justifyContent={'center'}
+        gridAutoFlow={'column'}
+        gap={4}
+        wordBreak={'break-word'}
       >
         <Tech tech={tech} />
       </Grid>
-    </Box>
+    </Grid>
   );
 };
 
@@ -138,14 +135,14 @@ const ProjectRow = ({ name, type, description, tech, links }) => (
     <Td>{type}</Td>
     <Td>{description}</Td>
     <Td>
-      <Grid container item direction="row">
+      <Grid templateColumns="repeat(auto-fit, minmax(80px, 1fr))">
         <Tech tech={tech} techMr={2} />
       </Grid>
     </Td>
     <Td>
-      <Grid container>
+      <Flex justifyContent="flex-start">
         <LinkIconBar links={links} />
-      </Grid>
+      </Flex>
     </Td>
   </Tr>
 );
@@ -193,15 +190,17 @@ export default function MoreProjectsGrid() {
         />
       </Flex>
       <Flex justifyContent="center" w="100vw">
-        <Grid container item xs={12} sm={9} md={9} justifyContent="center">
+        <Box width={{ base: '100%', sm: '75%', md: '75%' }} textAlign="center">
           {showGridView ? (
-            projects.map((project) => (
-              <ProjectCard key={project.name} {...project} />
-            ))
+            <Flex flexWrap="wrap" justifyContent="center">
+              {projects.map((project) => (
+                <ProjectCard key={project.name} {...project} />
+              ))}
+            </Flex>
           ) : (
             <ProjectTable projs={projects} />
           )}
-        </Grid>
+        </Box>
       </Flex>
       <Flex justifyContent="center" w="100vw">
         <Button
