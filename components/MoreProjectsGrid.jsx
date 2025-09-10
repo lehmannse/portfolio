@@ -19,12 +19,12 @@ import {
   Tr,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsGridFill } from 'react-icons/bs';
 import { FaListUl } from 'react-icons/fa';
 import { HiCode } from 'react-icons/hi';
-import { motion } from 'framer-motion';
 
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
@@ -103,7 +103,7 @@ const ProjectCard = ({ name, description, links, tech }) => {
           />
         </GridItem>
 
-        <GridItem colSpan={1} justifyItems={'end'} mr={2} mt={1}>
+        <GridItem colSpan={1} justifyItems="end" mr={2} mt={1}>
           <LinkIconBar links={links} />
         </GridItem>
       </Grid>
@@ -117,11 +117,11 @@ const ProjectCard = ({ name, description, links, tech }) => {
       </Grid>
       <Grid
         // templateColumns="repeat(auto-fit, minmax(80px, 1fr))"
-        alignContent={'end'}
-        justifyContent={'center'}
-        gridAutoFlow={'column'}
+        alignContent="end"
+        justifyContent="center"
+        gridAutoFlow="column"
         gap={4}
-        wordBreak={'break-word'}
+        wordBreak="break-word"
       >
         <Tech tech={tech} />
       </Grid>

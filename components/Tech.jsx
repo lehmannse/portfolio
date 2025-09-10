@@ -1,4 +1,4 @@
-import { Grid, GridItem, Text } from '@chakra-ui/react';
+import { GridItem, Text } from '@chakra-ui/react';
 import React from 'react';
 
 const Tech = ({ tech, techMr }) => (

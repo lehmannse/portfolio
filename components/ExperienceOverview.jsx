@@ -13,9 +13,9 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AnimatePresence, motion } from 'framer-motion';
 
 import styles from '../styles/components/ExperienceOverview.module.css';
 import { colors } from '../theme';

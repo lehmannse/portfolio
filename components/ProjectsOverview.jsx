@@ -8,9 +8,9 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
@@ -29,7 +29,7 @@ const Card = ({ name, subtitle, description, links }) => {
 
   return (
     <Flex
-      direction={'column'}
+      direction="column"
       p={6}
       gap={4}
       bgColor={bg}
@@ -54,7 +54,7 @@ const Card = ({ name, subtitle, description, links }) => {
         {subtitle}
       </Text>
       <Text textAlign="justify">{description}</Text>
-      <Flex w={'100%'} justifyContent={'end'}>
+      <Flex w="100%" justifyContent="end">
         <LinkIconBar links={links} />
       </Flex>
     </Flex>
@@ -109,13 +109,13 @@ const ProjectContent = ({
 
 const Project = ({ index, shouldAlternate, ...props }) => (
   <Grid templateColumns="repeat(2, 1fr)">
-    <GridItem colSpan={{ base: 2, md: 1 }} h={'full'} alignContent={'center'}>
+    <GridItem colSpan={{ base: 2, md: 1 }} h="full" alignContent="center">
       <ProjectContent
         alternate={shouldAlternate ? index % 2 === 0 : false}
         {...props}
       />
     </GridItem>
-    <GridItem colSpan={{ base: 2, md: 1 }} h={'full'} alignContent={'center'}>
+    <GridItem colSpan={{ base: 2, md: 1 }} h="full" alignContent="center">
       <ProjectContent
         alternate={shouldAlternate ? index % 2 === 1 : true}
         {...props}
