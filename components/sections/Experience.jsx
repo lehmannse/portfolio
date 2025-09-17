@@ -14,7 +14,7 @@ export default function Experience() {
       // headerMt="-5%"
       headerText={i18n.resolvedLanguage === 'pt' ? 'Experiência' : 'Experience'}
       useHeaderStyle
-      style={{ height: '100vh' }}
+      style={{ minHeigth: '100vh' }}
     >
       <ExperienceOverview />
     </SectionContainer>

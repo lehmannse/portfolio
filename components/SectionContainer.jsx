@@ -12,7 +12,7 @@ export default function SectionContainer({
 }) {
   const color = useColorModeValue('secondary.light', 'secondary.dark');
   return (
-    <div className={styles.container} {...props}>
+    <div className={styles.container} style={{ margin: '48px 0' }} {...props}>
       <div className={styles.column}>
         {headerText && (
           <Text
@@ -20,7 +20,7 @@ export default function SectionContainer({
             as="h1"
             color={color}
             mt={headerMt}
-            pb={12}
+            mb={4}
             className={useHeaderStyle ? styles.header : ''}
           >
             {headerText}

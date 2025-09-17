@@ -108,7 +108,7 @@ const ProjectContent = ({
 };
 
 const Project = ({ index, shouldAlternate, ...props }) => (
-  <Grid templateColumns="repeat(2, 1fr)">
+  <Grid templateColumns="repeat(2, 1fr)" gap={4}>
     <GridItem colSpan={{ base: 2, md: 1 }} h="full" alignContent="center">
       <ProjectContent
         alternate={shouldAlternate ? index % 2 === 0 : false}
@@ -132,8 +132,8 @@ export default function ProjectsOverview() {
   const projects = t('projects', { returnObjects: true });
 
   return (
-    <Flex pt={12}>
-      <Grid templateColumns="1fr" justifyContent="center">
+    <Flex pt={{ md: 12, sm: 4 }}>
+      <Grid templateColumns="1fr" justifyContent="center" gap={8}>
         {projects.map((project, index) => (
           <Project
             key={project.name}
