@@ -2,8 +2,7 @@
 
 import { Flex, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import React, { useLayoutEffect, useRef } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsChevronDown } from 'react-icons/bs';
 import { Link } from 'react-scroll';

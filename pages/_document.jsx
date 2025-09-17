@@ -1,7 +1,8 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
-import theme from '../theme';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
+
+import theme from '../theme';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
