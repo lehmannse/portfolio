@@ -32,7 +32,12 @@ export default function Landing() {
     >
       <h1
         id="header"
-        style={{ color: primary, opacity: 0, marginBottom: '6vh' }}
+        style={{
+          color: primary,
+          opacity: 0,
+          marginBottom: '6vh',
+          // fontSize: { sm: 24, md: 36 },
+        }}
       >
         {t('landing.intro')}{' '}
         <strong style={{ color: secondary }}>{t('landing.job')}</strong>
@@ -46,7 +51,7 @@ export default function Landing() {
         id="landing"
         name="landing"
         // headerText={header}
-        style={{ height: '100vh' }}
+        style={{ height: '100vh', margin: '0' }}
       >
         {/* bottom bar */}
         {header}

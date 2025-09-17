@@ -1,6 +1,11 @@
 import '../styles/globals.css';
 
-import { Box, ChakraProvider, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  ChakraProvider,
+  Spinner,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import Head from 'next/head';
@@ -57,48 +62,67 @@ const PageWrapper = ({ children, title }) => {
   const { t } = useTranslation();
 
   useLayoutEffect(() => {
+    const mm = gsap.matchMedia();
     const ctx = gsap.context(() => {
-      const t1 = gsap.timeline();
-      t1.from('#intro', {
-        duration: 1.2,
-        delay: 0.3,
-      })
+      // Desktop and larger phones/tablets (>= 640px): keep horizontal move
+      mm.add('(min-width: 640px)', () => {
+        const t1 = gsap.timeline();
+        t1.to('#loading', { opacity: 0, duration: 0.2 })
+          .from('#intro', { opacity: 1, duration: 1 })
+          .to(['#filipe', '#overlaid-title'], {
+            opacity: 1,
+            duration: 1,
+            stagger: 0.5,
+          })
+          .to('#filipe', { xPercent: '+=25.5', delay: 1 })
+          .to('#header', { opacity: 1, delay: 0.5 })
+          .to(['#navbar', '#landing-icons'], {
+            opacity: 1,
+            duration: 1,
+            stagger: 1,
+          })
+          .to('#intro', {
+            opacity: 0,
+            duration: 1.5,
+            display: 'none',
+            onComplete: () => {
+              if (typeof document !== 'undefined') {
+                document.body.classList.remove('no-scroll');
+              }
+            },
+          });
+      });
 
-        .to('#filipe', {
-          xPercent: '+=25.5',
-          delay: 0.3,
-          // stagger: 0.5,
-        })
-        // .to('#overlaid-title', {
-        //   yPercent: '+=50',
-        //   delay: 0.3,
-        //   // stagger: 0.5,
-        // })
-        .to('#header', {
-          opacity: 1,
-          delay: 0.5,
-          // stagger: 0.5,
-        })
-        .to(['#navbar', '#landing-icons'], {
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.5,
-        })
-        // .to('#landing-icons', {
-        //   opacity: 1,
-        //   delay: 0.3,
-        //   duration: 1,
-        // })
-
-        .to('#intro', {
-          // xPercent: '-100',
-          opacity: 0,
-          duration: 1,
-          display: 'none',
-        });
+      // Small screens (< 640px): avoid horizontal move; use a subtle hold/fade
+      mm.add('(max-width: 639px)', () => {
+        const t1 = gsap.timeline();
+        t1.to('#intro-text', { opacity: 0, duration: 0 })
+          // .to('#intro-text', { opacity: 0, duration: 0.5 })
+          // Replace xPercent shift with a brief pause/fade to keep timing similar
+          // .to('#filipe', { opacity: 1, duration: 0.5, delay: 1 })
+          .to('#header', { opacity: 1, delay: 0.5 })
+          .to(['#navbar', '#landing-icons'], {
+            opacity: 1,
+            duration: 1,
+            stagger: 1,
+          })
+          .to('#intro', {
+            opacity: 0,
+            duration: 1,
+            display: 'none',
+            onComplete: () => {
+              if (typeof document !== 'undefined') {
+                document.body.classList.remove('no-scroll');
+              }
+            },
+          });
+      });
     }, comp);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      mm.revert();
+    };
   }, []);
 
   return (
@@ -144,19 +168,44 @@ const PageWrapper = ({ children, title }) => {
           alignItems: 'center',
           zIndex: 2,
           paddingBottom: '6vh',
+          fontSize: 36,
         }}
         className={stylesSection.header}
       >
-        <p id="filipe">Filipe Lehmann</p>
-        {/* <h1> */}
-        {/* {'\n '} <br /> */}
-        <strong
-          id="overlaid-title"
-          style={{ color: '#90cdf4', fontWeight: 'bold' }}
+        <div
+          id="intro-text"
+          style={{
+            display: 'flex',
+            flexDirection: 'inherit',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
-          {t('landing.job')}
-        </strong>
-        {/* </h1> */}
+          <p style={{ opacity: 0 }} id="filipe">
+            Filipe Lehmann
+          </p>
+          <strong
+            id="overlaid-title"
+            style={{ color: '#90cdf4', fontWeight: 'bold', opacity: 0 }}
+          >
+            {t('landing.job')}
+          </strong>
+        </div>
+        <div
+          id="loading"
+          style={{
+            position: 'absolute',
+            bottom: '10%',
+            display: 'flex',
+            gap: 12,
+            alignItems: 'center',
+          }}
+        >
+          <Spinner size="sm" color="white" speed="0.6s" thickness="2px" />
+          <span style={{ color: 'white', fontSize: 14, opacity: 0.8 }}>
+            Loading…
+          </span>
+        </div>
       </div>
 
       <main className="main">{children}</main>
@@ -171,6 +220,10 @@ function App({ Component, pageProps }) {
 
   // Only show the application after first client-side render to prevent hydration issues
   React.useEffect(() => {
+    // Remove SSR preload background once app mounts to reveal real backgrounds
+    if (typeof document !== 'undefined') {
+      document.body.classList.remove('preload-bg');
+    }
     setMounted(true);
     const lenis = new Lenis({
       lerp: 0.1, // smoothness

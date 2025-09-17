@@ -37,6 +37,11 @@
   transition: all ease 0.3s;
 }
 
+.bg-noise {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
 /* ----- Hover States ----- */
 /* .card:hover > .backdrop {
   width: 340px;

@@ -19,6 +19,17 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+/* SSR-only background to avoid white flash; removed on mount */
+.preload-bg {
+  background: #000 !important;
+}
+
+/* Prevent scroll before intro completes */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;

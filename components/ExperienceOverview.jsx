@@ -161,7 +161,7 @@ export default function ExperienceOverview() {
       <Flex
         as={motion.div}
         layout
-        className={styles.card}
+        className={`${styles.card} ${styles['bg-noise']}`}
         direction={{ base: 'column', md: 'row' }}
         justifyContent="center"
         alignItems={{ base: 'center', md: 'flex-start' }}
