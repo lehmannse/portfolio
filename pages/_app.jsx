@@ -71,19 +71,26 @@ const PageWrapper = ({ children, title }) => {
           .from('#intro', { opacity: 1, duration: 1 })
           .to(['#filipe', '#overlaid-title'], {
             opacity: 1,
-            duration: 1,
             stagger: 0.5,
           })
-          .to('#filipe', { xPercent: '+=25.5', delay: 1 })
+          .to('#filipe', { xPercent: '+=25.5', delay: 0.5 })
           .to('#header', { opacity: 1, delay: 0.5 })
           .to(['#navbar', '#landing-icons'], {
             opacity: 1,
-            duration: 1,
-            stagger: 1,
+            duration: 0.5,
+            stagger: 0.5,
+          })
+          .to('#intro', {
+            duration: 0,
+            onComplete: () => {
+              if (typeof document !== 'undefined') {
+                document.body.classList.remove('no-scroll');
+              }
+            },
           })
           .to('#intro', {
             opacity: 0,
-            duration: 1.5,
+            duration: 1,
             display: 'none',
             onComplete: () => {
               if (typeof document !== 'undefined') {
@@ -96,15 +103,21 @@ const PageWrapper = ({ children, title }) => {
       // Small screens (< 640px): avoid horizontal move; use a subtle hold/fade
       mm.add('(max-width: 639px)', () => {
         const t1 = gsap.timeline();
-        t1.to('#intro-text', { opacity: 0, duration: 0 })
-          // .to('#intro-text', { opacity: 0, duration: 0.5 })
-          // Replace xPercent shift with a brief pause/fade to keep timing similar
-          // .to('#filipe', { opacity: 1, duration: 0.5, delay: 1 })
+        t1.to('#loading', { opacity: 0, duration: 0.2 })
+          .to('#intro-text', { opacity: 0, duration: 0 })
           .to('#header', { opacity: 1, delay: 0.5 })
           .to(['#navbar', '#landing-icons'], {
             opacity: 1,
-            duration: 1,
-            stagger: 1,
+            duration: 0.5,
+            stagger: 0.5,
+          })
+          .to('#intro', {
+            duration: 0,
+            onComplete: () => {
+              if (typeof document !== 'undefined') {
+                document.body.classList.remove('no-scroll');
+              }
+            },
           })
           .to('#intro', {
             opacity: 0,

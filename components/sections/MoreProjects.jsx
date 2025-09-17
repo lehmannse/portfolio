@@ -16,6 +16,7 @@ export default function MoreProjects() {
       }
       headerMt="20%"
       useHeaderStyle
+      style={{ width: '100%', maxWidth: '1200px', margin: '48px auto' }}
     >
       <MoreProjectsGrid />
     </SectionContainer>

@@ -87,10 +87,10 @@ const ProjectCard = ({ name, description, links, tech }) => {
         transform: 'translateY(-4px)',
         shadow: `0 15px 35px ${hoverShadowColor}`,
       }}
-      m="24px"
+      m={{ base: 3, md: 4 }}
       p={4}
       gap={4}
-      width={{ base: '75%', sm: '40%', md: '28%' }}
+      width={{ base: '80%', sm: '50%', md: '30%' }}
     >
       <Grid templateColumns="repeat(2, 1fr)">
         <GridItem colSpan={1}>
@@ -191,14 +191,14 @@ export default function MoreProjectsGrid() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      <Flex justifyContent="flex-end" pl="15%" pr="15%" w="100vw">
+      <Flex justifyContent="flex-end" w="100%">
         <DisplayBar
           showGridView={showGridView}
           setShowGridView={setShowGridView}
         />
       </Flex>
-      <Flex justifyContent="center" w="100vw">
-        <Box width={{ base: '100%', sm: '75%', md: '75%' }} textAlign="center">
+      <Flex justifyContent="center" w="100%">
+        <Box width={{ sm: '90%', md: '90%', lg: '85%' }} textAlign="center">
           {showGridView ? (
             <Flex flexWrap="wrap" justifyContent="center">
               {projects.map((project) => (
@@ -210,7 +210,7 @@ export default function MoreProjectsGrid() {
           )}
         </Box>
       </Flex>
-      <Flex justifyContent="center" w="100vw">
+      <Flex justifyContent="center" w="100%">
         <Button
           mt={6}
           leftIcon={isExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
