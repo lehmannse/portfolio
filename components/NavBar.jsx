@@ -31,6 +31,7 @@ const Logo = () => {
   return (
     <Box m="4">
       <img
+        id="logo"
         alt="Portfolio Logo"
         src={logo}
         width={30}
@@ -309,43 +310,47 @@ export default function Navbar() {
   const translateScroll = -148 * scrollProgress;
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        top: 18,
-        left: 0,
-        right: 0,
-        zIndex: 99,
-        display: 'flex',
-        justifyContent: 'center',
-        width: '100vw',
-        boxSizing: 'border-box',
-        transform: `translateY(${translateScroll}%)`,
-      }}
-    >
-      <Box
-        className="navbar"
-        as="header"
-        bg={primary}
-        boxShadow={`0 4px 20px ${shadowColor}`}
-        borderBottom="1px solid"
-        borderColor={border}
-        backdropFilter="blur(13px)"
-        zIndex={99}
+    <>
+      <div
+        id="navbar"
+        style={{
+          position: 'fixed',
+          opacity: 0,
+          top: 18,
+          left: 0,
+          right: 0,
+          zIndex: 97,
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100vw',
+          boxSizing: 'border-box',
+          transform: `translateY(${translateScroll}%)`,
+        }}
       >
-        <Container maxW="container.xl">
-          <HStack
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Logo />
-            <MenuLinks onClose={onClose} />
-            <NavMenu isOpen={isOpen} onClose={onClose} />
-            <MenuToggle isOpen={isOpen} onOpen={onOpen} />
-          </HStack>
-        </Container>
-      </Box>
-    </div>
+        <Box
+          className="navbar"
+          // as="header"
+          bg={primary}
+          boxShadow={`0 4px 20px ${shadowColor}`}
+          borderBottom="1px solid"
+          borderColor={border}
+          backdropFilter="blur(13px)"
+          zIndex={99}
+        >
+          <Container maxW="container.xl">
+            <HStack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <Logo />
+              <MenuLinks onClose={onClose} />
+              <NavMenu isOpen={isOpen} onClose={onClose} />
+              <MenuToggle isOpen={isOpen} onOpen={onOpen} />
+            </HStack>
+          </Container>
+        </Box>
+      </div>
+    </>
   );
 }

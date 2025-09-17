@@ -1,6 +1,9 @@
+'use client';
+
 import { Flex, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import React from 'react';
+import gsap from 'gsap';
+import React, { useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsChevronDown } from 'react-icons/bs';
 import { Link } from 'react-scroll';
@@ -23,11 +26,14 @@ export default function Landing() {
   const header = (
     <motion.div
       className={styles.center}
-      initial={{ opacity: 0, y: -30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      // initial={{ opacity: 0, y: -30 }}
+      // animate={{ opacity: 1, y: 0 }}
+      // transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      <h1 style={{ color: primary }}>
+      <h1
+        id="header"
+        style={{ color: primary, opacity: 0, marginBottom: '6vh' }}
+      >
         {t('landing.intro')}{' '}
         <strong style={{ color: secondary }}>{t('landing.job')}</strong>
       </h1>
@@ -35,35 +41,41 @@ export default function Landing() {
   );
 
   return (
-    <SectionContainer
-      id="landing"
-      name="landing"
-      headerText={header}
-      style={{ height: '100vh' }}
-    >
-      {/* bottom bar */}
-      <Flex
-        gap={4}
-        flexDir="column"
-        style={{
-          position: 'absolute',
-          bottom: '2rem',
-          // left: '50%',
-          // transform: 'translateX(-50%)',
-          textAlign: 'center',
-          width: '100%',
-        }}
+    <div>
+      <SectionContainer
+        id="landing"
+        name="landing"
+        // headerText={header}
+        style={{ height: '100vh' }}
       >
-        <LinkIconBar links={links} />
-        <Link activeClass="active" to="about" spy smooth>
-          <Text as="strong" _hover={{ color: secondary, cursor: 'pointer' }}>
-            {t('landing.more')}
-          </Text>
-          <VStack mt={2}>
-            <BsChevronDown />
-          </VStack>
-        </Link>
-      </Flex>
-    </SectionContainer>
+        {/* bottom bar */}
+        {header}
+        <Flex
+          id="landing-icons"
+          flexDir="column"
+          style={{
+            position: 'absolute',
+            bottom: '1rem',
+            gap: 16,
+            // left: '50%',
+            // transform: 'translateX(-50%)',
+            textAlign: 'center',
+            width: '100%',
+            zIndex: 50,
+            opacity: 0,
+          }}
+        >
+          <LinkIconBar links={links} />
+          <Link activeClass="active" to="about" spy smooth>
+            <Text as="strong" _hover={{ color: secondary, cursor: 'pointer' }}>
+              {t('landing.more')}
+            </Text>
+            <VStack mt={2}>
+              <BsChevronDown />
+            </VStack>
+          </Link>
+        </Flex>
+      </SectionContainer>
+    </div>
   );
 }

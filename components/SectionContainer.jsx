@@ -14,15 +14,18 @@ export default function SectionContainer({
   return (
     <div className={styles.container} {...props}>
       <div className={styles.column}>
-        <Text
-          as="h1"
-          color={color}
-          mt={headerMt}
-          pb={12}
-          className={useHeaderStyle ? styles.header : ''}
-        >
-          {headerText}
-        </Text>
+        {headerText && (
+          <Text
+            id="header"
+            as="h1"
+            color={color}
+            mt={headerMt}
+            pb={12}
+            className={useHeaderStyle ? styles.header : ''}
+          >
+            {headerText}
+          </Text>
+        )}
         {children}
       </div>
     </div>

@@ -2,13 +2,16 @@ import '../styles/globals.css';
 
 import { Box, ChakraProvider, useColorModeValue } from '@chakra-ui/react';
 import Lenis from '@studio-freight/lenis';
+import gsap from 'gsap';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Footer from '../components/Footer';
 import FractalFilterDefs from '../components/FractalFilterDefs';
 import NavBar from '../components/NavBar';
+import stylesSection from '../styles/components/SectionContainer.module.css';
 import theme from '../theme';
 
 const SiteHead = ({ title }) => (
@@ -49,8 +52,57 @@ const PageWrapper = ({ children, title }) => {
     'linear-gradient(180deg, #1a202c 0%, #2a4365 100%)' // dark
   );
 
+  const comp = useRef(null);
+
+  const { t } = useTranslation();
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const t1 = gsap.timeline();
+      t1.from('#intro', {
+        duration: 1.2,
+        delay: 0.3,
+      })
+
+        .to('#filipe', {
+          xPercent: '+=25.5',
+          delay: 0.3,
+          // stagger: 0.5,
+        })
+        // .to('#overlaid-title', {
+        //   yPercent: '+=50',
+        //   delay: 0.3,
+        //   // stagger: 0.5,
+        // })
+        .to('#header', {
+          opacity: 1,
+          delay: 0.5,
+          // stagger: 0.5,
+        })
+        .to(['#navbar', '#landing-icons'], {
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.5,
+        })
+        // .to('#landing-icons', {
+        //   opacity: 1,
+        //   delay: 0.3,
+        //   duration: 1,
+        // })
+
+        .to('#intro', {
+          // xPercent: '-100',
+          opacity: 0,
+          duration: 1,
+          display: 'none',
+        });
+    }, comp);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="relative container relative">
+    <div className="relative container relative" ref={comp}>
       <Box
         minH="100vh"
         w="100%"
@@ -77,6 +129,35 @@ const PageWrapper = ({ children, title }) => {
       />
       <SiteHead title={title} />
       <NavBar />
+
+      <div
+        id="intro"
+        style={{
+          height: '100vh',
+          width: '100vw',
+          backgroundColor: 'black',
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'absolute',
+          left: 0,
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 2,
+          paddingBottom: '6vh',
+        }}
+        className={stylesSection.header}
+      >
+        <p id="filipe">Filipe Lehmann</p>
+        {/* <h1> */}
+        {/* {'\n '} <br /> */}
+        <strong
+          id="overlaid-title"
+          style={{ color: '#90cdf4', fontWeight: 'bold' }}
+        >
+          {t('landing.job')}
+        </strong>
+        {/* </h1> */}
+      </div>
 
       <main className="main">{children}</main>
       <Footer />

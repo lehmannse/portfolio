@@ -19,7 +19,7 @@ export default {
   ],
   landing: {
     intro: "Hello, I'm Filipe Lehmann, a",
-    job: 'Software Engineer.',
+    job: 'Software Engineer',
     more: 'Learn More',
   },
   about: {
