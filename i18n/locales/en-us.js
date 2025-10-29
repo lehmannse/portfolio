@@ -163,6 +163,20 @@ export default {
   ],
   projects: [
     {
+      name: 'Now Row LP',
+      description:
+        'This project is a landing page for a client that offers a solution for brazilian shopping centers. It is a project that I developed professionally as the first deployment of my company, LD, that I founded with a partner.',
+      pic: '/noRow.png',
+      tech: ['React', 'Typescript', 'Next.js', 'Shadcn/UI'],
+      links: [
+        {
+          label: 'Website',
+          icon: 'link',
+          url: 'https://nowrow.com.br/',
+        },
+      ],
+    },
+    {
       name: 'Lingo',
       description:
         'Lingo is a project of a language learning SaaS, similar to Duolingo. Users will be able to choose a language course, and have guided lessons with beautiful design, characters, audio & visual effects.',
@@ -180,6 +194,61 @@ export default {
           label: 'Github',
           icon: 'github',
           url: 'https://github.com/LehmannPi/duolingo_clone',
+        },
+      ],
+    },
+    {
+      name: 'Code Challenges',
+      description:
+        'Web applications made as a front-end web challenges for companies across the globe. Contains a fullstack Mini Notes App with Effect on back-end, a React + TypeScript SPA for viewing top 50 Chess Rankings on Lichess, and a simple web app to showcase products of a fictional company.',
+      pic: '/challenges-light.png',
+      picDark: '/challenges-dark.png',
+      tech: ['React.js', 'Fullstack', 'Front-end', 'Effect'],
+      subProjects: [
+        {
+          projectName: 'Mini Notes App.',
+          links: [
+            {
+              label: 'Website',
+              icon: 'link',
+              url: 'https://mini-notes-challenge-web-app.onrender.com/',
+            },
+            {
+              label: 'Github',
+              icon: 'github',
+              url: 'https://github.com/LehmannPi/mini-notes-challenge',
+            },
+          ],
+        },
+        {
+          projectName: 'Lichess Rating Explorer.',
+          links: [
+            {
+              label: 'Website',
+              icon: 'link',
+              url: 'https://commure-tech-challenge-by-filipe.vercel.app/',
+            },
+            {
+              label: 'Github',
+              icon: 'github',
+              url: 'https://github.com/LehmannPi/commure-tech-challenge',
+            },
+          ],
+        },
+        {
+          projectName: 'Desafio ACME Inc.',
+          links: [
+            {
+              label: 'Website',
+              icon: 'link',
+              url: 'https://desafio-acme-hype.filipelehmannp.workers.dev/',
+            },
+            {
+              label: 'Github',
+              icon: 'github',
+              url: 'https://github.com/LehmannPi/desafio-acme-inc',
+            },
+          ],
         },
       ],
     },
@@ -203,25 +272,7 @@ export default {
         },
       ],
     },
-    {
-      name: 'Desafio ACME Inc.',
-      description:
-        'Web application, made as a front-end challenge, to display the products of the fictional company Acme Inc. The application displays 15 items, in a responsive way, with images, descriptions and values generated randomly from internal databases or from APIs.',
-      pic: '/acme.png',
-      tech: ['React.js', 'Chakra-UI', 'Front-end Challenge'],
-      links: [
-        {
-          label: 'Website',
-          icon: 'link',
-          url: 'https://desafio-acme-hype.filipelehmannp.workers.dev/',
-        },
-        {
-          label: 'Github',
-          icon: 'github',
-          url: 'https://github.com/LehmannPi/desafio-acme-inc',
-        },
-      ],
-    },
+
     {
       name: 'Mock Newspaper API',
       subtitle: '- Read more at the Github repository -',

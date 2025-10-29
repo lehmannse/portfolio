@@ -2,7 +2,7 @@ const links = [
   {
     label: 'Whatsapp',
     icon: 'whatsapp',
-    url: 'https://web.whatsapp.com/send?phone=553391590880&text&app_absent=0',
+    url: 'https://wa.me/553391590880',
   },
   {
     label: 'Email',

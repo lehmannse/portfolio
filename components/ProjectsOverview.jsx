@@ -7,6 +7,15 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
+  Icon,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverHeader,
+  PopoverBody,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
@@ -15,8 +24,19 @@ import { useTranslation } from 'react-i18next';
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
 import Tech from './Tech';
+import { IoEllipsisHorizontal } from 'react-icons/io5';
+import ProjectGroupPopover from './ProjectGroupPopover';
 
-const Card = ({ name, subtitle, description, links }) => {
+const Card = ({
+  name,
+  subtitle,
+  description,
+  links,
+  subProjects,
+  isOpen,
+  onOpen,
+  onClose,
+}) => {
   const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
   const shadowColor = useColorModeValue(
     'rgba(0, 0, 0, 0.1)',
@@ -25,6 +45,11 @@ const Card = ({ name, subtitle, description, links }) => {
   const hoverShadowColor = useColorModeValue(
     'rgba(0, 0, 0, 0.15)',
     'rgba(59, 130, 246, 0.25)'
+  );
+  const iconColor = useColorModeValue(colors.subtle.light, colors.subtle.dark);
+  const hoverColor = useColorModeValue(
+    colors.secondary.light,
+    colors.secondary.dark
   );
 
   return (
@@ -55,7 +80,36 @@ const Card = ({ name, subtitle, description, links }) => {
       </Text>
       <Text textAlign="justify">{description}</Text>
       <Flex w="100%" justifyContent="end">
-        <LinkIconBar links={links} />
+        {subProjects && subProjects.length ? (
+          <Popover
+            isOpen={isOpen}
+            onOpen={onOpen}
+            onClose={onClose}
+            placement="bottom-end"
+          >
+            <PopoverTrigger>
+              <span>
+                <Icon
+                  as={IoEllipsisHorizontal}
+                  fontSize="xl"
+                  color={iconColor}
+                  cursor="pointer"
+                  _hover={{ color: hoverColor }}
+                />
+              </span>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>Projects</PopoverHeader>
+              <PopoverBody p={0}>
+                <ProjectGroupPopover subProjects={subProjects} />
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        ) : (
+          <LinkIconBar links={links} />
+        )}
       </Flex>
     </Flex>
   );
@@ -70,6 +124,10 @@ const ProjectContent = ({
   picDark,
   tech,
   links,
+  subProjects,
+  isOpen,
+  onOpen,
+  onClose,
 }) => {
   const src = useColorModeValue(pic, picDark ?? pic);
   if (alternate) {
@@ -84,6 +142,10 @@ const ProjectContent = ({
           subtitle={subtitle}
           description={description}
           links={links}
+          subProjects={subProjects}
+          isOpen={isOpen}
+          onOpen={onOpen}
+          onClose={onClose}
         />
         <Flex mt={2} gap={2} justifyContent="center">
           <Tech tech={tech} />
@@ -101,28 +163,43 @@ const ProjectContent = ({
       className="image"
       maxHeight="90%"
       onClick={() => {
-        window.open(links[0].url || links[1].url);
+        if (subProjects && subProjects.length && onOpen) {
+          onOpen();
+          return;
+        }
+        const targetUrl = (links && (links[0]?.url || links[1]?.url)) || '';
+        if (targetUrl) {
+          window.open(targetUrl);
+        }
       }}
     />
   );
 };
 
-const Project = ({ index, shouldAlternate, ...props }) => (
-  <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-    <GridItem colSpan={{ base: 2, md: 1 }} h="full" alignContent="center">
-      <ProjectContent
-        alternate={shouldAlternate ? index % 2 === 0 : false}
-        {...props}
-      />
-    </GridItem>
-    <GridItem colSpan={{ base: 2, md: 1 }} h="full" alignContent="center">
-      <ProjectContent
-        alternate={shouldAlternate ? index % 2 === 1 : true}
-        {...props}
-      />
-    </GridItem>
-  </Grid>
-);
+const Project = ({ index, shouldAlternate, ...props }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const hasGroup =
+    Array.isArray(props.subProjects) && props.subProjects.length > 0;
+  const disclosureProps = hasGroup ? { isOpen, onOpen, onClose } : {};
+  return (
+    <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+      <GridItem colSpan={{ base: 2, md: 1 }} h="full" alignContent="center">
+        <ProjectContent
+          alternate={shouldAlternate ? index % 2 === 0 : false}
+          {...props}
+          {...disclosureProps}
+        />
+      </GridItem>
+      <GridItem colSpan={{ base: 2, md: 1 }} h="full" alignContent="center">
+        <ProjectContent
+          alternate={shouldAlternate ? index % 2 === 1 : true}
+          {...props}
+          {...disclosureProps}
+        />
+      </GridItem>
+    </Grid>
+  );
+};
 
 export default function ProjectsOverview() {
   const shouldAlternate = useBreakpointValue({ md: false, lg: true });

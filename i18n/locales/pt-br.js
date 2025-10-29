@@ -163,6 +163,20 @@ export default {
   ],
   projects: [
     {
+      name: 'Now Row LP',
+      description:
+        'Este projeto é uma landing page para um cliente que oferece uma solução para shopping centers. É um projeto que desenvolvi profissionalmente como o primeiro deployment da minha empresa, LD, que iniciei com um parceiro.',
+      pic: '/noRow.png',
+      tech: ['React', 'Typescript', 'Next.js', 'Shadcn/UI'],
+      links: [
+        {
+          label: 'Website',
+          icon: 'link',
+          url: 'https://nowrow.com.br/',
+        },
+      ],
+    },
+    {
       name: 'Lingo',
       description:
         'Lingo é um projeto de SaaS para aprendizado de idiomas, semelhante ao Duolingo. Os usuários poderão escolher um curso de idioma e ter aulas guiadas com design bonito, personagens e efeitos sonoros e visuais.',
@@ -184,6 +198,61 @@ export default {
       ],
     },
     {
+      name: 'Code Challenges',
+      description:
+        'Aplicações web feitas como desafios de front-end para empresas ao redor do mundo. Contém um Mini Notes App fullstack com Effect no back-end, uma SPA em React + TypeScript para visualizar o Top 50 do ranking de xadrez no Lichess, e um app simples para exibir produtos de uma empresa fictícia.',
+      pic: '/challenges-light.png',
+      picDark: '/challenges-dark.png',
+      tech: ['React.js', 'Fullstack', 'Front-end', 'Effect'],
+      subProjects: [
+        {
+          projectName: 'Mini Notes App.',
+          links: [
+            {
+              label: 'Website',
+              icon: 'link',
+              url: 'https://mini-notes-challenge-web-app.onrender.com/',
+            },
+            {
+              label: 'Github',
+              icon: 'github',
+              url: 'https://github.com/LehmannPi/mini-notes-challenge',
+            },
+          ],
+        },
+        {
+          projectName: 'Lichess Rating Explorer.',
+          links: [
+            {
+              label: 'Website',
+              icon: 'link',
+              url: 'https://commure-tech-challenge-by-filipe.vercel.app/',
+            },
+            {
+              label: 'Github',
+              icon: 'github',
+              url: 'https://github.com/LehmannPi/commure-tech-challenge',
+            },
+          ],
+        },
+        {
+          projectName: 'Desafio ACME Inc.',
+          links: [
+            {
+              label: 'Website',
+              icon: 'link',
+              url: 'https://desafio-acme-hype.filipelehmannp.workers.dev/',
+            },
+            {
+              label: 'Github',
+              icon: 'github',
+              url: 'https://github.com/LehmannPi/desafio-acme-inc',
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: 'Expert Speech Recognition',
       description:
         'Expert Speech Recognition é um aplicativo para criação de notas com texto e áudio transcrito. O projeto foi desenvolvido durante o NLW Expert (trilha ReactJS), evento apresentado pela Rocketseat. A API de reconhecimento de fala está configurada para áudios em português e só funciona em alguns navegadores.',
@@ -199,25 +268,6 @@ export default {
           label: 'Github',
           icon: 'github',
           url: 'https://github.com/LehmannPi/nlw-expert-speechrecognition',
-        },
-      ],
-    },
-    {
-      name: 'Desafio ACME Inc.',
-      description:
-        'Aplicativo web, feito como desafio de front-end, para exibir os produtos da empresa fictícia Acme Inc. O aplicativo exibe 15 itens, de maneira responsiva, com imagens, descrições e valores gerados aleatoriamente a partir de bases de dados internas ou a partir de APIs.',
-      pic: '/acme.png',
-      tech: ['React.js', 'Chakra-UI', 'Front-end Challenge'],
-      links: [
-        {
-          label: 'Website',
-          icon: 'link',
-          url: 'https://desafio-acme-hype.filipelehmannp.workers.dev/',
-        },
-        {
-          label: 'Github',
-          icon: 'github',
-          url: 'https://github.com/LehmannPi/desafio-acme-inc',
         },
       ],
     },
