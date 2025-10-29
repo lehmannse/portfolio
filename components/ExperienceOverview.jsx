@@ -21,7 +21,11 @@ import styles from '../styles/components/ExperienceOverview.module.css';
 import { colors } from '../theme';
 
 const ExperienceSelect = ({ expIndex, setIndex, jobs }) => (
-  <Select value={expIndex} onChange={(e) => setIndex(e.target.value)}>
+  <Select
+    value={expIndex}
+    py={{ base: 2, md: 0 }}
+    onChange={(e) => setIndex(e.target.value)}
+  >
     {jobs.map((job, index) => (
       <option key={`${job.workplace}-select-option`} value={index}>
         {job.workplace}
@@ -157,7 +161,10 @@ export default function ExperienceOverview() {
   };
 
   return (
-    <Container maxWidth={{ base: '70%', lg: '1200px' }} position="relative">
+    <Container
+      maxWidth={{ base: '90%', md: '70%', lg: '1200px' }}
+      position="relative"
+    >
       <Flex
         as={motion.div}
         layout
@@ -169,7 +176,7 @@ export default function ExperienceOverview() {
         borderRadius="lg"
         {...borderConfig()}
         rounded="md"
-        p={{ base: '12px', sm: '20px' }}
+        p={{ base: '12px', md: '20px' }}
         spacing={8}
         shadow={`0 12px 40px ${shadowColor}`}
         transition="all 0.3s ease"
@@ -178,7 +185,6 @@ export default function ExperienceOverview() {
         }}
         minH="476px"
         style={{
-          margin: 'auto',
           width: '100%',
           position: 'relative',
         }}
