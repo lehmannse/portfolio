@@ -3,29 +3,29 @@ import {
   Grid,
   GridItem,
   Heading,
+  Icon,
   Image,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTrigger,
   Text,
   useBreakpointValue,
   useColorModeValue,
-  Icon,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverHeader,
-  PopoverBody,
   useDisclosure,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { IoEllipsisHorizontal } from 'react-icons/io5';
 
 import { colors } from '../theme';
 import LinkIconBar from './LinkIconBar';
-import Tech from './Tech';
-import { IoEllipsisHorizontal } from 'react-icons/io5';
 import ProjectGroupPopover from './ProjectGroupPopover';
+import Tech from './Tech';
 
 const Card = ({
   name,

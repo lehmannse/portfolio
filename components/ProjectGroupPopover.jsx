@@ -1,5 +1,6 @@
 import { Box, Flex, Stack, Text } from '@chakra-ui/react';
 import React from 'react';
+
 import LinkIconBar from './LinkIconBar';
 
 export default function ProjectGroupPopover({ subProjects = [] }) {
