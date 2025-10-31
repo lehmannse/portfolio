@@ -2,7 +2,7 @@ const links = [
   {
     label: 'Github',
     icon: 'github',
-    url: 'https://github.com/LehmannPi/',
+    url: 'https://github.com/lehmannse/',
   },
   {
     label: 'LinkedIn',

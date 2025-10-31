@@ -193,7 +193,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/duolingo_clone',
+          url: 'https://github.com/lehmannse/duolingo_clone',
         },
       ],
     },
@@ -216,7 +216,7 @@ export default {
             {
               label: 'Github',
               icon: 'github',
-              url: 'https://github.com/LehmannPi/mini-notes-challenge',
+              url: 'https://github.com/lehmannse/mini-notes-challenge',
             },
           ],
         },
@@ -231,7 +231,7 @@ export default {
             {
               label: 'Github',
               icon: 'github',
-              url: 'https://github.com/LehmannPi/commure-tech-challenge',
+              url: 'https://github.com/lehmannse/commure-tech-challenge',
             },
           ],
         },
@@ -246,7 +246,7 @@ export default {
             {
               label: 'Github',
               icon: 'github',
-              url: 'https://github.com/LehmannPi/desafio-acme-inc',
+              url: 'https://github.com/lehmannse/desafio-acme-inc',
             },
           ],
         },
@@ -267,7 +267,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/nlw-expert-speechrecognition',
+          url: 'https://github.com/lehmannse/nlw-expert-speechrecognition',
         },
       ],
     },
@@ -282,7 +282,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/pluralsight_mongodb_nodejs',
+          url: 'https://github.com/lehmannse/pluralsight_mongodb_nodejs',
         },
       ],
     },
@@ -296,7 +296,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/mock-car-rental-project',
+          url: 'https://github.com/lehmannse/mock-car-rental-project',
         },
       ],
     },
@@ -317,7 +317,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/playlist-creator-vue',
+          url: 'https://github.com/lehmannse/playlist-creator-vue',
         },
       ],
     },
@@ -337,7 +337,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/ip-adress-tracker/tree/develop',
+          url: 'https://github.com/lehmannse/ip-adress-tracker/tree/develop',
         },
       ],
     },
@@ -356,7 +356,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/projetos-treinamento-front',
+          url: 'https://github.com/lehmannse/projetos-treinamento-front',
         },
       ],
     },
@@ -370,7 +370,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/ml-practices',
+          url: 'https://github.com/lehmannse/ml-practices',
         },
       ],
     },
@@ -389,7 +389,7 @@ export default {
         {
           label: 'Github',
           icon: 'github',
-          url: 'https://github.com/LehmannPi/URIOnlineJudge',
+          url: 'https://github.com/lehmannse/URIOnlineJudge',
         },
       ],
     },

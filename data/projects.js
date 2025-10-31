@@ -34,7 +34,7 @@ const projects = [
       {
         label: 'Github',
         icon: 'github',
-        url: 'https://github.com/LehmannPi/desafio-acme-inc',
+        url: 'https://github.com/lehmannse/desafio-acme-inc',
       },
     ],
   },
@@ -53,7 +53,7 @@ const projects = [
       {
         label: 'Github',
         icon: 'github',
-        url: 'https://github.com/LehmannPi/ip-adress-tracker/tree/develop',
+        url: 'https://github.com/lehmannse/ip-adress-tracker/tree/develop',
       },
     ],
   },
@@ -72,7 +72,7 @@ const projects = [
       {
         label: 'Github',
         icon: 'github',
-        url: 'https://github.com/LehmannPi/playlist-creator-vue',
+        url: 'https://github.com/lehmannse/playlist-creator-vue',
       },
     ],
   },
@@ -89,7 +89,7 @@ export const extraProjects = [
       {
         label: 'Github',
         icon: 'github',
-        url: 'https://github.com/LehmannPi/mock-car-rental-project',
+        url: 'https://github.com/lehmannse/mock-car-rental-project',
       },
     ],
   },
@@ -108,7 +108,7 @@ export const extraProjects = [
       {
         label: 'Github',
         icon: 'github',
-        url: 'https://github.com/LehmannPi/projetos-treinamento-front',
+        url: 'https://github.com/lehmannse/projetos-treinamento-front',
       },
     ],
   },
@@ -122,7 +122,7 @@ export const extraProjects = [
       {
         label: 'Github',
         icon: 'github',
-        url: 'https://github.com/LehmannPi/ml-practices',
+        url: 'https://github.com/lehmannse/ml-practices',
       },
     ],
   },
@@ -141,7 +141,7 @@ export const extraProjects = [
       {
         label: 'Github',
         icon: 'github',
-        url: 'https://github.com/LehmannPi/URIOnlineJudge',
+        url: 'https://github.com/lehmannse/URIOnlineJudge',
       },
     ],
   },
