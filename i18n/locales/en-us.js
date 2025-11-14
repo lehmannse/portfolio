@@ -172,7 +172,7 @@ export default {
         {
           label: 'Website',
           icon: 'link',
-          url: 'https://nowrow.com.br/',
+          url: 'https://norow.com.br/',
         },
       ],
     },
