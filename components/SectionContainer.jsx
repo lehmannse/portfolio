@@ -4,6 +4,7 @@ import React from 'react';
 import styles from '../styles/components/SectionContainer.module.css';
 
 export default function SectionContainer({
+  background,
   children,
   headerMt = '2%',
   headerText = '',
@@ -13,6 +14,7 @@ export default function SectionContainer({
   const color = useColorModeValue('secondary.light', 'secondary.dark');
   return (
     <div className={styles.container} style={{ margin: '48px 0' }} {...props}>
+      {background}
       <div className={styles.column}>
         {headerText && (
           <Text
