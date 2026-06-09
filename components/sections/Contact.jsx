@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import links from '../../data/contactLinks';
 import LinkIconBar from '../LinkIconBar';
+import ParticleBackground from '../ParticleBackground';
 import SectionContainer from '../SectionContainer';
 
 export default function Contact() {
@@ -16,8 +17,9 @@ export default function Contact() {
       headerText={
         i18n.resolvedLanguage === 'pt' ? 'Entre em Contato' : 'Contact Me'
       }
-      style={{ minHeight: '80vh' }}
+      style={{ minHeight: '80vh', overflow: 'hidden' }}
       useHeaderStyle
+      background={<ParticleBackground direction="up" />}
     >
       <Flex
         width={{ base: '75%', sm: '50%' }}

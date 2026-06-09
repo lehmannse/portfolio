@@ -11,6 +11,7 @@ import links from '../../data/footerLinks';
 import styles from '../../styles/sections/Landing.module.css';
 import { colors } from '../../theme';
 import LinkIconBar from '../LinkIconBar';
+import ParticleBackground from '../ParticleBackground';
 import SectionContainer from '../SectionContainer';
 
 export default function Landing() {
@@ -50,7 +51,8 @@ export default function Landing() {
         id="landing"
         name="landing"
         // headerText={header}
-        style={{ height: '100vh', margin: '0' }}
+        style={{ height: '100vh', margin: '0', overflow: 'hidden' }}
+        background={<ParticleBackground direction="down" />}
       >
         {/* bottom bar */}
         {header}
